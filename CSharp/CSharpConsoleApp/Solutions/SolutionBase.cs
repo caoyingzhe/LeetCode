@@ -16,18 +16,18 @@ namespace CSharpConsoleApp.Solutions
             BinarySearch,       //二进制检索
             BinarySearchTree,   //二进制检索树
             BitManipulation,    //位操作
-            Brainteaser,        //
-            BreadthFirstSearch, //呼吸优先寻找?
-            DepthFirstSearch,   //深度优先寻找
+            Brainteaser,        //脑经急转弯
+            BreadthFirstSearch, //广度优先搜索
+            DepthFirstSearch,   //广度优先搜索
             Design,             //设计
-            DivideAndConquer,   //分离和征服
+            DivideAndConquer,   //分治法
             DynamicProgramming, //动态编程
             Geometry,           //图形
             Graph,              //图表
             Greedy,             //贪婪算法
-            HashTable,          //哈希表
+            HashTable,          //散列表(哈希表)
             Heap,               //堆
-            LineSweep,          //线性Sweep
+            LineSweep,          //扫描线算法
             LinkedList,         //链表
             Math,               //数学
             Memoization,        //记忆
@@ -36,9 +36,9 @@ namespace CSharpConsoleApp.Solutions
             Queue,              //队列
             Random,             //随机
             Recursion,          //递归
-            RejectionSampling,  //拒绝采样 ？   DI 序列的有效排列 / 分割数组
-            ReservoirSampling,  //              链表随机节点/随机数索引
-            SegmentTree,        //分段树
+            RejectionSampling,  //拒绝采样            DI 序列的有效排列 / 分割数组
+            ReservoirSampling,  //蓄水池抽样算法      链表随机节点/随机数索引
+            SegmentTree,        //线段树/区间树
             SlidingWindow,      //滑动窗口
             Sort,               //排序
             Stack,              //栈
@@ -47,8 +47,9 @@ namespace CSharpConsoleApp.Solutions
             Tree,               //树
             Trie,               //前缀树 
             TwoPointers,        //双指针
-            UnionFind,          //联合寻找
+            UnionFind,          //并查集
             Unknown,            //未定
+            RedBlackTree        //红黑树
         }
         /// <summary>
         /// Get problem No on leetcode site.

@@ -29,11 +29,12 @@ namespace CSharpConsoleApp
 
             for (int i = 0; i < types.Length; i++)
             {
-                if (i != 4)
-                    continue;
-
                 Type type = types[i];
                 int problemNo = SolutionBase.GetProblemNo(type);
+                if (problemNo != 130)
+                    continue;
+
+                
                 System.Diagnostics.Debug.Print(string.Format("\n-------- Test Problem [{0}] {1} --------", problemNo, type.Name));
                 SolutionBase solution = Activator.CreateInstance(type) as SolutionBase;
 

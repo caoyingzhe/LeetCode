@@ -31,38 +31,38 @@ namespace CSharpConsoleApp.Solutions
 
             nums1 = new int[] { 1, 3 };
             nums2 = new int[] { 2 };
-            result = FindMedianSortedArrays(nums1, nums2);
-            isSucceed &= (result == 2.0);
+            result = 2.0;
+            isSucceed &= FindMedianSortedArrays(nums1, nums2, result);
             
             nums1 = new int[] { 1, 2 };
             nums2 = new int[] { 3, 4 };
-            result = FindMedianSortedArrays(nums1, nums2);
-            isSucceed &= (result == 2.5);
-            
+            result = 2.5;
+            isSucceed &= FindMedianSortedArrays(nums1, nums2, result);
+
             nums1 = new int[] { 0, 0 };
             nums2 = new int[] { 0, 0 };
-            result = FindMedianSortedArrays(nums1, nums2);
-            isSucceed &= (result == 0.0);
-            
+            result = 0.0;
+            isSucceed &= FindMedianSortedArrays(nums1, nums2, result);
+
             nums1 = new int[] { };
             nums2 = new int[] { 1 };
-            result = FindMedianSortedArrays(nums1, nums2);
-            isSucceed &= (result == 1.0);
+            result = 1.0;
+            isSucceed &= FindMedianSortedArrays(nums1, nums2, result);
 
             nums1 = new int[] { 2 };
             nums2 = new int[] {  };
-            result = FindMedianSortedArrays(nums1, nums2);
-            isSucceed &= (result == 2.0);
-            
+            result = 2.0;
+            isSucceed &= FindMedianSortedArrays(nums1, nums2, result);
+
             nums1 = new int[] { 2, 4, 8 };
             nums2 = new int[] { 1, 3, 5, 6, 7 };
-            result = FindMedianSortedArrays(nums1, nums2);
-            isSucceed &= (result == 4.5);
+            result = 4.5;
+            isSucceed &= FindMedianSortedArrays(nums1, nums2, result);
 
             nums1 = new int[] { 2,4,8 };
             nums2 = new int[] { 1,3,5,6,7,9 };
-            result = FindMedianSortedArrays(nums1, nums2);
-            isSucceed &= (result == 5.0);
+            result = 5.0;
+            isSucceed &= FindMedianSortedArrays(nums1, nums2, result);
 
             if (true)
             {
@@ -93,18 +93,28 @@ namespace CSharpConsoleApp.Solutions
                     nums1List.Sort();
                     nums2List.Sort();
 
-                    result = FindMedianSortedArrays(nums1List.ToArray(), nums2List.ToArray());
-                
                     if(loop < 10000)
                     { 
                         nums1List.AddRange(nums2List.ToArray());
                         nums1List.Sort();
-                        isSucceed &= (result == (double)(nums1List[maxLen] + nums1List[maxLen-1]) / 2);
+                        result = (double) (nums1List[maxLen] + nums1List[maxLen - 1]) / 2;
+                        isSucceed &= FindMedianSortedArrays(nums1List.ToArray(), nums2List.ToArray(), result);
+                    }
+                    else
+                    {
+                        FindMedianSortedArrays(nums1List.ToArray(), nums2List.ToArray(), -1);
                     }
                 }
             }
             sw.Stop();
             return isSucceed;
+        }
+        public bool FindMedianSortedArrays(int[] nums1, int[] nums2, double checkResult)
+        {
+            double result = FindMedianSortedArrays_20210401(nums1, nums2);
+            bool isSuccess = (result == checkResult);
+            System.Diagnostics.Debug.Print(string.Format("isSuccess = {3} nums1.len = {0} nums2.len ={1} | result = {2} | checkResult = {4}", nums1.Length, nums2.Length, result, isSuccess, checkResult));
+            return isSuccess;
         }
 
         /// <summary>
@@ -258,13 +268,13 @@ namespace CSharpConsoleApp.Solutions
         /// 
         /// 
         /// Time Limit Exceeded : O(log (m+n))
-        public double FindMedianSortedArrays(int[] nums1, int[] nums2)
+        public double FindMedianSortedArrays_20210401X(int[] nums1, int[] nums2)
         {
             double result = -1;
 
             //假定m为长数组的长度
             int m = nums1.Length, n = nums2.Length;
-            if (m < n) return FindMedianSortedArrays(nums2, nums1); //这个写法省去了繁琐的交换处理。
+            if (m < n) return FindMedianSortedArrays_20210401X(nums2, nums1); //这个写法省去了繁琐的交换处理。
             if (n == 0) return (nums1[(m - 1) / 2] + nums1[m / 2]) / 2.0; //特殊情况，有一个数组长度为0
 
             //这里已经确定m为长数组的长度
@@ -292,6 +302,95 @@ namespace CSharpConsoleApp.Solutions
                 }
             }
             return result;
+        }
+
+        public double FindMedianSortedArrays_20210401(int[] nums1, int[] nums2)
+        {
+            double result = -1;
+            //假定m为长数组的长度
+            int m = nums1.Length, n = nums2.Length;
+            if (m < n) return FindMedianSortedArrays_20210401(nums2, nums1); //这个写法省去了繁琐的交换处理。
+            if (n == 0) return (nums1[(m - 1) / 2] + nums1[m / 2]) / 2.0; //特殊情况，有一个数组长度为0
+
+            //这里已经确定m为长数组的长度
+            int left = 0;
+            int right = 2 * n; //短数组长度2倍
+
+            int mid2, mid1;
+            double L1, L2, R1, R2;
+            while (left <= right)
+            {
+                mid2 = (left + right) / 2;
+                mid1 = (m + n) - mid2;
+
+                L1 = (mid1 == 0) ? int.MinValue : nums1[(mid1 - 1) / 2];
+                L2 = (mid2 == 0) ? int.MinValue : nums2[(mid2 - 1) / 2];
+                R1 = (mid1 == m * 2) ? int.MaxValue : nums1[(mid1) / 2];
+                R2 = (mid2 == n * 2) ? int.MaxValue : nums2[(mid2) / 2];
+                if (L1 > R2) left = mid2 + 1;
+                else if (R1 < L2) right = mid2 - 1;
+                else
+                {
+                    result = (Math.Max(L1, L2) + Math.Min(R1, R2)) / 2;
+                    break;
+                }
+            }
+            return result;
+        }
+        /// <summary>
+        /// 温故知新 20210403
+        /// </summary>
+        /// <param name="nums1"></param>
+        /// <param name="nums2"></param>
+        /// <returns></returns>
+        public double FindMedianSortedArrays_20210403(int[] nums1, int[] nums2)
+        {
+            //假定m为长数组的长度
+            int m = nums1.Length;
+            int n = nums2.Length;
+            if (m < n) return FindMedianSortedArrays_20210403(nums2, nums1);
+            //纯粹马虎问题
+            //错误： return (nums1[(m - 1) / 2] + nums2[(m) / 2]) / 2.0;
+            //正确： return (nums1[(m - 1) / 2] + nums1[(m) / 2]) / 2.0;
+            if (n == 0) return (nums1[(m - 1) / 2] + nums1[(m) / 2]) / 2.0;
+
+            int left = 0;
+            int right = 2 * n;
+            int mid2, mid1;
+            double L1, L2, R1, R2;
+            while (left <= right)
+            {
+                mid2 = (left + right) / 2; //L2,R2中位数索引
+                mid1 = m + n - mid2;     //L1,R1中位数索引
+
+                //L1,L2,R1,R2为值对象，为了
+                //这里用int.MaxValue和double.MaxValue没有区别。
+                L1 = (mid1 == 0) ? int.MinValue : nums1[(mid1 - 1) / 2];
+                L2 = (mid2 == 0) ? int.MinValue : nums2[(mid2 - 1) / 2];
+
+                //重点：判断基准为
+                //     错误写法1:  mid1 >= m
+                //     错误写法2:  mid1 >= m * 2
+                //     正确写法 ： mid1 == m * 2
+                R1 = (mid1 == m * 2) ? int.MaxValue : nums1[(mid1) / 2];
+                //重点：判断基准为 
+                //     错误写法1:  mid2 >= n
+                //     错误写法2:  mid2 >= n * 2
+                //     正确写法 ： mid2 == n * 2
+                R2 = (mid2 == n * 2) ? int.MaxValue : nums2[(mid2) / 2];
+                //重点：索引更改计算基准为mid2
+                if (L1 > R2) left = mid2 + 1;
+
+                //犯错1： if (L2 > R2)  不应该比较L2和R2,而是R1.
+                //犯错1： if (L2 < R2)  不应该用 <
+                //正确 ： if (L2 > R1)  
+                else if (L2 > R1) right = mid2 - 1;
+                //纯粹马虎问题
+                //错误： else return (Math.Max(L1, L2) + Math.Min(R1, R2) / 2);
+                //正确： else return (Math.Max(L1, L2) + Math.Min(R1, R2)) / 2;
+                else return (Math.Max(L1, L2) + Math.Min(R1, R2)) / 2;
+            }
+            return -1;
         }
     }
 }

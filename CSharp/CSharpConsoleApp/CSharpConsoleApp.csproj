@@ -45,6 +45,8 @@
   <ItemGroup>
     <Compile Include="LeetcodeTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Solutions\Solution128.cs" />
+    <Compile Include="Solutions\Solution130.cs" />
     <Compile Include="Solutions\Solution1726.cs" />
     <Compile Include="Solutions\Solution118.cs" />
     <Compile Include="Solutions\Solution2.cs" />
@@ -54,6 +56,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Note\RedBlackTree.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
