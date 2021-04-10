@@ -8,6 +8,13 @@ namespace CSharpConsoleApp.Solutions
 {
     public abstract class SolutionBase
     {
+        //难易度
+        public enum Difficulity
+        {
+            Easy,
+            Medium,
+            Hard
+        }
         public enum Tag
         {
             Array,              //数组
@@ -70,6 +77,19 @@ namespace CSharpConsoleApp.Solutions
             return -1;
         }
 
+        /// <summary>
+        /// 难易度:
+        /// </summary>
+        public virtual Difficulity GetDifficulity() { return Difficulity.Easy; }
+        /// <summary>
+        /// 关键字:
+        /// </summary>
+        public virtual string[] GetKeyWords() { return null; }
+        /// <summary>
+        /// 标签： 
+        /// </summary>
+        public virtual Tag[] GetTags(){ return null; }
+
         public abstract bool Test(System.Diagnostics.Stopwatch sw);
 
         public class ListNode
@@ -109,5 +129,43 @@ namespace CSharpConsoleApp.Solutions
                 }
             }
         }
+
+        #region ------------------------- Util Functions -------------------------
+        public string GetArrayStr(char[][] a, string seperator = "")
+        {
+            string result = "";
+            for (int i = 0; i < a.Length; i++)
+            {
+                result += string.Join(seperator, a[i]) + "\n";
+            }
+            return result;
+        }
+        public bool IsArraySame(char[][] a, char[][] b)
+        {
+            int alen = a == null ? 0 : a.Length;
+            int blen = b == null ? 0 : b.Length;
+            if (alen == blen)
+            {
+                for (int row = 0; row < a.Length; row++)
+                {
+                    int aCols = a == null ? 0 : a[row].Length;
+                    int bCols = b == null ? 0 : b[row].Length;
+                    if (aCols == bCols)
+                    {
+                        for (int i = 0; i < a.Length; i++)
+                        {
+                            if (a[row][i] != b[row][i])
+                                return false;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                return false;
+            }
+            return true;
+        }
+        #endregion
     }
 }

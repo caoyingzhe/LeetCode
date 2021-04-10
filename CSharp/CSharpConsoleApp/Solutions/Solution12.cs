@@ -63,14 +63,17 @@ namespace CSharpConsoleApp.Solutions
     public class Solution12 : SolutionBase
     {
         /// <summary>
+        /// 难度
+        /// </summary>
+        public override Difficulity GetDifficulity() { return Difficulity.Medium; }
+        /// <summary>
         /// 关键字:
         /// </summary>
-        public static string[] keywords = new string[] {  };
-
+        public override string[] GetKeyWords() { return new string[] { "HashTable" }; }
         /// <summary>
         /// 标签： 
         /// </summary>
-        public static Tag[] tags = new Tag[] { Tag.Unknown };
+        public override Tag[] GetTags() { return new Tag[] { Tag.HashTable }; }
 
         public override bool Test(Stopwatch sw)
         {
@@ -183,6 +186,5 @@ namespace CSharpConsoleApp.Solutions
             }
             return str;
         }
-       
     }
 }

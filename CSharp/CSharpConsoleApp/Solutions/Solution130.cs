@@ -10,16 +10,19 @@ namespace CSharpConsoleApp.Solutions
     class Solution130: SolutionBase
     {
         /// <summary>
+        /// 难易度:
+        /// </summary>
+        public override Difficulity GetDifficulity() { return Difficulity.Medium; }
+        /// <summary>
         /// 关键字:
         ///     DFS => 广度优先搜索（算法导论 第六部分 图算法 22.1章节）
         ///     BFS => 深度优先搜索（算法导论 第六部分 图算法 22.2章节）
         /// </summary>
-        public static string[] keywords = new string[] { "DFS", "BFS" };
-
+        public override string[] GetKeyWords() { return new string[] { "DFS", "BFS" }; }
         /// <summary>
         /// 标签： 图
         /// </summary>
-        public static Tag[] tags = new Tag[] { Tag.Graph };
+        public override Tag[] GetTags() { return new Tag[] { Tag.Graph, Tag.BreadthFirstSearch }; }
 
         //深度优先搜索(DFS)和广度优先搜索(BFS).这两种算法对有向图与无向图均适用
         public override bool Test(Stopwatch sw)
@@ -75,41 +78,7 @@ namespace CSharpConsoleApp.Solutions
             return isSuccess;
         }
 
-        public string GetArrayStr(char[][] a)
-        {
-            string result = "";
-            for(int i=0; i<a.Length; i++)
-            {
-                result += new string(a[i]) + "\n";
-            }
-            return result;
-        }
-        public bool IsArraySame(char[][] a, char[][] b)
-        {
-            int alen = a == null ? 0 : a.Length;
-            int blen = b == null ? 0 : b.Length;
-            if (alen == blen)
-            {
-                for (int row = 0; row < a.Length; row++)
-                {
-                    int aCols = a == null ? 0 : a[row].Length;
-                    int bCols = b == null ? 0 : b[row].Length;
-                    if(aCols == bCols)
-                    {
-                        for (int i = 0; i < a.Length; i++)
-                        {
-                            if (a[row][i] != b[row][i])
-                                return false;
-                        }
-                    }
-                }
-            }
-            else
-            {
-                return false;
-            }
-            return true;
-        }
+        
         public void CloneArray(char[][] board, char[][] boardClone)
         {
             int m = board.Length;
