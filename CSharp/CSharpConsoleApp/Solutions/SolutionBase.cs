@@ -149,6 +149,28 @@ namespace CSharpConsoleApp.Solutions
             }
             return result;
         }
+        public bool IsArraySame(int[] a, int[] b, bool ignoreTail = true)
+        {
+            int alen = a == null ? 0 : a.Length;
+            int blen = b == null ? 0 : b.Length;
+
+            if(!ignoreTail)
+            {
+                if (alen != blen)
+                    return false;
+            }
+
+            int compareLen = Math.Min(alen, blen);
+            {
+                for(int i=0; i<compareLen; i++)
+                {
+                    if (a[i] != b[i])
+                        return false;
+                }
+            }
+
+            return true;
+        }
         public bool IsArraySame(IList<IList<int>> a, IList<IList<int>> b)
         {
             int alen = a == null ? 0 : a.Count * (a[0] == null ? 0 : a[0].Count);
