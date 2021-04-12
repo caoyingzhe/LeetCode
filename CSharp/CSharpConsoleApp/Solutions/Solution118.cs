@@ -13,13 +13,7 @@ namespace CSharpConsoleApp.Solutions
         {
             int lv = 6;
             IList<IList<int>> llist = Generate(lv);
-
-            string result = "";
-            foreach (IList<int> iList in llist)
-            {
-                result += "[" + string.Join(",", iList) + "]\n";
-            }
-            System.Diagnostics.Debug.Print(result);
+            System.Diagnostics.Debug.Print(GetArrayStr(llist));
             return true;
         }
 

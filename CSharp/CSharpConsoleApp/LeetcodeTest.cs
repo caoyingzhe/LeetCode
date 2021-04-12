@@ -31,7 +31,7 @@ namespace CSharpConsoleApp
             {
                 Type type = types[i];
                 int problemNo = SolutionBase.GetProblemNo(type);
-                if (problemNo != 37)
+                if (problemNo != 218)
                     continue;
 
                 

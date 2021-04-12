@@ -131,6 +131,15 @@ namespace CSharpConsoleApp.Solutions
         }
 
         #region ------------------------- Util Functions -------------------------
+        public string GetArrayStr(IList<IList<int>> llist, string seperator = ",", string lineSeperator = "\n")
+        {
+            string result = "";
+            foreach (IList<int> iList in llist)
+            {
+                result += "[" + string.Join(seperator, iList) + "]" + lineSeperator;
+            }
+            return result;
+        }
         public string GetArrayStr(char[][] a, string seperator = "")
         {
             string result = "";
@@ -140,6 +149,33 @@ namespace CSharpConsoleApp.Solutions
             }
             return result;
         }
+        public bool IsArraySame(IList<IList<int>> a, IList<IList<int>> b)
+        {
+            int alen = a == null ? 0 : a.Count * (a[0] == null ? 0 : a[0].Count);
+            int blen = b == null ? 0 : b.Count * (b[0] == null ? 0 : b[0].Count);
+            if (alen == blen)
+            {
+                for (int row = 0; row < a.Count; row++)
+                {
+                    int aCols = a == null ? 0 : a[row].Count;
+                    int bCols = b == null ? 0 : b[row].Count;
+                    if (aCols == bCols)
+                    {
+                        for (int i = 0; i < a[row].Count; i++)
+                        {
+                            if (a[row][i] != b[row][i])
+                                return false;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                return false;
+            }
+            return true;
+        }
+
         public bool IsArraySame(char[][] a, char[][] b)
         {
             int alen = a == null ? 0 : a.Length;
@@ -165,6 +201,16 @@ namespace CSharpConsoleApp.Solutions
                 return false;
             }
             return true;
+        }
+
+        public void Print(string log, params object[] args)
+        {
+            string formatLog = string.Format(log, args);
+            Print(formatLog);
+        }
+        public void Print(string log)
+        {
+            //System.Diagnostics.Debug.Print(log);
         }
         #endregion
     }

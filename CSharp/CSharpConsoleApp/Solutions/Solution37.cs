@@ -1,4 +1,6 @@
-﻿using System;
+﻿#define LeetCode
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -77,13 +79,100 @@ namespace CSharpConsoleApp.Solutions
             287419635
             315284679 
              */
-            //SolveSudoku(board2);
-            SolveSudoku_MyNotComplete(board2);
+            SolveSudoku(board2);
+            //SolveSudoku_MyNotComplete(board2);
             isSuccess &= IsArraySame(board2, checkResult2);
             System.Diagnostics.Debug.Print("---- isSuccess :{0} callCount :{1}\n {2}\n--------------------\n{3}", isSuccess, callCount, GetArrayStr(board2, " "),GetArrayStr(checkResult2, " "));
             return isSuccess;
         }
 
+
+#if LeetCode
+        #region  LeetCode Commit
+    public static int callCount = 0;
+    bool Fill(int i, int j, char[][] board)
+    {
+        callCount++;
+
+        if (j == 9)
+        {
+            i++;
+            j = 0;
+            if (i == 9)
+            {
+                return true;
+            }
+        }
+
+        if (board[i][j] != '.')
+        {
+            return Fill(i, j + 1, board);
+        }
+
+        for (int num = 1; num <= 9; num++)
+        {
+            char c = num.ToString()[0];
+            if (HasConflict(i, j, c, board))
+                continue;
+
+            board[i][j] = c;
+            if (Fill(i, j + 1, board))
+            {
+                return true;
+            }
+            else
+            {
+                board[i][j] = '.';
+            }
+        }
+        return false;
+    }
+    bool HasConflict(int row, int col, char fillChar, char[][] board)
+    {
+        for (int i = 0; i < 9; i++)
+        {
+            if (board[row][i] == fillChar || board[i][col] == fillChar)
+            {
+                return true;
+            }
+        }
+
+        int bi = (row / 3) * 3;
+        int bj = (col / 3) * 3;
+        for (int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                if (board[bi + i][bj + j] == fillChar)
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }public void SolveSudoku(char[][] board)
+    {
+            Fill(0, 0, board);
+    }
+    int RemoveImpossibleChar(int i, int j, char removeChar, Dictionary<int, List<char>> dict, char[][] board)
+    {
+        int index = i * 9 + j;
+        if (dict.ContainsKey(index))
+        {
+            dict[index].Remove(removeChar);
+            if (dict[index].Count == 1)
+            {
+                board[i][j] = dict[index][0];
+                dict.Remove(index);
+            }
+            return 1;
+        }
+        return 0;
+    }
+    
+        #endregion
+#elif FirstChanllenged
+        #region First Chanllenged
         /// <summary>
         /// def backtrack(path, selected):
         /// 
@@ -121,14 +210,14 @@ namespace CSharpConsoleApp.Solutions
             }
 
             int loop = 0;
-            while (loop <1000)
+            while (loop < 1000)
             {
                 loop--;
 
                 int removeCharCount = 0;
                 if (dict.Keys.Count == 0)
                 {
-                    
+
                     break;
                 }
                 //scan line
@@ -159,7 +248,7 @@ namespace CSharpConsoleApp.Solutions
                         {
                             for (int ii = 0; ii < 9; ii++)
                             {
-                                if(RemoveImpossibleChar(ii, j, c, dict, board))
+                                if (RemoveImpossibleChar(ii, j, c, dict, board))
                                     removeCharCount++;
                             }
                         }
@@ -181,25 +270,25 @@ namespace CSharpConsoleApp.Solutions
                         if (c != '.')
                         {
                             string log = "";
-                            Print("--------block[" + g + "] check["+i+ "][" + j+"]=" + c + "----------");
+                            Print("--------block[" + g + "] check[" + i + "][" + j + "]=" + c + "----------");
                             for (int m = 0; m < 9; m++)
                             {
                                 int mi = gi * 3 + m / 3;
                                 int mj = gj * 3 + m % 3;
                                 log += string.Format("[{0}][{1}]={2}; ", mi, mj, board[mi][mj]);
-                                if (m%3 ==2)
+                                if (m % 3 == 2)
                                 {
                                     Print(log);
                                     log = "";
                                 }
                             }
-                            
+
                             for (int m = 0; m < 9; m++)
                             {
                                 int mi = gi * 3 + m / 3;
                                 int mj = gj * 3 + m % 3;
 
-                                if(RemoveImpossibleChar(mi, mj, c, dict, board))
+                                if (RemoveImpossibleChar(mi, mj, c, dict, board))
                                     removeCharCount++;
                             }
                         }
@@ -208,7 +297,7 @@ namespace CSharpConsoleApp.Solutions
                 System.Diagnostics.Debug.Print("---- scan 3x3 Result Loop = " + loop + "----\n" + GetArrayStr(board));
 
                 //已经不能推测出结果了，此时必须使用回溯法试错
-                if(removeCharCount == 0)
+                if (removeCharCount == 0)
                 {
                     break;
 
@@ -241,8 +330,8 @@ namespace CSharpConsoleApp.Solutions
         {
             int index = i * 9 + j;
             if (dict.ContainsKey(index))
-            { 
-                if(dict[index].Contains(removeChar))
+            {
+                if (dict[index].Contains(removeChar))
                 {
                     dict[index].Remove(removeChar);
 
@@ -263,7 +352,7 @@ namespace CSharpConsoleApp.Solutions
             return false;
         }
 
-        bool fill (int i, int j, char[][] board)
+        bool fill(int i, int j, char[][] board)
         {
             callCount++;
 
@@ -289,34 +378,32 @@ namespace CSharpConsoleApp.Solutions
         bool hasConflit(int row, int col, char fillChar, char[][] board)
         {
             //测试行列冲突
-	        for (int i= 0; i< 9; i++)
+            for (int i = 0; i < 9; i++)
             {
-		        if (board[i][col] == fillChar || board[row][i] == fillChar) {
+                if (board[i][col] == fillChar || board[row][i] == fillChar)
+                {
                     return true;
-		        }
+                }
             }
 
             //测试3x3块冲突
             int subRowStart = (row / 3) * 3;
             int subColStart = (col / 3) * 3;
 
-            for (int i = 0; i< 3; i++) {
-		        for (int j = 0; j< 3; j++) {
-			        if (board[subRowStart + i][subColStart + j] == fillChar) {
-				        return true;
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    if (board[subRowStart + i][subColStart + j] == fillChar)
+                    {
+                        return true;
                     }
-		        }
-	        }
-	        return false;
+                }
+            }
+            return false;
         }
-        void Print(string log, params object[] args)
-        {
-            string formatLog = string.Format(log, args);
-            Print(formatLog);
-        }
-        void Print(string log)
-        {
-            //System.Diagnostics.Debug.Print(log);
-        }
+        #endregion
+#endif
     }
+
 }
