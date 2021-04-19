@@ -46,6 +46,7 @@
     <Compile Include="LeetcodeTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Solutions\premium\Solution296.cs" />
+    <Compile Include="Solutions\Solution10.cs" />
     <Compile Include="Solutions\Solution12.cs" />
     <Compile Include="Solutions\Solution128.cs" />
     <Compile Include="Solutions\Solution130.cs" />
@@ -67,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Note\LeetcodeSolutionsResource.txt" />
+    <Content Include="Note\DynamicProgramming.txt" />
     <Content Include="Note\StudyNote.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

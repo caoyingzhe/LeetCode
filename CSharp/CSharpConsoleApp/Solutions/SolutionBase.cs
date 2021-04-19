@@ -232,7 +232,7 @@ namespace CSharpConsoleApp.Solutions
         }
         public void Print(string log)
         {
-            //System.Diagnostics.Debug.Print(log);
+            System.Diagnostics.Debug.Print(log);
         }
         #endregion
     }
