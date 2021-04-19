@@ -71,14 +71,13 @@ namespace CSharpConsoleApp.Solutions
         {
             char[][] result = Solve_20210405(board);
 
-            System.Diagnostics.Debug.Print("---- anticipated ----\n" + GetArrayStr(checkResult));
+            //System.Diagnostics.Debug.Print("---- anticipated ----\n" + GetArrayStr(checkResult));
             bool isSuccess = IsArraySame(result, checkResult);
-            System.Diagnostics.Debug.Print(string.Format("isSuccess = {0} ", isSuccess));
+            //System.Diagnostics.Debug.Print(string.Format("isSuccess = {0} ", isSuccess));
            
             return isSuccess;
         }
 
-        
         public void CloneArray(char[][] board, char[][] boardClone)
         {
             int m = board.Length;

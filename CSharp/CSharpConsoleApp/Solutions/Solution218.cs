@@ -10,6 +10,14 @@ namespace CSharpConsoleApp.Solutions
     /// <summary>
     /// 天际线问题
     /// 参考：https://briangordon.github.io/2014/08/the-skyline-problem.html
+    /// 
+    /// 自己算法的问题， 最后一个case过不去，问题不光是超时效率太差，本质上还是错误，忽略了某种特殊情况。具体需要调试才行。
+    /// 对于自己的代码，不用浪费时间，看别人代码即可。
+    /// 
+    /// 自己的提交使用了下面作者的Java代码。
+    /// 作者：windliang
+    /// https://leetcode-cn.com/problems/the-skyline-problem/solution/xiang-xi-tong-su-de-si-lu-fen-xi-duo-jie-fa-by--45/
+    ///
     /// </summary>
     class Solution218 : SolutionBase
     {
@@ -231,7 +239,7 @@ namespace CSharpConsoleApp.Solutions
             return isSuccess;
         }
 
-        public IList<IList<int>> GetSkyline(int[][] buildings)
+        public IList<IList<int>> GetSkylineMySelf(int[][] buildings)
         {
             #region Java Code
             //PriorityQueue<int[]> pq = new PriorityQueue<>((a, b)->a[0] != b[0] ? a[0] - b[0] : a[1] - b[1]);
@@ -241,9 +249,9 @@ namespace CSharpConsoleApp.Solutions
             //    pq.offer(new int[] { building[1], building[2] });
             //}
             //
-            //List<List<Integer>> res = new ArrayList<>();
+            //List<List<int>> res = new List<int>();
             //
-            //TreeMap<Integer, Integer> heights = new TreeMap<>((a, b)->b - a);
+            //TreeMap<int, int> heights = new TreeMap<>((a, b)->b - a);
             //heights.put(0, 1);
             //int left = 0, height = 0;
             //while (!pq.isEmpty())
@@ -263,7 +271,7 @@ namespace CSharpConsoleApp.Solutions
             //    {
             //        left = arr[0];
             //        height = maxHeight;
-            //        res.add(Arrays.asList(left, height));
+            //        res.Add(Arrays.asList(left, height));
             //    }
             //}
             //
@@ -466,5 +474,83 @@ namespace CSharpConsoleApp.Solutions
             }
             return result;
         }
+
+        public IList<IList<int>> GetSkyline(int[][] buildings)
+        {
+            if (buildings.Length == 0)
+            {
+                return new List<IList<int>>();
+            }
+            return merge(buildings, 0, buildings.Length - 1);
+        }
+
+        private IList<IList<int>> merge(int[][] buildings, int start, int end)
+        {
+            List<IList<int>> res = new List<IList<int>>();
+            //只有一个建筑, 将 [x, h], [y, 0] 加入结果
+            if (start == end)
+            {
+                List<int> temp = new List<int>();
+                temp.Add(buildings[start][0]);
+                temp.Add(buildings[start][2]);
+                res.Add(temp);
+
+                temp = new List<int>();
+                temp.Add(buildings[start][1]);
+                temp.Add(00);
+                res.Add(temp);
+                return res;
+            }
+            int mid = (start + end) / 2; // (start + end) >>> 1;
+            //第一组解
+            IList<IList<int>> Skyline1 = merge(buildings, start, mid);
+            //第二组解
+            IList<IList<int>> Skyline2 = merge(buildings, mid + 1, end);
+            //下边将两组解合并
+            int h1 = 0;
+            int h2 = 0;
+            int i = 0;
+            int j = 0;
+            while (i < Skyline1.Count || j < Skyline2.Count)
+            {
+                long x1 = i < Skyline1.Count ? Skyline1[i][0] : long.MaxValue;
+                long x2 = j < Skyline2.Count ? Skyline2[j][0] : long.MaxValue;
+                long x = 0;
+                //比较两个坐标
+                if (x1 < x2)
+                {
+                    h1 = Skyline1[i][1];
+                    x = x1;
+                    i++;
+                }
+                else if (x1 > x2)
+                {
+                    h2 = Skyline2[j][1];
+                    x = x2;
+                    j++;
+                }
+                else
+                {
+                    h1 = Skyline1[i][1];
+                    h2 = Skyline2[j][1];
+                    x = x1;
+                    i++;
+                    j++;
+                }
+                //更新 height
+                int height = Math.Max(h1, h2);
+                //重复的解不要加入
+                if (res.Count == 0 || height != res[res.Count - 1][1])
+                {
+                    List<int> temp = new List<int>();
+                    temp.Add((int)x);
+                    temp.Add(height);
+                    res.Add(temp);
+                }
+            }
+            return res;
+        }
+
+        
     }
 }
