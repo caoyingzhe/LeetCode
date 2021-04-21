@@ -54,7 +54,7 @@ namespace CSharpConsoleApp.Solutions
                 }
                 else
                 {
-                    Print("{0} is at [{1}][{2}]", target, row, col);
+                    //Print("{0} is at [{1}][{2}]", target, row, col);
                     return true;
                 }
             }
