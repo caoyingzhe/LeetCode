@@ -85,41 +85,40 @@ namespace CSharpConsoleApp.Solutions
             isSuccess &= (checkresult == result);
             Print("Anticipated = " + checkresult + " | Result = " + result);
 
-            //s = "abcd";
-            //p = "a.*de";
-            //checkresult = false;
-            //result = IsMatch(s, p);
-            //isSuccess &= (checkresult == result);
-            //Print("Anticipated = " + checkresult + " | Result = " + result);
-            //
-            //s = "abcde";
-            //p = "c*ab.de";
-            //checkresult = true;
-            //result = IsMatch(s, p);
-            //isSuccess &= (checkresult == result);
-            //Print("Anticipated = " + checkresult + " | Result = " + result);
+            s = "abcd";
+            p = "a.*de";
+            checkresult = false;
+            result = IsMatch(s, p);
+            isSuccess &= (checkresult == result);
+            Print("Anticipated = " + checkresult + " | Result = " + result);
+            
+            s = "abcde";
+            p = "c*ab.de";
+            checkresult = true;
+            result = IsMatch(s, p);
+            isSuccess &= (checkresult == result);
+            Print("Anticipated = " + checkresult + " | Result = " + result);
 
-            //
-            //s = "aab";
-            //p = "c*a*b";
-            //checkresult = true;
-            //result = IsMatch(s, p);
-            //isSuccess &= (checkresult == result);
-            //Print("Anticipated = " + checkresult + " | Result = " + result);
+            s = "aab";
+            p = "c*a*b";
+            checkresult = true;
+            result = IsMatch(s, p);
+            isSuccess &= (checkresult == result);
+            Print("Anticipated = " + checkresult + " | Result = " + result);
 
-            //s = "mississippi";
-            //p = "mis*is*p*.";
-            //checkresult = false;
-            //result = IsMatch(s, p);
-            //isSuccess &= (checkresult == result);
-            //Print("Anticipated = " + checkresult + " | Result = " + result);
+            s = "mississippi";
+            p = "mis*is*p*.";
+            checkresult = false;
+            result = IsMatch(s, p);
+            isSuccess &= (checkresult == result);
+            Print("Anticipated = " + checkresult + " | Result = " + result);
 
-            //s = "mississssipppppi";
-            //p = "mis*is*ip*.";
-            //checkresult = true;
-            //result = IsMatch(s, p);
-            //isSuccess &= (checkresult == result);
-            //Print("Anticipated = " + checkresult + " | Result = " + result);
+            s = "mississssipppppi";
+            p = "mis*is*ip*.";
+            checkresult = true;
+            result = IsMatch(s, p);
+            isSuccess &= (checkresult == result);
+            Print("Anticipated = " + checkresult + " | Result = " + result);
 
 
 

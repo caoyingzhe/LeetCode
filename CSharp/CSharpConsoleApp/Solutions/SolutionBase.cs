@@ -97,6 +97,55 @@ namespace CSharpConsoleApp.Solutions
             public int val;
             public ListNode next;
             public ListNode(int x) { val = x; }
+
+            public ListNode(int val = 0, ListNode next = null)
+            {
+                this.val = val;
+                this.next = next;
+            }
+
+            public ListNode(int[] valueList)
+            {
+                if (valueList.Length == 0)
+                    return;
+
+                this.val = valueList[0];
+
+                ListNode curNode = this;
+                for (int i=1; i<valueList.Length; i++)
+                {
+                    curNode.next = new ListNode(valueList[i]);
+                    curNode = curNode.next;
+                }
+            }
+            public override string ToString()
+            {
+                return "[" + ToString(",") + "]";
+            }
+            public string ToString(string seperator = "")
+            {
+                string result = "";
+
+                ListNode node = this;
+                while (true)
+                {
+                    result += node.val;
+                    if (node.next == null)
+                        break;
+                    else
+                    {
+                        node = node.next;
+                        if (!string.IsNullOrEmpty(seperator))
+                            result += seperator;
+                    }
+                        
+                }
+                return result;
+            }
+            public static bool IsSame(ListNode a, ListNode b)
+            {
+                return (a.ToString().Equals(b.ToString()));
+            }
         }
 
         public class ListNodeList
@@ -129,7 +178,7 @@ namespace CSharpConsoleApp.Solutions
                 }
             }
         }
-
+        
         #region ------------------------- Util Functions -------------------------
         public string GetArrayStr(IList<IList<int>> llist, string seperator = ",", string lineSeperator = "\n")
         {
