@@ -74,7 +74,11 @@
     <Compile Include="Solutions\Solution488.cs" />
     <Compile Include="Solutions\Solution50.cs" />
     <Compile Include="Solutions\Solution500.cs" />
+    <Compile Include="Solutions\Solution54.cs" />
+    <Compile Include="Solutions\Solution56.cs" />
+    <Compile Include="Solutions\Solution57.cs" />
     <Compile Include="Solutions\Solution572.cs" />
+    <Compile Include="Solutions\Solution66.cs" />
     <Compile Include="Solutions\Solution793.cs" />
     <Compile Include="Solutions\SolutionBase.cs" />
   </ItemGroup>
