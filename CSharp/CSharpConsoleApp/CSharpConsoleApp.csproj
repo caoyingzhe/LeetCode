@@ -50,6 +50,9 @@
     <Compile Include="Solutions\Solution12.cs" />
     <Compile Include="Solutions\Solution128.cs" />
     <Compile Include="Solutions\Solution130.cs" />
+    <Compile Include="Solutions\Solution133.cs" />
+    <Compile Include="Solutions\Solution139.cs" />
+    <Compile Include="Solutions\Solution140.cs" />
     <Compile Include="Solutions\Solution146.cs" />
     <Compile Include="Solutions\Solution17.cs" />
     <Compile Include="Solutions\Solution1726.cs" />
@@ -89,6 +92,7 @@
     <Content Include="Note\LeetcodeSolutionsResource.txt" />
     <Content Include="Note\DynamicProgramming.txt" />
     <Content Include="Note\EnglishWords.txt" />
+    <Content Include="Note\CSharpNote.txt" />
     <Content Include="Note\StudyNote.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

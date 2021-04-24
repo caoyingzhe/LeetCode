@@ -1,0 +1,10 @@
+﻿
+括号的各种叫法：
+	Parenthesis  括弧(Kakko), パーレン/括号
+	round brackets 丸括弧
+	brace/bracket  大括弧
+	curly bracket | square bracket 角括弧 / 方括号
+
+	at a closing brace    => )
+	a closing curly brace => }
+	or a closing bracket  => ]

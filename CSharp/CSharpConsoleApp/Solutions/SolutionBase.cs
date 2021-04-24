@@ -185,7 +185,7 @@ namespace CSharpConsoleApp.Solutions
             string result = "";
             foreach (IList<int> iList in llist)
             {
-                result += "[" + string.Join(seperator, iList) + "]" + lineSeperator;
+                result += "[" + string.Join(seperator, iList.ToArray()) + "]" + lineSeperator;
             }
             return result;
         }
