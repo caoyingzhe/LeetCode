@@ -1,0 +1,9 @@
+﻿
+https://just4once.gitbooks.io/leetcode-notes/content/leetcode/math/296-best-meeting-point.html
+https://www.programcreek.com/2014/07/leetcode-best-meeting-point-java/
+	296-best-meeting-point
+
+
+在C#中使用 Heap 的相似功能可以考虑使用：Priority Queues，SortedDictionary，SortedList 。
+C# 实现简单的 Heap 堆（二叉堆）
+ https://blog.csdn.net/weixin_30905981/article/details/94941730

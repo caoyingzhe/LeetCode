@@ -178,8 +178,17 @@ namespace CSharpConsoleApp.Solutions
                 }
             }
         }
-        
+
         #region ------------------------- Util Functions -------------------------
+        public string GetArrayStr(IList<List<string>> llist, string seperator = ",", string lineSeperator = "\n")
+        {
+            string result = "";
+            foreach (IList<string> iList in llist)
+            {
+                result += "[" + string.Join(seperator, iList.ToArray()) + "]" + lineSeperator;
+            }
+            return result;
+        }
         public string GetArrayStr(IList<IList<int>> llist, string seperator = ",", string lineSeperator = "\n")
         {
             string result = "";
@@ -189,6 +198,11 @@ namespace CSharpConsoleApp.Solutions
             }
             return result;
         }
+
+        public string GetArrayStr(IList<string> a, string seperator = "")
+        {
+            return string.Join(",", a);
+        }
         public string GetArrayStr(char[][] a, string seperator = "")
         {
             string result = "";
@@ -197,6 +211,19 @@ namespace CSharpConsoleApp.Solutions
                 result += string.Join(seperator, a[i]) + "\n";
             }
             return result;
+        }
+
+        public bool IsListSame(IList<string> a, IList<string> b, bool useSort = true)
+        {
+            List<string> aList = new List<string>(a);
+            List<string> bList = new List<string>(b);
+
+            if(useSort)
+            {
+                aList.Sort();
+                bList.Sort();
+            }
+            return string.Join(",", aList).Equals(string.Join(",", bList));
         }
         public bool IsArraySame(int[] a, int[] b, bool ignoreTail = true)
         {

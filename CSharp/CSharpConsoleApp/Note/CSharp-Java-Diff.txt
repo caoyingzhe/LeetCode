@@ -1,0 +1,11 @@
+﻿Java和C#代码替换常见误区
+
+1.  字符串截取
+	string.subString(i, j)		//Java   startIndex, endIndex,  第二个参数为结束索引号j
+	string.SubString(i, j-i);	//C#     startIndex, length     第二个参数为截取长度，也就是 j-i;
+
+2. List和LinkedList
+	List<String> list = new LinkedList<String>();   //Java写法
+
+	LinkedList<String> listOrg = new LinkedList<String>();	//C#写法, C#中 LinkedList不是List的子类。
+	List<String> list = listOrg.ToList<string>();           //C#写法, LinkedList可以通过 ToList<T>方法转换为List;

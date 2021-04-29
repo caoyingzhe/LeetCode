@@ -89,6 +89,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Note\CSharp-Java-Diff.txt" />
+    <Content Include="Note\ProblemResourece.txt" />
     <Content Include="Note\LeetcodeSolutionsResource.txt" />
     <Content Include="Note\DynamicProgramming.txt" />
     <Content Include="Note\EnglishWords.txt" />
