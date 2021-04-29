@@ -9,3 +9,12 @@
 
 	LinkedList<String> listOrg = new LinkedList<String>();	//C#写法, C#中 LinkedList不是List的子类。
 	List<String> list = listOrg.ToList<string>();           //C#写法, LinkedList可以通过 ToList<T>方法转换为List;
+
+3.  数据结构对照
+	
+	3.1 栈
+		Deque<Integer> xStack;	//Java
+		Stack<int> xStack;      //C#
+
+		xStack.top();                 //Java  取得栈顶
+		xStack.FirstOrDefault<int>(); //C#    取得栈顶
