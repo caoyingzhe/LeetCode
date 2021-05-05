@@ -64,8 +64,6 @@ namespace CSharpConsoleApp.Solutions
             nums = new int[] { 1, 1, 1, 3, 3, 4, 3, 2, 4, 2 };
             checkResult = true;
 
-            Print("isSuccess = {0} | result= {1} | resultChecked = {2}", isSuccess, string.Join(",", result), string.Join(",", checkResult));
-
             isSuccess &= ContainsDuplicate(nums) == checkResult;
 
             return isSuccess;
