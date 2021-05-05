@@ -92,6 +92,7 @@ namespace CSharpConsoleApp.Solutions
 
         public abstract bool Test(System.Diagnostics.Stopwatch sw);
 
+        #region ---------------- Data Struct ---------------------------
         public class DLinkedNode
         {
             public int key;
@@ -190,8 +191,268 @@ namespace CSharpConsoleApp.Solutions
             }
         }
 
+        public class TreeNode
+        {
+            public int val;
+            public TreeNode left;
+            public TreeNode right;
+            public TreeNode(int val = 0, TreeNode left = null, TreeNode right = null)
+            {
+            this.val = val;
+            this.left = left;
+            this.right = right;
+            }
+
+            /// <summary>
+            /// 创建从顶至底，从左到右顺序的Tree。
+            /// 该方法创建的不是有序的Tree。除非nums正好符合BTS的顺序。
+            /// nums例子：  ["3","1","4",null,"2"],
+            ///        3
+            ///     1     4
+            /// null  2
+            /// </summary>
+            public static TreeNode Create(string[] nums)
+            {
+                List<TreeNode> nodes = new List<TreeNode>();
+                for (int i=0; i<nums.Length; i++)
+                {
+                    if(string.IsNullOrEmpty(nums[i]))
+                    {
+                        nodes.Add(null);
+                        i++;
+                    }
+                    else
+                    {
+                        var newNode = new TreeNode(int.Parse(nums[i]));
+                        nodes.Add(newNode);
+
+                        if (i > 0)
+                        {
+                            //根据完全二叉搜索表的特性，i节点的父对象的索引为 [(i-1)/2]
+                            int parentIndex = (i - 1) / 2;
+                            if (i % 2 == 1 && i > 0)
+                            {
+                                nodes[parentIndex].left = newNode;
+                            }
+                            else if (i % 2 == 0 && i > 0)
+                            {
+                                nodes[parentIndex].right = newNode;
+                            }
+                        }
+                    }
+                }
+                return nodes[0];
+            }
+
+            /// <summary>
+            /// 获取一个从大到小排序的值列表（对于无序Tree）
+            /// 源自 leetcode [230]
+            /// </summary>
+            /// <param name="root"></param>
+            /// <param name="arr"></param>
+            /// <returns></returns>
+            public List<int> InOrder(TreeNode root, List<int> arr)
+            {
+                if (root == null) return arr;
+
+                InOrder(root.left, arr);
+                arr.Add(root.val);
+                InOrder(root.right, arr);
+                return arr;
+            }
+
+            /// <summary>
+            /// 创建中序遍历的BST
+            /// </summary>
+            /// <param name="nums"></param>
+            /// <returns></returns>
+            public static TreeNode CreateBST(int[] nums) //From Solution 108
+            {
+                //return Helper1(nums, 0, nums.Length - 1);             // 该方法不合Leetcode测试结果
+                //return Helper2(nums, 0, nums.Length - 1);             // 该方法OK
+                return Helper3(nums, 0, nums.Length - 1, new Random()); // 该方法OK
+            }
+
+            private static TreeNode Helper1(int[] nums, int left, int right)
+            {
+                if (left > right)
+                {
+                    return null;
+                }
+
+                // 总是选择中间位置左边的数字作为根节点
+                int mid = (left + right) / 2;
+
+                TreeNode root = new TreeNode(nums[mid]);
+                root.left = Helper1(nums, left, mid - 1);
+                root.right = Helper1(nums, mid + 1, right);
+                return root;
+            }
+
+            /// <summary>
+            /// 方法二：中序遍历，总是选择中间位置右边的数字作为根节点
+            /// </summary>
+            /// <param name="nums"></param>
+            /// <param name="left"></param>
+            /// <param name="right"></param>
+            /// <returns></returns>
+            private static TreeNode Helper2(int[] nums, int left, int right)
+            {
+                if (left > right)
+                {
+                    return null;
+                }
+
+                // 总是选择中间位置右边的数字作为根节点
+                int mid = (left + right + 1) / 2;
+
+                TreeNode root = new TreeNode(nums[mid]);
+                root.left = Helper2(nums, left, mid - 1);
+                root.right = Helper2(nums, mid + 1, right);
+                return root;
+            }
+
+
+            /// <summary>
+            /// 方法三：中序遍历，选择任意一个中间位置数字作为根节点
+            /// </summary>
+            private static TreeNode Helper3(int[] nums, int left, int right, Random rand)
+            {
+                if (left > right)
+                {
+                    return null;
+                }
+
+                // 选择任意一个中间位置数字作为根节点
+                int mid = (left + right + rand.Next(2)) / 2;
+
+                TreeNode root = new TreeNode(nums[mid]);
+                root.left = Helper3(nums, left, mid - 1, rand);
+                root.right = Helper3(nums, mid + 1, right, rand);
+                return root;
+            }
+
+            public string GetNodeString()
+            {
+                var nodes = GetNodeList();
+
+                string str = "";
+                for(int i=0; i<nodes.Count; i++)
+                {
+                    str += nodes[i] == null ? "null" : ""+ nodes[i].val;
+                    if (i < nodes.Count - 1)
+                        str += ",";
+                }
+                return str;
+            }
+            public List<TreeNode> GetNodeList()
+            {
+                List<TreeNode> list = new List<TreeNode>();
+                GetNodeList(this, list);
+                return list;
+            }
+
+            /// <summary>
+            /// 取得所有的Node列表 (返回结果已经是按照中序排列）
+            /// </summary>
+            /// <param name="node"></param>
+            /// <param name="nodeList"></param>
+            /// <param name="nodeList"></param>
+            public static void GetNodeList(TreeNode node, List<TreeNode> nodeList, bool noAddNullNode = false)
+            {
+                if (node == null)
+                {
+                    if (!noAddNullNode)
+                        nodeList.Add(node);
+                    return;
+                }
+                GetNodeList(node.left, nodeList);
+                nodeList.Add(node);
+                GetNodeList(node.right, nodeList);
+            }
+        }
+
+        /// <summary>
+        /// 拷贝于 https://www.cnblogs.com/skyivben/archive/2009/04/18/1438731.html
+        /// 
+        /// 这个 PriorityQueue<T> 泛型类提供四个公共构造函数，
+        /// 第一个是无参的构造函数，
+        /// 其余的构造函数允许指定优先队列中包括的初始元素数(capacity)、如何对键进行比较(comparer)。
+        /// 
+        /// 这个程序使用堆(heap)来实现优先队列。所以，所需的空间是最小的。
+        /// Count 属性和 Top 方法的时间复杂度是 O(1)，
+        /// Push 和 Pop 方法的时间复杂度都是 O(logN)。
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        public class PriorityQueue<T>
+        {
+            IComparer<T> comparer;
+            T[] heap;
+
+            public int Count { get; private set; }
+
+            public PriorityQueue() : this(null) { }
+            public PriorityQueue(int capacity) : this(capacity, null) { }
+            public PriorityQueue(IComparer<T> comparer) : this(16, comparer) { }
+
+            public PriorityQueue(int capacity, IComparer<T> comparer)
+            {
+                this.comparer = (comparer == null) ? Comparer<T>.Default : comparer;
+                this.heap = new T[capacity];
+            }
+
+            public void Push(T v)
+            {
+                if (Count >= heap.Length) Array.Resize(ref heap, Count * 2);
+                heap[Count] = v;
+                SiftUp(Count++);
+            }
+
+            public T Pop()
+            {
+                var v = Top();
+                heap[0] = heap[--Count];
+                if (Count > 0) SiftDown(0);
+                return v;
+            }
+
+            public T Top()
+            {
+                if (Count > 0) return heap[0];
+                throw new InvalidOperationException("优先队列为空");
+            }
+
+            void SiftUp(int n)
+            {
+                var v = heap[n];
+                for (var n2 = n / 2; n > 0 && comparer.Compare(v, heap[n2]) > 0; n = n2, n2 /= 2) heap[n] = heap[n2];
+                heap[n] = v;
+            }
+
+            void SiftDown(int n)
+            {
+                var v = heap[n];
+                for (var n2 = n * 2; n2 < Count; n = n2, n2 *= 2)
+                {
+                    if (n2 + 1 < Count && comparer.Compare(heap[n2 + 1], heap[n2]) > 0) n2++;
+                    if (comparer.Compare(v, heap[n2]) >= 0) break;
+                    heap[n] = heap[n2];
+                }
+                heap[n] = v;
+            }
+        }
+    
+        public class TrieNode<T> 
+        {
+            public Dictionary<T, TrieNode<T>> children = new Dictionary<T, TrieNode<T>>();
+            public String word = null;
+            public TrieNode() { }
+        }
+
+        #endregion
+
         #region ------------------------- Util Functions -------------------------
-        public string GetArrayStr(IList<List<string>> llist, string seperator = ",", string lineSeperator = "\n")
+        public string GetArray2DStr(IList<List<string>> llist, string seperator = ",", string lineSeperator = "\n")
         {
             string result = "";
             foreach (IList<string> iList in llist)
@@ -200,7 +461,7 @@ namespace CSharpConsoleApp.Solutions
             }
             return result;
         }
-        public string GetArrayStr(IList<IList<int>> llist, string seperator = ",", string lineSeperator = "\n")
+        public string GetArray2DStr(IList<IList<int>> llist, string seperator = ",", string lineSeperator = "\n")
         {
             string result = "";
             foreach (IList<int> iList in llist)
@@ -210,6 +471,10 @@ namespace CSharpConsoleApp.Solutions
             return result;
         }
 
+        public string GetArrayStr<T>(IList<T> a, string seperator = "")
+        {
+            return string.Join(",", a);
+        }
         public string GetArrayStr(IList<string> a, string seperator = "")
         {
             return string.Join(",", a);

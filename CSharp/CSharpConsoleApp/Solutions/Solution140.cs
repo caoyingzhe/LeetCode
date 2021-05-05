@@ -109,7 +109,7 @@ namespace CSharpConsoleApp.Solutions
                     if (wordSet.Contains(word))
                     {
                         List<List<String>> nextWordBreaks = Backtrack(s, length, wordSet, i, map);
-                        Print("======>>> index = {0} Get nextWordBreaks = {1}", index, GetArrayStr(nextWordBreaks, "，", ";"));
+                        Print("======>>> index = {0} Get nextWordBreaks = {1}", index, GetArray2DStr(nextWordBreaks, "，", ";"));
                         for (int j=0; j<nextWordBreaks.Count; j++)
                         //foreach (List<String> nextWordBreak in nextWordBreaks)
                         {
@@ -124,10 +124,10 @@ namespace CSharpConsoleApp.Solutions
                     }
                 }
                 map.Add(index, wordBreaks);
-                Print("===>>> Add Dictionary Data : index ={0} wordBreaks = {1} ", index, GetArrayStr(wordBreaks,",", ";"));
+                Print("===>>> Add Dictionary Data : index ={0} wordBreaks = {1} ", index, GetArray2DStr(wordBreaks,",", ";"));
 
             }
-            Print("<<< map[{0}] = {1}", index, GetArrayStr(map[index], "，", "|"));
+            Print("<<< map[{0}] = {1}", index, GetArray2DStr(map[index], "，", "|"));
             return map[index];
         }
 #else

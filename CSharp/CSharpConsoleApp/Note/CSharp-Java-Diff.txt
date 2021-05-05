@@ -19,8 +19,18 @@
 	3.1 栈
 		Deque<Integer> xStack;	//Java
 		Stack<int> xStack;      //C#
+		stack<int> xStack;      //C++
 
-		xStack.top();                 //Java  取得栈顶
-		xStack.FirstOrDefault<int>(); //C#    取得栈顶
+		xStack.peek();                //Java  取得栈顶
+		xStack.FirstOrDefault<int>(); //C#    取得栈顶  或xStack.First<int>();
+		xStack.top();                 //C++   取得栈顶
+
 	
 	3.2 堆
+		priority_queue<pair<int, int>> q;                                           //C++
+		PriorityQueue<int[]> pq = new PriorityQueue<int[]>(new Comparator<int[]>(); //Java
+
+
+			poll 方法每次从 PriorityQueue 的头部删除一个节点，也就是从小顶堆的堆顶删除一个节点
+			remove 方法不仅可以删除头节点
+				而且还可以用 remove(Object o) 来删除堆中的与给定对象相同的最先出现的对象

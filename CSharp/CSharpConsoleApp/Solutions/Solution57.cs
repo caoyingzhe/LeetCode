@@ -39,7 +39,7 @@ namespace CSharpConsoleApp.Solutions
             };
             int[][] result = Insert(intervals, newInterval);
             isSuccess &= IsArraySame(result, checkresult);
-            Print("isSuccess = " + isSuccess + " | Anticipated = " + GetArrayStr(checkresult, ",", ",") + " | Result = " + GetArrayStr(result, ",", ","));
+            Print("isSuccess = " + isSuccess + " | Anticipated = " + GetArray2DStr(checkresult, ",", ",") + " | Result = " + GetArray2DStr(result, ",", ","));
             return isSuccess;
         }
 

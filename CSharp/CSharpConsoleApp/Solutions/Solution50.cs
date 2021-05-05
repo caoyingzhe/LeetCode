@@ -6,12 +6,17 @@ using System.Threading.Tasks;
 
 namespace CSharpConsoleApp.Solutions
 {
+    /// <summary>
+    /// Pow(x, n)
+    /// 
+    /// 实现 pow(x, n) ，即计算 x 的 n 次幂函数（即，xn）。
+    /// </summary>
     class Solution50 : SolutionBase
     {
         /// <summary>
         /// 难度 
         /// </summary>
-        public override Difficulity GetDifficulity() { return Difficulity.Hard; }
+        public override Difficulity GetDifficulity() { return Difficulity.Medium; }
         /// <summary>
         /// 关键字:
         /// </summary>
