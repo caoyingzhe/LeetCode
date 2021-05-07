@@ -7,36 +7,43 @@ using System.Diagnostics;
 
 namespace CSharpConsoleApp.Solutions
 {
-    /// <summary>
-    /// 正则表达式匹配
-    /// 
-    /// 给你一个字符串 s 和一个字符规律 p，请你来实现一个支持 '.' 和 '*' 的正则表达式匹配。
-    /// '.' 匹配任意单个字符
-    /// '*' 匹配零个或多个前面的那一个元素
-    /// 所谓匹配，是要涵盖 整个 字符串 s的，而不是部分字符串。
-    /// 
-    /// 输入：s = "aa" p = "a"
-    /// 输出：false
-    /// 解释："a" 无法匹配 "aa" 整个字符串。
-    /// 
-    /// 输入：s = "aa" p = "a*"
-    /// 输出：true
-    /// 
-    /// 输入：s = "ab" p = ".*"
-    /// 输出：true
-    /// 
-    /// 输入：s = "aab" p = "c*a*b"
-    /// 输出：true
-    /// 
-    /// 
-    /// 特别声明 * 的意思
-    ///     *可以代表0个， 如果出现c*, 可以代表是不存在c，或者是c,cc,ccc...的多个c的形式
-    ///     题目要求完全匹配，意思就是，从头到尾，必须是一模一样的。 
-    ///     所以自己的算法 (IsMatch_MySelf)只适合*代表的是一个或一个以上的前一个字符的意思。所以不能通过测试。
-    ///     
-    /// 视频图解   ： https://leetcode-cn.com/problems/regular-expression-matching/solution/liang-chong-shi-xian-xiang-xi-tu-jie-10-48bgj/
-    /// 代码拷贝于 ： https://leetcode-cn.com/problems/regular-expression-matching/solution/shou-hui-tu-jie-wo-tai-nan-liao-by-hyj8/
-    /// </summary>
+    /*
+    *  @lc app=leetcode.cn id=10 lang=csharp
+    *  
+    *  [10] 正则表达式匹配
+    * 
+    * Tags 
+    * string | dynamic-programming | backtracking
+    * Companies
+    * airbnb | facebook | google | twitter | uber
+    * 
+    * 给你一个字符串 s 和一个字符规律 p，请你来实现一个支持 '.' 和 '*' 的正则表达式匹配。
+    * '.' 匹配任意单个字符
+    * '*' 匹配零个或多个前面的那一个元素
+    * 所谓匹配，是要涵盖 整个 字符串 s的，而不是部分字符串。
+    * 
+    * 输入：s = "aa" p = "a"
+    * 输出：false
+    * 解释："a" 无法匹配 "aa" 整个字符串。
+    * 
+    * 输入：s = "aa" p = "a*"
+    * 输出：true
+    * 
+    * 输入：s = "ab" p = ".*"
+    * 输出：true
+    * 
+    * 输入：s = "aab" p = "c*a*b"
+    * 输出：true
+    * 
+    * 
+    * 特别声明 * 的意思
+    *     *可以代表0个， 如果出现c*, 可以代表是不存在c，或者是c,cc,ccc...的多个c的形式
+    *     题目要求完全匹配，意思就是，从头到尾，必须是一模一样的。 
+    *     所以自己的算法 (IsMatch_MySelf)只适合*代表的是一个或一个以上的前一个字符的意思。所以不能通过测试。
+    *     
+    * 视频图解   ： https://leetcode-cn.com/problems/regular-expression-matching/solution/liang-chong-shi-xian-xiang-xi-tu-jie-10-48bgj/
+    * 代码拷贝于 ： https://leetcode-cn.com/problems/regular-expression-matching/solution/shou-hui-tu-jie-wo-tai-nan-liao-by-hyj8/
+    */
     class Solution10 : SolutionBase
     {
         /// <summary>

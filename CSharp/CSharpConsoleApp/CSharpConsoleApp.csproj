@@ -47,7 +47,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Solutions\premium\Solution296.cs" />
     <Compile Include="Solutions\Solution10.cs" />
+    <Compile Include="Solutions\Solution108.cs" />
     <Compile Include="Solutions\Solution12.cs" />
+    <Compile Include="Solutions\Solution121.cs" />
+    <Compile Include="Solutions\Solution122.cs" />
+    <Compile Include="Solutions\Solution123.cs" />
+    <Compile Include="Solutions\Solution124.cs" />
     <Compile Include="Solutions\Solution128.cs" />
     <Compile Include="Solutions\Solution130.cs" />
     <Compile Include="Solutions\Solution133.cs" />
@@ -60,18 +65,37 @@
     <Compile Include="Solutions\Solution17.cs" />
     <Compile Include="Solutions\Solution1726.cs" />
     <Compile Include="Solutions\Solution118.cs" />
+    <Compile Include="Solutions\Solution173.cs" />
+    <Compile Include="Solutions\Solution188.cs" />
     <Compile Include="Solutions\Solution2.cs" />
     <Compile Include="Solutions\Solution1.cs" />
     <Compile Include="Solutions\Solution20.cs" />
     <Compile Include="Solutions\Solution200.cs" />
+    <Compile Include="Solutions\Solution208.cs" />
+    <Compile Include="Solutions\Solution212.cs" />
+    <Compile Include="Solutions\Solution214.cs" />
+    <Compile Include="Solutions\Solution217.cs" />
     <Compile Include="Solutions\Solution218.cs" />
     <Compile Include="Solutions\Solution22.cs" />
+    <Compile Include="Solutions\Solution224.cs" />
+    <Compile Include="Solutions\Solution228.cs" />
     <Compile Include="Solutions\Solution23.cs" />
+    <Compile Include="Solutions\Solution230.cs" />
+    <Compile Include="Solutions\Solution231.cs" />
+    <Compile Include="Solutions\Solution239.cs" />
     <Compile Include="Solutions\Solution240.cs" />
+    <Compile Include="Solutions\Solution257.cs" />
     <Compile Include="Solutions\Solution26.cs" />
     <Compile Include="Solutions\Solution260.cs" />
     <Compile Include="Solutions\Solution268.cs" />
+    <Compile Include="Solutions\Solution274.cs" />
+    <Compile Include="Solutions\Solution279.cs" />
+    <Compile Include="Solutions\Solution282.cs" />
+    <Compile Include="Solutions\Solution3.cs" />
+    <Compile Include="Solutions\Solution309.cs" />
     <Compile Include="Solutions\Solution31.cs" />
+    <Compile Include="Solutions\Solution313.cs" />
+    <Compile Include="Solutions\Solution326.cs" />
     <Compile Include="Solutions\Solution37.cs" />
     <Compile Include="Solutions\Solution397.cs" />
     <Compile Include="Solutions\Solution4.cs" />
@@ -79,14 +103,22 @@
     <Compile Include="Solutions\Solution42.cs" />
     <Compile Include="Solutions\Solution44.cs" />
     <Compile Include="Solutions\Solution488.cs" />
+    <Compile Include="Solutions\Solution5.cs" />
     <Compile Include="Solutions\Solution50.cs" />
     <Compile Include="Solutions\Solution500.cs" />
     <Compile Include="Solutions\Solution54.cs" />
     <Compile Include="Solutions\Solution56.cs" />
     <Compile Include="Solutions\Solution57.cs" />
     <Compile Include="Solutions\Solution572.cs" />
+    <Compile Include="Solutions\Solution6.cs" />
     <Compile Include="Solutions\Solution66.cs" />
+    <Compile Include="Solutions\Solution665.cs" />
+    <Compile Include="Solutions\Solution686.cs" />
+    <Compile Include="Solutions\Solution7.cs" />
+    <Compile Include="Solutions\Solution714.cs" />
     <Compile Include="Solutions\Solution793.cs" />
+    <Compile Include="Solutions\Solution8.cs" />
+    <Compile Include="Solutions\Solution9.cs" />
     <Compile Include="Solutions\SolutionBase.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -100,6 +132,27 @@
     <Content Include="Note\EnglishWords.txt" />
     <Content Include="Note\CSharpNote.txt" />
     <Content Include="Note\StudyNote.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Solutions\0000\" />
+    <Folder Include="Solutions\0100\" />
+    <Folder Include="Solutions\0200\" />
+    <Folder Include="Solutions\0300\" />
+    <Folder Include="Solutions\0400\" />
+    <Folder Include="Solutions\0500\" />
+    <Folder Include="Solutions\0600\" />
+    <Folder Include="Solutions\0700\" />
+    <Folder Include="Solutions\0800\" />
+    <Folder Include="Solutions\0900\" />
+    <Folder Include="Solutions\1000\" />
+    <Folder Include="Solutions\1100\" />
+    <Folder Include="Solutions\1200\" />
+    <Folder Include="Solutions\1300\" />
+    <Folder Include="Solutions\1400\" />
+    <Folder Include="Solutions\1500\" />
+    <Folder Include="Solutions\1600\" />
+    <Folder Include="Solutions\1700\" />
+    <Folder Include="Solutions\1800\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -20,7 +20,6 @@ namespace CSharpConsoleApp
     {
         static void Main(string[] args)
         {
-            
             var types = Assembly.GetExecutingAssembly().GetTypes().Where((t) => t.BaseType == typeof(SolutionBase)).OrderBy(t => t.Name).ToArray();
 
             int solutionSucceedCount = 0;
@@ -31,10 +30,9 @@ namespace CSharpConsoleApp
             {
                 Type type = types[i];
                 int problemNo = SolutionBase.GetProblemNo(type);
-                if (problemNo != 218)
+                if (problemNo != 665)
                     continue;
 
-                
                 System.Diagnostics.Debug.Print(string.Format("\n-------- Test Problem [{0}] {1} --------", problemNo, type.Name));
                 SolutionBase solution = Activator.CreateInstance(type) as SolutionBase;
 

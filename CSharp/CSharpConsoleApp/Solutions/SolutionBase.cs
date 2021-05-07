@@ -216,10 +216,9 @@ namespace CSharpConsoleApp.Solutions
                 List<TreeNode> nodes = new List<TreeNode>();
                 for (int i=0; i<nums.Length; i++)
                 {
-                    if(string.IsNullOrEmpty(nums[i]))
+                    if(string.IsNullOrEmpty(nums[i]) || nums[i].ToLower() == "null")
                     {
                         nodes.Add(null);
-                        i++;
                     }
                     else
                     {
@@ -421,6 +420,11 @@ namespace CSharpConsoleApp.Solutions
                 if (Count > 0) return heap[0];
                 throw new InvalidOperationException("优先队列为空");
             }
+            public T Tail()
+            {
+                if (Count > 0) return heap[Count -1];
+                throw new InvalidOperationException("优先队列为空");
+            }
 
             void SiftUp(int n)
             {
@@ -440,8 +444,42 @@ namespace CSharpConsoleApp.Solutions
                 }
                 heap[n] = v;
             }
+
+            public T[] ToArray()
+            {
+                return heap;
+            }
         }
-    
+        public class ComparerIntAsc : IComparer<int>
+        {
+            public int Compare(int a, int b)
+            {
+                return b - a;
+            }
+        }
+        public class ComparerIntDesc : IComparer<int>
+        {
+            public int Compare(int a, int b)
+            {
+                return a - b;
+            }
+        }
+        public class ComparerLongAsc : IComparer<long>
+        {
+            public int Compare(long a, long b)
+            {
+                return b == a ? 0 : (b > a ? 1 : -1);
+            }
+        }
+        public class ComparerLongDesc : IComparer<long>
+        {
+            public int Compare(long a, long b)
+            {
+                return b == a ? 0 : (b > a ? -1 : 1);
+            }
+        }
+
+
         public class TrieNode<T> 
         {
             public Dictionary<T, TrieNode<T>> children = new Dictionary<T, TrieNode<T>>();
@@ -452,6 +490,35 @@ namespace CSharpConsoleApp.Solutions
         #endregion
 
         #region ------------------------- Util Functions -------------------------
+
+        public void ListFill<T>(List<T> list, T defaultValue)
+        {
+            if (list == null)
+                return;
+            for (int i = 0; i < list.Count; i++)
+            {
+                list[i] = defaultValue;
+            }
+        }
+        public void ArrayFill<T>(T[] arr, T defaultValue)
+        {
+            if (arr == null)
+                return;
+            for(int i=0; i < arr.Length; i++)
+            {
+                arr[i] = defaultValue;
+            }
+        }
+
+        public string GetArray2DStr<T>(IList<IList<T>> llist, string seperator = ",", string lineSeperator = "\n")
+        {
+            string result = "";
+            foreach (IList<T> iList in llist)
+            {
+                result += "[" + string.Join(seperator, iList.ToArray()) + "]" + lineSeperator;
+            }
+            return result;
+        }
         public string GetArray2DStr(IList<List<string>> llist, string seperator = ",", string lineSeperator = "\n")
         {
             string result = "";
