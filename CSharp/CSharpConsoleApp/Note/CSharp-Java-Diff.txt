@@ -1,10 +1,42 @@
 ﻿Java和C#代码替换常见误区
 
-1.  字符串截取
+1.  字符串
+
+	字符串截取
 	string.subString(i, j)		//Java   startIndex, endIndex,  第二个参数为结束索引号j
 	string.SubString(i, j-i);	//C#     startIndex, length     第二个参数为截取长度，也就是 j-i;
 
-2. List和LinkedList
+2. Array
+	
+	Arrays  //Java
+	Array   //C#
+
+	Arrays.binarySearch(object[ ], object key);     //Java写法
+	Array.binarySearch(object[ ], object key);      //C#写法
+
+	/*********** Arrays.binarySearch 测试代码 ************/
+	public static void main (String []args)
+    {
+        int a[] = new int[] {1, 3, 4, 6, 8, 9};
+        int x1 = Arrays.binarySearch(a, 5);
+        int x2 = Arrays.binarySearch(a, 4);
+        int x3 = Arrays.binarySearch(a, 0);
+        int x4 = Arrays.binarySearch(a, 10);
+        System.out.println("x1:" + x1 + ", x2:" + x2);
+        System.out.println("x3:" + x3 + ", x4:" + x4);
+    }
+	/*********** 输出结果：***********/
+	x1:-4, x2:2
+	x3:-1, x4:-7
+	/// 如果key在数组中，则返回搜索值的索引；否则返回-1或者”-“(插入点)。
+	/// 关键: 插入点索引从1开始。
+	/// 所以搜索5的时候，前面是4，对应索引2，本应返回-3，
+	/// 但是索引从1开始，返回-4.
+	/*********** 输出结果：***********/
+
+3. List
+
+	List和LinkedList
 	List<String> list = new LinkedList<String>();   //Java写法
 	LinkedList<String> listOrg = new LinkedList<String>();	//C#写法, C#中 LinkedList不是List的子类。
 	List<String> list = listOrg.ToList<string>();           //C#写法, LinkedList可以通过 ToList<T>方法转换为List;
@@ -48,3 +80,4 @@
 
 		PriorityQueue.offer 相当于 Queue.Push();
 		PriorityQueue.poll  相当于 Queue.Pop();
+

@@ -92,6 +92,22 @@ namespace CSharpConsoleApp.Solutions
 
         public abstract bool Test(System.Diagnostics.Stopwatch sw);
 
+        // Template
+        //public override bool Test(System.Diagnostics.Stopwatch sw)
+        //{
+        //    bool isSuccess = true;
+        //    int[] nums;
+        //    IList<int> result;
+        //    int[] checkResult;
+        //
+        //    nums = new int[] { };
+        //    checkResult = new int[] { };
+        //    result = CountSmaller(nums);
+        //    isSuccess &= IsArraySame(result.ToArray(), checkResult);
+        //    Print("isSuccess = {0} | result = {1} | anticipated = {2}", isSuccess, GetArrayStr<int>(result), GetArrayStr<int>(checkResult));
+        //
+        //    return isSuccess;
+        //}
         #region ---------------- Data Struct ---------------------------
         public class DLinkedNode
         {
