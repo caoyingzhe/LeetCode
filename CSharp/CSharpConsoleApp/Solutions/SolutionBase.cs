@@ -25,7 +25,7 @@ namespace CSharpConsoleApp.Solutions
             BitManipulation,    //位操作
             Brainteaser,        //脑经急转弯
             BreadthFirstSearch, //广度优先搜索
-            DepthFirstSearch,   //广度优先搜索
+            DepthFirstSearch,   //深度优先搜索
             Design,             //设计
             DivideAndConquer,   //分治法
             DynamicProgramming, //动态编程
@@ -150,6 +150,24 @@ namespace CSharpConsoleApp.Solutions
             {
                 return "[" + ToString(",") + "]";
             }
+
+            public List<int> GetValueList()
+            {
+                List<int> list = new List<int>();
+
+                ListNode node = this;
+                while (node != null)
+                {
+                    list.Add(node.val);
+                    if(node == node.next)
+                    {
+                        //Warning
+                        break;
+                    }
+                    node = node.next;
+                }
+                return list;
+            }
             public string ToString(string seperator = "")
             {
                 string result = "";
@@ -170,9 +188,22 @@ namespace CSharpConsoleApp.Solutions
                 }
                 return result;
             }
+
             public static bool IsSame(ListNode a, ListNode b)
             {
                 return (a.ToString().Equals(b.ToString()));
+            }
+
+            public static void GetNodeList(ListNode node, List<ListNode> list)
+            {
+                if (list == null || node == null)
+                    return;
+
+                while (node != null)
+                {
+                    list.Add(node);
+                    node = node.next;
+                }
             }
         }
 
@@ -466,6 +497,32 @@ namespace CSharpConsoleApp.Solutions
                 return heap;
             }
         }
+
+        //PriorityQueue 字典排序测试: 使用ComparerStringAsc
+        //PriorityQueue<String> test = new PriorityQueue<String>(new ComparerStringAsc());
+        //test.Push("ATL");
+        //test.Push("XXL");
+        //test.Push("CXL");
+        //test.Push("ABL");
+        //test.Push("CXL");
+        //Print("Result : {0} A.CompareTo(C) =  {1}", GetArrayStr(test.ToArray()), "A".CompareTo("C"));
+        //排序测试结果：Result : ABL,ATL,CXL,CXL,XXL,,,,,,,,,,, A.CompareTo(C) =  -1
+
+        public class ComparerStringAsc : IComparer<string>
+        {
+            public int Compare(string a, string b)
+            {
+                return b.CompareTo(a);  //B.CompareTo(A) = 1, 排序结果是 按照字母表顺序，也就是字典顺序。
+            }
+        }
+        public class ComparerStringDesc : IComparer<string>
+        {
+            public int Compare(string a, string b)
+            {
+                return a.CompareTo(b);  //A.CompareTo(B) =  -1, 排序结果是 按照字母表顺序，也就是反字典顺序。
+            }
+        }
+
         public class ComparerIntAsc : IComparer<int>
         {
             public int Compare(int a, int b)
@@ -503,6 +560,70 @@ namespace CSharpConsoleApp.Solutions
             public TrieNode() { }
         }
 
+
+        /// <summary>
+        /// Solution 208也使用了类名 Trie，为了区分，后面添加Solution号码加以区分。
+        /// Solution 336
+        ///作者：LeetCode-Solution
+        ///链接：https://leetcode-cn.com/problems/palindrome-pairs/solution/hui-wen-dui-by-leetcode-solution/
+        /// </summary>
+        public class Trie336
+        {
+            public class Node
+            {
+                public int[] ch = new int[26];
+                public int flag;
+
+                public Node()
+                {
+                    flag = -1;
+                }
+            }
+
+            List<Node> tree = new List<Node>();
+
+            public Trie336()
+            {
+                tree.Add(new Node());
+            }
+
+            public void insert(String s, int id)
+            {
+                int len = s.Length, add = 0;
+                for (int i = 0; i < len; i++)
+                {
+                    int x = s[i] - 'a';
+                    if (tree[add].ch[x] == 0)
+                    {
+                        tree.Add(new Node());
+                        tree[add].ch[x] = tree.Count - 1;
+                    }
+                    add = tree[add].ch[x];
+                }
+                tree[add].flag = id;
+            }
+
+            public int[] query(String s)
+            {
+                int len = s.Length, add = 0;
+                int[] ret = new int[len + 1];
+                for (int i = 0; i < len + 1; i++)
+                    ret[i] = -1;
+
+                for (int i = 0; i < len; i++)
+                {
+                    ret[i] = tree[add].flag;
+                    int x = s[i] - 'a';
+                    if (tree[add].ch[x] == 0)
+                    {
+                        return ret;
+                    }
+                    add = tree[add].ch[x];
+                }
+                ret[len] = tree[add].flag;
+                return ret;
+            }
+        }
         #endregion
 
         #region ------------------------- Util Functions -------------------------
@@ -517,6 +638,10 @@ namespace CSharpConsoleApp.Solutions
             }
         }
         public void ArrayFill<T>(T[] arr, T defaultValue)
+        {
+            SolutionBase.ArraysFill<T>(arr, defaultValue);
+        }
+        public static void ArraysFill<T>(T[] arr, T defaultValue)
         {
             if (arr == null)
                 return;

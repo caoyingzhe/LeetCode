@@ -49,7 +49,7 @@ namespace CSharpConsoleApp.Solutions
     * 0 <= m <= 1000
     * 0 <= n <= 1000
     * 1 <= m + n <= 2000
-    * -106 <= nums1[i], nums2[i] <= 106
+    * -10^6 <= nums1[i], nums2[i] <= 10^6
     * s
     * 进阶：你能设计一个时间复杂度为 O(log (m+n)) 的算法解决此问题吗？
     */

@@ -45,8 +45,14 @@
   <ItemGroup>
     <Compile Include="LeetcodeTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Solutions\0000\Solution28.cs" />
     <Compile Include="Solutions\0000\Solution1.cs" />
     <Compile Include="Solutions\0000\Solution2.cs" />
+    <Compile Include="Solutions\0000\Solution21.cs" />
+    <Compile Include="Solutions\0000\Solution24.cs" />
+    <Compile Include="Solutions\0000\Solution25.cs" />
+    <Compile Include="Solutions\0000\Solution27.cs" />
+    <Compile Include="Solutions\0000\Solution29.cs" />
     <Compile Include="Solutions\0000\Solution3.cs" />
     <Compile Include="Solutions\0000\Solution4.cs" />
     <Compile Include="Solutions\0000\Solution5.cs" />
@@ -61,9 +67,9 @@
     <Compile Include="Solutions\0000\Solution14.cs" />
     <Compile Include="Solutions\0000\Solution15.cs" />
     <Compile Include="Solutions\0000\Solution16.cs" />
-	<Compile Include="Solutions\0000\Solution17.cs" />
-	<Compile Include="Solutions\0000\Solution18.cs" />
-	<Compile Include="Solutions\0000\Solution19.cs" />
+    <Compile Include="Solutions\0000\Solution17.cs" />
+    <Compile Include="Solutions\0000\Solution18.cs" />
+    <Compile Include="Solutions\0000\Solution19.cs" />
     <Compile Include="Solutions\0000\Solution20.cs" />
     <Compile Include="Solutions\0000\Solution22.cs" />
     <Compile Include="Solutions\0000\Solution23.cs" />
@@ -77,9 +83,28 @@
     <Compile Include="Solutions\0000\Solution56.cs" />
     <Compile Include="Solutions\0000\Solution57.cs" />
     <Compile Include="Solutions\0000\Solution66.cs" />
+    <Compile Include="Solutions\0200\Solution290.cs" />
     <Compile Include="Solutions\0300\Solution310.cs" />
     <Compile Include="Solutions\0300\Solution312.cs" />
     <Compile Include="Solutions\0300\Solution315.cs" />
+    <Compile Include="Solutions\0300\Solution316.cs" />
+    <Compile Include="Solutions\0300\Solution318.cs" />
+    <Compile Include="Solutions\0300\Solution321.cs" />
+    <Compile Include="Solutions\0300\Solution324.cs" />
+    <Compile Include="Solutions\0300\Solution327.cs" />
+    <Compile Include="Solutions\0300\Solution329.cs" />
+    <Compile Include="Solutions\0300\Solution330.cs" />
+    <Compile Include="Solutions\0300\Solution331.cs" />
+    <Compile Include="Solutions\0300\Solution332.cs" />
+    <Compile Include="Solutions\0300\Solution341.cs" />
+    <Compile Include="Solutions\0300\Solution345.cs" />
+    <Compile Include="Solutions\0300\Solution354.cs" />
+    <Compile Include="Solutions\0400\Solution453.cs" />
+    <Compile Include="Solutions\0500\Solution543.cs" />
+    <Compile Include="Solutions\0500\Solution551.cs" />
+    <Compile Include="Solutions\0500\Solution557.cs" />
+    <Compile Include="Solutions\0500\Solution563.cs" />
+    <Compile Include="Solutions\0500\Solution566.cs" />
     <Compile Include="Solutions\premium\Solution296.cs" />
     <Compile Include="Solutions\0100\Solution108.cs" />
     <Compile Include="Solutions\0100\Solution121.cs" />
@@ -120,6 +145,7 @@
     <Compile Include="Solutions\0300\Solution309.cs" />
     <Compile Include="Solutions\0300\Solution313.cs" />
     <Compile Include="Solutions\0300\Solution326.cs" />
+    <Compile Include="Solutions\0300\Solution336.cs" />
     <Compile Include="Solutions\0300\Solution397.cs" />
     <Compile Include="Solutions\0400\Solution416.cs" />
     <Compile Include="Solutions\0400\Solution488.cs" />
@@ -154,7 +180,6 @@
     <Folder Include="Solutions\1400\" />
     <Folder Include="Solutions\1500\" />
     <Folder Include="Solutions\1600\" />
-    <Folder Include="Solutions\1700\" />
     <Folder Include="Solutions\1800\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
