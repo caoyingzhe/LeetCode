@@ -49,7 +49,7 @@ namespace CSharpConsoleApp.Solutions
 
     class Solution188 : SolutionBase
     {
-        public override bool Test(Stopwatch sw)
+        public override bool Test(System.Diagnostics.Stopwatch sw)
         {
             Print("" + (MaxProfit(2, new int[] { 2, 4, 1 }) == 2));
             return true;

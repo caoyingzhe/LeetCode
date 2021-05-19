@@ -15,6 +15,8 @@ namespace CSharpConsoleApp.Solutions
             Medium,
             Hard
         }
+
+        //超级棒的题解分类总结 ： https://zhuanlan.zhihu.com/p/349940945?utm_medium=social&utm_oi=51534712799232
         public enum Tag
         {
             Array,              //数组
@@ -34,8 +36,8 @@ namespace CSharpConsoleApp.Solutions
             Greedy,             //贪婪算法
             HashTable,          //散列表(哈希表)
             Heap,               //堆
-            LineSweep,          //扫描线算法
-            LinkedList,         //链表
+            LineSweep,          //扫描线算法  [253, 218, 391, 759]
+            LinkedList,         //链表   头部尾部插入删除操作都是O(1)，查找任意元素位置O(N) [206,876]
             Math,               //数学
             Memoization,        //记忆
             Minimax,            //最大最小
@@ -47,12 +49,13 @@ namespace CSharpConsoleApp.Solutions
             ReservoirSampling,  //蓄水池抽样算法      链表随机节点/随机数索引
             SegmentTree,        //线段树/区间树
             SlidingWindow,      //滑动窗口
-            Sort,               //排序
+            Sort,               //排序  快速排序（Quick Sort）NLogN | 1 ;  归并排序（Merge Sort） NLogN | N [56,148] [4,75,179,215]
+                                //     [4,215] 是与快速排序非常相似的快速选择（Quick Select）算法，面试中很常考
             Stack,              //栈
             String,             //字符串
             TopologicalSort,    //拓扑逻辑排序
             Tree,               //树
-            Trie,               //前缀树 
+            Trie,               //前缀树，字典树  【208,211,1268,79]
             TwoPointers,        //双指针
             UnionFind,          //并查集
             Unknown,            //未定
@@ -88,7 +91,7 @@ namespace CSharpConsoleApp.Solutions
         /// <summary>
         /// 标签： 
         /// </summary>
-        public virtual Tag[] GetTags(){ return null; }
+        public virtual Tag[] GetTags() { return null; }
 
         public abstract bool Test(System.Diagnostics.Stopwatch sw);
 
@@ -140,7 +143,7 @@ namespace CSharpConsoleApp.Solutions
                 this.val = valueList[0];
 
                 ListNode curNode = this;
-                for (int i=1; i<valueList.Length; i++)
+                for (int i = 1; i < valueList.Length; i++)
                 {
                     curNode.next = new ListNode(valueList[i]);
                     curNode = curNode.next;
@@ -159,7 +162,7 @@ namespace CSharpConsoleApp.Solutions
                 while (node != null)
                 {
                     list.Add(node.val);
-                    if(node == node.next)
+                    if (node == node.next)
                     {
                         //Warning
                         break;
@@ -184,7 +187,7 @@ namespace CSharpConsoleApp.Solutions
                         if (!string.IsNullOrEmpty(seperator))
                             result += seperator;
                     }
-                        
+
                 }
                 return result;
             }
@@ -245,9 +248,9 @@ namespace CSharpConsoleApp.Solutions
             public TreeNode right;
             public TreeNode(int val = 0, TreeNode left = null, TreeNode right = null)
             {
-            this.val = val;
-            this.left = left;
-            this.right = right;
+                this.val = val;
+                this.left = left;
+                this.right = right;
             }
 
             /// <summary>
@@ -261,9 +264,9 @@ namespace CSharpConsoleApp.Solutions
             public static TreeNode Create(string[] nums)
             {
                 List<TreeNode> nodes = new List<TreeNode>();
-                for (int i=0; i<nums.Length; i++)
+                for (int i = 0; i < nums.Length; i++)
                 {
-                    if(string.IsNullOrEmpty(nums[i]) || nums[i].ToLower() == "null")
+                    if (string.IsNullOrEmpty(nums[i]) || nums[i].ToLower() == "null")
                     {
                         nodes.Add(null);
                     }
@@ -383,9 +386,9 @@ namespace CSharpConsoleApp.Solutions
                 var nodes = GetNodeList();
 
                 string str = "";
-                for(int i=0; i<nodes.Count; i++)
+                for (int i = 0; i < nodes.Count; i++)
                 {
-                    str += nodes[i] == null ? "null" : ""+ nodes[i].val;
+                    str += nodes[i] == null ? "null" : "" + nodes[i].val;
                     if (i < nodes.Count - 1)
                         str += ",";
                 }
@@ -469,7 +472,7 @@ namespace CSharpConsoleApp.Solutions
             }
             public T Tail()
             {
-                if (Count > 0) return heap[Count -1];
+                if (Count > 0) return heap[Count - 1];
                 throw new InvalidOperationException("优先队列为空");
             }
 
@@ -553,7 +556,7 @@ namespace CSharpConsoleApp.Solutions
         }
 
 
-        public class TrieNode<T> 
+        public class TrieNode<T>
         {
             public Dictionary<T, TrieNode<T>> children = new Dictionary<T, TrieNode<T>>();
             public String word = null;
@@ -628,6 +631,26 @@ namespace CSharpConsoleApp.Solutions
 
         #region ------------------------- Util Functions -------------------------
 
+        public bool IsSameDictionary(Dictionary<string, int> dict1, Dictionary<string, int> dict2)
+        {
+            if (dict1 == null && dict2 != null)
+                return false;
+            if (dict2 == null && dict1 != null)
+                return false;
+            if (dict1.Keys.Count != dict2.Keys.Count)
+                return false;
+
+            foreach (string key in dict1.Keys)
+            {
+                if (!dict2.ContainsKey(key))
+                    return false;
+
+                if (dict1[key] != dict2[key])
+                    return false;
+            }
+            return true;
+        }
+
         public void ListFill<T>(List<T> list, T defaultValue)
         {
             if (list == null)
@@ -645,12 +668,30 @@ namespace CSharpConsoleApp.Solutions
         {
             if (arr == null)
                 return;
-            for(int i=0; i < arr.Length; i++)
+            for (int i = 0; i < arr.Length; i++)
             {
                 arr[i] = defaultValue;
             }
         }
 
+        public string GetArray2DStr<T>(T[,] matrix, int m, int n, string seperator = ",", string lineSeperator = "\n")
+        {
+            StringBuilder result = new StringBuilder();
+            for (int i = 0; i < m; i++)
+            {
+                result.Append("[");
+                for (int j = 0; j < n; j++)
+                {
+                    result.Append(matrix[i, j].ToString());
+                    if (j != n - 1)
+                        result.Append(seperator);
+                }
+                result.Append("]");
+                if (i != m - 1)
+                    result.Append(lineSeperator);
+            }
+            return result.ToString();
+        }
         public string GetArray2DStr<T>(IList<IList<T>> llist, string seperator = ",", string lineSeperator = "\n")
         {
             string result = "";
@@ -679,6 +720,11 @@ namespace CSharpConsoleApp.Solutions
             return result;
         }
 
+        public string GetArrayStr<T>(HashSet<T> a, string seperator = "")
+        {
+            return string.Join(",", a.ToArray());
+        }
+
         public string GetArrayStr<T>(IList<T> a, string seperator = "")
         {
             return string.Join(",", a);
@@ -697,12 +743,12 @@ namespace CSharpConsoleApp.Solutions
             return result;
         }
 
-        public bool IsListSame(IList<string> a, IList<string> b, bool useSort = true)
+        public bool IsListSame<T>(IList<T> a, IList<T> b, bool useSort = true)
         {
-            List<string> aList = new List<string>(a);
-            List<string> bList = new List<string>(b);
+            List<T> aList = new List<T>(a);
+            List<T> bList = new List<T>(b);
 
-            if(useSort)
+            if (useSort)
             {
                 aList.Sort();
                 bList.Sort();
@@ -714,7 +760,7 @@ namespace CSharpConsoleApp.Solutions
             int alen = a == null ? 0 : a.Length;
             int blen = b == null ? 0 : b.Length;
 
-            if(!ignoreTail)
+            if (!ignoreTail)
             {
                 if (alen != blen)
                     return false;
@@ -722,7 +768,7 @@ namespace CSharpConsoleApp.Solutions
 
             int compareLen = Math.Min(alen, blen);
             {
-                for(int i=0; i<compareLen; i++)
+                for (int i = 0; i < compareLen; i++)
                 {
                     if (a[i] != b[i])
                         return false;
@@ -731,22 +777,47 @@ namespace CSharpConsoleApp.Solutions
 
             return true;
         }
-        public bool IsArraySame(IList<IList<int>> a, IList<IList<int>> b)
+        public bool IsArray2DSame(IList<IList<int>> a, IList<IList<int>> b, bool useSort = false)
         {
-            int alen = a == null ? 0 : a.Count * (a[0] == null ? 0 : a[0].Count);
-            int blen = b == null ? 0 : b.Count * (b[0] == null ? 0 : b[0].Count);
-            if (alen == blen)
+            if ((a == null || a.Count == 0) && (b == null || b.Count == 0))
+                return true;
+            if ((a.Count != 0 && b.Count == 0) || (a.Count == 0 && b.Count != 0))
+                return false;
+
+            //int alen = a == null ? 0 : a.Count * (a[0] == null ? 0 : a[0].Count);
+            //int blen = b == null ? 0 : b.Count * (b[0] == null ? 0 : b[0].Count);
+            if (a.Count == b.Count)
             {
-                for (int row = 0; row < a.Count; row++)
+                if (useSort)
                 {
-                    int aCols = a == null ? 0 : a[row].Count;
-                    int bCols = b == null ? 0 : b[row].Count;
-                    if (aCols == bCols)
+                    List<string> strA = new List<string>();
+                    List<string> strB = new List<string>();
+
+                    for (int row = 0; row < a.Count; row++)
                     {
-                        for (int i = 0; i < a[row].Count; i++)
+                        int[] arrA = a[row].ToArray(); Array.Sort(arrA);
+                        int[] arrB = b[row].ToArray(); Array.Sort(arrB);
+                        strA.Add(string.Join(",", arrA));
+                        strB.Add(string.Join(",", arrB));
+                    }
+                    strA.Sort(); strB.Sort();
+                    string resultA = string.Join("|", strA);
+                    string resultB = string.Join("|", strB);
+                    return resultA == resultB;
+                }
+                else
+                {
+                    for (int row = 0; row < a.Count; row++)
+                    {
+                        int aCols = a == null ? 0 : a[row].Count;
+                        int bCols = b == null ? 0 : b[row].Count;
+                        if (aCols == bCols)
                         {
-                            if (a[row][i] != b[row][i])
-                                return false;
+                            for (int i = 0; i < a[row].Count; i++)
+                            {
+                                if (a[row][i] != b[row][i])
+                                    return false;
+                            }
                         }
                     }
                 }
@@ -755,6 +826,7 @@ namespace CSharpConsoleApp.Solutions
             {
                 return false;
             }
+            
             return true;
         }
 
@@ -793,6 +865,14 @@ namespace CSharpConsoleApp.Solutions
         public void Print(string log)
         {
             System.Diagnostics.Debug.Print(log);
+        }
+
+        public int GetCodeLineNum(int skipFrames = 0)
+        {
+            System.Diagnostics.StackTrace st = new System.Diagnostics.StackTrace(skipFrames, true);
+            System.Diagnostics.StackFrame fram = st.GetFrame(0);
+            int lineNum = fram.GetFileLineNumber();
+            return lineNum;
         }
         #endregion
     }

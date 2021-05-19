@@ -46,7 +46,7 @@ namespace CSharpConsoleApp.Solutions
         /// 标签： 
         /// </summary>
         public override Tag[] GetTags() { return new Tag[] { Tag.Design}; }
-        public override bool Test(Stopwatch sw)
+        public override bool Test(System.Diagnostics.Stopwatch sw)
         {
             List<int> result = new List<int>();
             int[] checkResult;

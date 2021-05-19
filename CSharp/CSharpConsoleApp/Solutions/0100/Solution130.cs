@@ -25,7 +25,7 @@ namespace CSharpConsoleApp.Solutions
         public override Tag[] GetTags() { return new Tag[] { Tag.Graph, Tag.BreadthFirstSearch }; }
 
         //深度优先搜索(DFS)和广度优先搜索(BFS).这两种算法对有向图与无向图均适用
-        public override bool Test(Stopwatch sw)
+        public override bool Test(System.Diagnostics.Stopwatch sw)
         {
             bool isSuccess = true;
             char[][] board;

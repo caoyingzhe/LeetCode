@@ -30,7 +30,7 @@ namespace CSharpConsoleApp.Solutions.premium
     /// </summary>
     class Solution296 : SolutionBase
     {
-        public override bool Test(Stopwatch sw)
+        public override bool Test(System.Diagnostics.Stopwatch sw)
         {
             return false;
         }

@@ -13,7 +13,7 @@ namespace CSharpConsoleApp.Solutions
     /// </summary>
     class Solution128 : SolutionBase
     {
-        public override bool Test(Stopwatch sw)
+        public override bool Test(System.Diagnostics.Stopwatch sw)
         {
             bool isSuccess = false;
             int[] nums;

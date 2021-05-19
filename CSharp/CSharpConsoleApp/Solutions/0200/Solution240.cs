@@ -34,7 +34,7 @@ namespace CSharpConsoleApp.Solutions
         /// 标签： 
         /// </summary>
         public override Tag[] GetTags() { return new Tag[] { Tag.DivideAndConquer, Tag.Heap, Tag.BinaryIndexedTree, Tag.SegmentTree, Tag.LineSweep }; }
-        public override bool Test(Stopwatch sw)
+        public override bool Test(System.Diagnostics.Stopwatch sw)
         {
             int target = 12;
             int[][] matrix = new int[][] {

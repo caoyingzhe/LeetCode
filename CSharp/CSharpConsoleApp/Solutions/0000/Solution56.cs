@@ -40,7 +40,7 @@ namespace CSharpConsoleApp.Solutions
                 new int[] { 15,18 }
             };
             int[][] result = Merge(intervals);
-            isSuccess &= IsArraySame(result, checkresult);
+            isSuccess &= IsArray2DSame(result, checkresult);
             Print("isSuccess = " + isSuccess + " | Anticipated = " + GetArray2DStr(checkresult, ",", ",") + " | Result = " + GetArray2DStr(result, ",", ","));
             return isSuccess;
         }

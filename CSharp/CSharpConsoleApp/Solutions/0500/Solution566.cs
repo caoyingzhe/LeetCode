@@ -80,7 +80,7 @@ namespace CSharpConsoleApp.Solutions._0500
                 new int[] { 1,2,3,4 }
             };
             result = MatrixReshape(nums,r ,c);
-            isSuccess &= IsArraySame(result, checkResult);
+            isSuccess &= IsArray2DSame(result, checkResult);
 
             return isSuccess;
         }

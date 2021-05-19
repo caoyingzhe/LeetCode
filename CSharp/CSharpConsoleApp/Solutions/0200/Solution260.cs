@@ -14,7 +14,7 @@ namespace CSharpConsoleApp.Solutions
         /// </summary>
         /// <param name="sw"></param>
         /// <returns></returns>
-        public override bool Test(Stopwatch sw)
+        public override bool Test(System.Diagnostics.Stopwatch sw)
         {
             int[] nums = null;
             int[] result = null;

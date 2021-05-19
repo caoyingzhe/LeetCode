@@ -61,12 +61,21 @@
 3.  数据结构对照
 	
 	3.1 栈
-		Deque<Integer> xStack;	//Java
+		Deque<Integer> xStack;	//Java Deque 实现了 ArrayDeque
 		Stack<int> xStack;      //C#
 		stack<int> xStack;      //C++
+ 
+        xStack.addLast(0);            //Java
+        xStack.Push(0);               //C#
 
+        xStack.removeLast();          //Java
+        xStack.Pop();                 //C#
+
+
+        xStack.peekLast();            //Java  取得栈顶
 		xStack.peek();                //Java  取得栈顶
-		xStack.FirstOrDefault<int>(); //C#    取得栈顶  或xStack.First<int>();
+        xStack.Peek();                //C#    取得栈顶  或xStack.First<int>(); 需要 using System.Linq;
+		xStack.FirstOrDefault<int>(); //C#    取得栈顶  或xStack.First<int>(); 需要 using System.Linq;
 		xStack.top();                 //C++   取得栈顶
 
 	
@@ -80,4 +89,30 @@
 
 		PriorityQueue.offer 相当于 Queue.Push();
 		PriorityQueue.poll  相当于 Queue.Pop();
+
+   3.3 TreeSet
+        Java TreeSet简介
+        TreeSet 是一个有序的集合，它的作用是提供有序的Set集合。它继承于AbstractSet抽象类，实现了NavigableSet<E>, Cloneable, java.io.Serializable接口。
+        TreeSet 继承于AbstractSet，所以它是一个Set集合，具有Set的属性和方法。支持add、remove、get等方法。
+        TreeSet 实现了NavigableSet接口，意味着它支持一系列的导航方法。比如查找与指定目标最匹配项。
+        TreeSet 实现了Cloneable接口，意味着它能被克隆。
+        TreeSet 实现了java.io.Serializable接口，意味着它支持序列化。
+        TreeSet是基于TreeMap实现的。TreeSet中的元素支持2种排序方式：自然排序 或者 根据创建TreeSet 时提供的 Comparator 进行排序。这取决于使用的构造方法。
+        TreeSet为基本操作（add、remove 和 contains）提供受保证的 log(n) 时间开销。
+        另外，TreeSet是非同步的。 它的iterator 方法返回的迭代器是fail-fast的。
+        ————————————————
+        版权声明：本文为CSDN博主「南     墙」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+        原文链接：https://blog.csdn.net/a1439775520/article/details/95373610
+
+        c# //这将是System.Collections.Generic.SortedSet<T>。
+
+   3.4 哈希表
+       C++  : Set、multiset都是集合类，差别在与set中不允许有重复元素，
+              multiset中允许有重复元素。multiset不是堆，是平衡树。堆在删除时候是很慢的。
+              对muliset遍历时，首先会取出横坐标小的点。如果2个点横坐标相等，会先取出 second 小的点，
+              参考： https://www.cnblogs.com/shmilxu/p/4834610.html
+       Java : HashMap, HashTable
+       C#   : Dictionary, HashSet,
+
+它确实具有人们期望从平衡的树支持数据结构中获得的方法和复杂性保证。您可以按顺序找到所有元素的最大值，最小值，迭代次数。
 

@@ -24,7 +24,7 @@ namespace CSharpConsoleApp.Solutions
         /// 标签： 
         /// </summary>
         public override Tag[] GetTags() { return new Tag[] { Tag.BitManipulation, Tag.Math }; }
-        public override bool Test(Stopwatch sw)
+        public override bool Test(System.Diagnostics.Stopwatch sw)
         {
             bool isSuccess = true;
 

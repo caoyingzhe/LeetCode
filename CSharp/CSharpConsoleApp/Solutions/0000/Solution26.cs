@@ -9,7 +9,7 @@ namespace CSharpConsoleApp.Solutions
 {
     class Solution26 : SolutionBase
     {
-        public override bool Test(Stopwatch sw)
+        public override bool Test(System.Diagnostics.Stopwatch sw)
         {
             int[] nums = null;
             int removeCount = 0;

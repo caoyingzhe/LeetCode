@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -157,6 +157,38 @@
     <Compile Include="Solutions\0700\Solution793.cs" />
     <Compile Include="Solutions\1700\Solution1726.cs" />
     <Compile Include="Solutions\SolutionBase.cs" />
+    <Compile Include="Solutions\0300\Solution378.cs" />
+    <Compile Include="Solutions\0300\Solution377.cs" />
+    <Compile Include="Solutions\0300\Solution382.cs" />
+    <Compile Include="Solutions\0300\Solution388.cs" />
+    <Compile Include="Solutions\0300\Solution363.cs" />
+    <Compile Include="Solutions\0300\Solution389.cs" />
+    <Compile Include="Solutions\0300\Solution368.cs" />
+    <Compile Include="Solutions\0300\Solution373.cs" />
+    <Compile Include="Solutions\0300\Solution391.cs" />
+    <Compile Include="Solutions\0000\Solution30.cs" />
+    <Compile Include="Solutions\0000\Solution32.cs" />
+    <Compile Include="Solutions\0000\Solution33.cs" />
+    <Compile Include="Solutions\0000\Solution36.cs" />
+    <Compile Include="Solutions\0000\Solution39.cs" />
+    <Compile Include="Solutions\0000\Solution40.cs" />
+    <Compile Include="Solutions\0000\Solution41.cs" />
+    <Compile Include="Solutions\0000\Solution43.cs" />
+    <Compile Include="Solutions\0000\Solution45.cs" />
+    <Compile Include="Solutions\0000\Solution46.cs" />
+    <Compile Include="Solutions\0000\Solution47.cs" />
+    <Compile Include="Solutions\0000\Solution48.cs" />
+    <Compile Include="Solutions\0000\Solution49.cs" />
+    <Compile Include="Solutions\0000\Solution52.cs" />
+    <Compile Include="Solutions\0000\Solution51.cs" />
+    <Compile Include="Solutions\0000\Solution53.cs" />
+    <Compile Include="Solutions\0000\Solution35.cs" />
+    <Compile Include="Solutions\0000\Solution58.cs" />
+    <Compile Include="Solutions\0000\Solution72.cs" />
+    <Compile Include="Solutions\0000\Solution76.cs" />
+    <Compile Include="Solutions\0000\Solution84.cs" />
+    <Compile Include="Solutions\0000\Solution85.cs" />
+    <Compile Include="Solutions\0000\Solution55.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
