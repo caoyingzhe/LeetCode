@@ -631,6 +631,10 @@ namespace CSharpConsoleApp.Solutions
         #endregion
 
         #region ------------------------- Util Functions -------------------------
+        public string GetBitString(int value)
+        {
+            return Convert.ToString(value, 2).PadLeft(8, '0');
+        }
 
         public bool IsSameDictionary(Dictionary<string, int> dict1, Dictionary<string, int> dict2)
         {
@@ -743,7 +747,18 @@ namespace CSharpConsoleApp.Solutions
             }
             return result;
         }
-
+        public string GetArrayBiinaryStr(int[] nums, string seperator = ",")
+        {
+            string result = "";
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if(i == nums.Length -1)
+                    result += GetBitString(nums[i]);
+                else
+                    result += GetBitString(nums[i]) + seperator;
+            }
+            return result;
+        }
         public bool IsListSame<T>(IList<T> a, IList<T> b, bool useSort = true)
         {
             List<T> aList = new List<T>(a);

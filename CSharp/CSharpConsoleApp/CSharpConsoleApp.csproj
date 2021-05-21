@@ -201,6 +201,8 @@
     <Compile Include="Solutions\0100\Solution104.cs" />
     <Compile Include="Solutions\0100\Solution110.cs" />
     <Compile Include="Solutions\0100\Solution111.cs" />
+    <Compile Include="Solutions\0300\Solution393.cs" />
+    <Compile Include="Solutions\0300\Solution384.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

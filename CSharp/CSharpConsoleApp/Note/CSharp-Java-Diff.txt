@@ -10,9 +10,14 @@
 	
 	Arrays  //Java
 	Array   //C#
-
-	Arrays.binarySearch(object[ ], object key);     //Java写法
+    Arrays.binarySearch(object[ ], object key);     //Java写法
 	Array.binarySearch(object[ ], object key);      //C#写法
+
+    
+    //的浅表副本仅复制Array的元素，无论他们是引用类型还是值类型，但是不负责这些引用所引用的对象。
+    Arrays.Clone();                                 //Java写法
+	Array.Clone();                                  //C#写法  Clone()返回值是Object，
+    Array.Copy();                                   //C#写法  Copy返回值为void
 
 	/*********** Arrays.binarySearch 测试代码 ************/
 	public static void main (String []args)
