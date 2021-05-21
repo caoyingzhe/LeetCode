@@ -104,6 +104,9 @@
         版权声明：本文为CSDN博主「南     墙」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
         原文链接：https://blog.csdn.net/a1439775520/article/details/95373610
 
+        Solution363  官方题解用用到了 TreeSet.ceiling()
+        ceiling()方法用于返回等于或大于给定元素(ele)的最低元素(如果存在)，否则返回null。
+
         c# //这将是System.Collections.Generic.SortedSet<T>。
 
    3.4 哈希表

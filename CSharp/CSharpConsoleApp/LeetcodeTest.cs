@@ -4,11 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Linq;
 using System.Reflection;
 
 using CSharpConsoleApp.Solutions;
-using System.Linq;
 
 namespace CSharpConsoleApp
 {
@@ -30,7 +28,7 @@ namespace CSharpConsoleApp
             {
                 Type type = types[i];
                 int problemNo = SolutionBase.GetProblemNo(type);
-                if (problemNo != 665)
+                if (problemNo != 111)
                     continue;
 
                 System.Diagnostics.Debug.Print(string.Format("\n-------- Test Problem [{0}] {1} --------", problemNo, type.Name));

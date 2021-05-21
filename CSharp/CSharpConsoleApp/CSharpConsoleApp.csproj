@@ -189,6 +189,18 @@
     <Compile Include="Solutions\0000\Solution84.cs" />
     <Compile Include="Solutions\0000\Solution85.cs" />
     <Compile Include="Solutions\0000\Solution55.cs" />
+    <Compile Include="Solutions\0000\Solution34.cs" />
+    <Compile Include="Solutions\0000\Solution67.cs" />
+    <Compile Include="Solutions\0000\Solution69.cs" />
+    <Compile Include="Solutions\0000\Solution70.cs" />
+    <Compile Include="Solutions\0000\Solution83.cs" />
+    <Compile Include="Solutions\0000\Solution88.cs" />
+    <Compile Include="Solutions\0000\Solution94.cs" />
+    <Compile Include="Solutions\0000\Solution100.cs" />
+    <Compile Include="Solutions\0100\Solution101.cs" />
+    <Compile Include="Solutions\0100\Solution104.cs" />
+    <Compile Include="Solutions\0100\Solution110.cs" />
+    <Compile Include="Solutions\0100\Solution111.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

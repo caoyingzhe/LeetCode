@@ -254,7 +254,7 @@ namespace CSharpConsoleApp.Solutions
             }
 
             /// <summary>
-            /// 创建从顶至底，从左到右顺序的Tree。
+            /// 创建从顶至底，从左到右顺序的完全二叉数Tree。
             /// 该方法创建的不是有序的Tree。除非nums正好符合BTS的顺序。
             /// nums例子：  ["3","1","4",null,"2"],
             ///        3
@@ -285,7 +285,8 @@ namespace CSharpConsoleApp.Solutions
                             }
                             else if (i % 2 == 0 && i > 0)
                             {
-                                nodes[parentIndex].right = newNode;
+                                if(nodes[parentIndex] != null)
+                                    nodes[parentIndex].right = newNode;
                             }
                         }
                     }
