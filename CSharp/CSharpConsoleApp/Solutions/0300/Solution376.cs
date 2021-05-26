@@ -84,7 +84,7 @@ namespace CSharpConsoleApp.Solutions
             //isSuccess = (checkResult == result);
             //Print("isSuccess = {0} | result = {1} | anticipated = {2}", isSuccess, result, checkResult);
 
-            result = WiggleMaxLength(new int[] { 1, 17, 5, 10, 13, 15, 10, 5, 16, 8 });
+            result = WPiggleMaxLength(new int[] { 1, 17, 5, 10, 13, 15, 10, 5, 16, 8 });
             //                                      16,-12,5,  3,  2,  -5, -5,11,-8
             checkResult = 7;
             isSuccess = (checkResult == result);
@@ -223,7 +223,7 @@ namespace CSharpConsoleApp.Solutions
         //作者：lgh18
         //链接：https://leetcode-cn.com/problems/wiggle-subsequence/solution/tan-xin-si-lu-qing-xi-er-zheng-que-de-ti-jie-by-lg/
         //贪心算法
-        public int DPiggleMaxLength(int[] nums)
+        public int WPiggleMaxLength(int[] nums)
         {
             int down = 1, up = 1;
             for (int i = 1; i < nums.Length; i++)

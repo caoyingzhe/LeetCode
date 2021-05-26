@@ -108,6 +108,7 @@ namespace CSharpConsoleApp.Solutions
         //    result = CountSmaller(nums);
         //    isSuccess &= IsArraySame(result.ToArray(), checkResult);
         //    Print("isSuccess = {0} | result = {1} | anticipated = {2}", isSuccess, GetArrayStr<int>(result), GetArrayStr<int>(checkResult));
+        //    Print("isSuccess = {0} | result = {1} | anticipated = {2}", isSuccess, (result), (checkResult));
         //
         //    return isSuccess;
         //}
@@ -253,6 +254,14 @@ namespace CSharpConsoleApp.Solutions
                 this.right = right;
             }
 
+            public string LeftValStr()
+            {
+                return left == null ? "null" : left.val.ToString();
+            }
+            public string RightValStr()
+            {
+                return right == null ? "null" : right.val.ToString();
+            }
             /// <summary>
             /// 创建从顶至底，从左到右顺序的完全二叉数Tree。
             /// 该方法创建的不是有序的Tree。除非nums正好符合BTS的顺序。
