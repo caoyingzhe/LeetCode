@@ -212,6 +212,16 @@
     <Compile Include="Solutions\0600\Solution689.cs" />
     <Compile Include="Solutions\0600\Solution687.cs" />
     <Compile Include="Solutions\0600\Solution676.cs" />
+    <Compile Include="Solutions\0600\Solution684.cs" />
+    <Compile Include="Solutions\0600\Solution685.cs" />
+    <Compile Include="Solutions\0600\Solution679.cs" />
+    <Compile Include="Solutions\0600\Solution668.cs" />
+    <Compile Include="Solutions\0600\Solution667.cs" />
+    <Compile Include="Solutions\0600\Solution659.cs" />
+    <Compile Include="Solutions\0600\Solution658.cs" />
+    <Compile Include="Solutions\0600\Soution657.cs" />
+    <Compile Include="Solutions\0500\Solution583.cs" />
+    <Compile Include="Solutions\0500\Solution541.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
