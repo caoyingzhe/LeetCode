@@ -222,6 +222,19 @@
     <Compile Include="Solutions\0600\Soution657.cs" />
     <Compile Include="Solutions\0500\Solution583.cs" />
     <Compile Include="Solutions\0500\Solution541.cs" />
+    <Compile Include="Solutions\0500\Solution542.cs" />
+    <Compile Include="Solutions\0500\Solution560.cs" />
+    <Compile Include="Solutions\0500\Solution581.cs" />
+    <Compile Include="Solutions\0500\Solution587.cs" />
+    <Compile Include="Solutions\0600\Solution643.cs" />
+    <Compile Include="Solutions\0600\Solution652.cs" />
+    <Compile Include="Solutions\0500\Solution530.cs" />
+    <Compile Include="Solutions\1400\Solution1453.cs" />
+    <Compile Include="Solutions\0800\Solution892.cs" />
+    <Compile Include="Solutions\0900\Solution964.cs" />
+    <Compile Include="Solutions\0500\Solution576.cs" />
+    <Compile Include="Solutions\0300\Solution395.cs" />
+    <Compile Include="Solutions\0400\Solution410.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

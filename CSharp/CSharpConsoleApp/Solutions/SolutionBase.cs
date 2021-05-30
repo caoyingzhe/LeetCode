@@ -640,6 +640,18 @@ namespace CSharpConsoleApp.Solutions
         #endregion
 
         #region ------------------------- Util Functions -------------------------
+        public int GetOrDefault<T>(Dictionary<T, int> dict, T x, int defaultVal = 0)
+        {
+            if (dict.ContainsKey(x))
+                return dict[x];
+            else
+            {
+                dict.Add(x, defaultVal);
+                return defaultVal;
+            }
+
+        }
+
         public string GetBitString(int value)
         {
             return Convert.ToString(value, 2).PadLeft(8, '0');

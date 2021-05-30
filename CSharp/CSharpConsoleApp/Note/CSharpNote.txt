@@ -18,3 +18,30 @@ HashTableはDictionayの下位互換だと思っていたが、存在しない�
 		这对于在特定节点(或头/尾)之后/之后插入是快速的，
 		但是通过索引访问缓慢。
 		通常会比List< T>占用更多的内存
+
+99. C# 经典实例 第二章 集合、枚举器和迭代器 简介
+    https://blog.csdn.net/Sbjhy/article/details/108723646
+
+    //元素列表
+    System.Collections.ArrayList System.Collections.BitArray    
+    System.Collections.Queue
+    System.Collections.Stack
+    System.Collections.Generic.LinkedList<T> 
+    System.Collections.Generic.List<T> 
+    System.Collections.Generic.Queue<T> 
+    System.Collections.Generic.Stack<T> 
+    System.Collections.Generic.HashSet<T>   //可被视为无重复的元素列表。
+
+    //字典
+    System.Collections.Hashtable
+    System.Collections.SortedList
+    System.Collections.Generic.Dictionary<T, U> 
+    System.Collections.Generic.SortedList<T, U>
+
+    System.Collections.Specialized.ListDictionary       //类似于Hashtable, 当包含10个或10个以下的元素时，该类的性能要优于Hashtable。
+    System.Collections.Specialized.HybridDictionary     //该类包含两个內部集合：ListDictionary和Hashtable。任一时刻只会使用其中一个类
+    System.Collections.Specialized.CollectionsUtil      //包含两个静态方法：创建不区分大小写的Hashtable,SortedList。
+    System.Collections.Specialized.NameValueCollection  //键和值都是String类型
+
+    System.Collections.Specialized.StringCollection     //列表接受null元素以及重复的字符串,区分大小写
+    System.Collections.Specialized.StringDictionary     //转换成小写字母, 键不能为null，值可以为null。

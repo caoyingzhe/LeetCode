@@ -58,9 +58,11 @@
 	queue.AddLast(10);                             //C#写法
 	------------------------------------------------------------------
 	T t = queue.poll();                            //Java写 取值并删除 （对应C#两行）
+    //poll(): it retrieves the head element of the queue and then 
+    //removes the head element of the queue.
 
-	T t = queue.Last();                            //C#写法 先取值
-    queue.RemoveLast();                            //C#写法 再删除
+    T t = queue.First();                           //C#写法 先取值
+    queue.RemoveFirst();                           //C#写法 再删除
 	------------------------------------------------------------------
 
 3.  数据结构对照
@@ -119,6 +121,12 @@
               multiset中允许有重复元素。multiset不是堆，是平衡树。堆在删除时候是很慢的。
               对muliset遍历时，首先会取出横坐标小的点。如果2个点横坐标相等，会先取出 second 小的点，
               参考： https://www.cnblogs.com/shmilxu/p/4834610.html
+
+              unordered_map : 内部是hash表结构，内部无序，不存在重复键,拥有快速检索的功能，动态管理所需要的内存空间。
+
+              unordered_map map;
+              if (mp.find(k) != mp.end()) //这里代表 如果存在 k 键
+
        Java : HashMap, HashTable
        C#   : Dictionary, HashSet,
 
