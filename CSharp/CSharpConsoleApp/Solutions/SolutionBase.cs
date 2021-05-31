@@ -649,7 +649,6 @@ namespace CSharpConsoleApp.Solutions
                 dict.Add(x, defaultVal);
                 return defaultVal;
             }
-
         }
 
         public string GetBitString(int value)

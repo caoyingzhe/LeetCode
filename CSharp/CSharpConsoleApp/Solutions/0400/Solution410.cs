@@ -8,10 +8,14 @@ namespace CSharpConsoleApp.Solutions
      *
      * https://leetcode-cn.com/problems/split-array-largest-sum/description/
      *
-     * algorithms
-     * Hard (55.29%)
-     * Likes:    483
-     * Dislikes: 0
+     * Category	Difficulty	Likes	Dislikes
+     * algorithms	Hard (55.29%)	483	-
+     * Tags
+     * binary-search | dynamic-programming
+     * 
+     * Companies
+     * baidu | facebook
+     * 
      * Total Accepted:    32.7K
      * Total Submissions: 59.2K
      * Testcase Example:  '[7,2,5,10,8]\n2'
@@ -41,6 +45,19 @@ namespace CSharpConsoleApp.Solutions
      */
     public class Solution410 : SolutionBase
     {
+        /// <summary>
+        /// 难度
+        /// </summary>
+        public override Difficulity GetDifficulity() { return Difficulity.Hard; }
+        /// <summary>
+        /// 关键字:
+        /// </summary>
+        public override string[] GetKeyWords() { return new string[] { "连续子数组", "数组和" }; }
+        /// <summary>
+        /// 标签：
+        /// </summary>
+        public override Tag[] GetTags() { return new Tag[] { Tag.BinarySearch, Tag.DynamicProgramming, }; }
+
         public override bool Test(System.Diagnostics.Stopwatch sw)
         {
             return true;

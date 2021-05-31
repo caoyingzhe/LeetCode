@@ -18,10 +18,8 @@ namespace CSharpConsoleApp.Solutions
         public override Difficulity GetDifficulity() { return Difficulity.Medium; }
         /// <summary>
         /// 关键字:
-        ///     DFS => 广度优先搜索（算法导论 第六部分 图算法 22.1章节）
-        ///     BFS => 深度优先搜索（算法导论 第六部分 图算法 22.2章节）
         /// </summary>
-        public override string[] GetKeyWords() { return new string[] { "动态规划之01背包问题" }; }
+        public override string[] GetKeyWords() { return new string[] { "自我完成","动态规划之01背包问题" }; }
         /// <summary>
         /// 标签： 图
         /// </summary>
