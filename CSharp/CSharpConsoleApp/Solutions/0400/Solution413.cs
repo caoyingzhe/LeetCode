@@ -45,11 +45,11 @@ namespace CSharpConsoleApp.Solutions
         /// <summary>
         /// 难度
         /// </summary>
-        public override Difficulity GetDifficulity() { return Difficulity.Medium; }
+        public override Difficulity GetDifficulity() { return Difficulity.Easy; }
         /// <summary>
         /// 关键字:
         /// </summary>
-        public override string[] GetKeyWords() { return new string[] { "等差数列" }; }
+        public override string[] GetKeyWords() { return new string[] {  }; }
         /// <summary>
         /// 标签：
         /// </summary>

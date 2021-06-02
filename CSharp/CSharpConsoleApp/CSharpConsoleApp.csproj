@@ -243,6 +243,9 @@
     <Compile Include="Solutions\0500\Solution521.cs" />
     <Compile Include="Solutions\0500\Solution522.cs" />
     <Compile Include="Solutions\0500\Solution520.cs" />
+    <Compile Include="Solutions\0500\Solution514.cs" />
+    <Compile Include="Solutions\0400\Solution401.cs" />
+    <Compile Include="Solutions\0500\Solution506.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
