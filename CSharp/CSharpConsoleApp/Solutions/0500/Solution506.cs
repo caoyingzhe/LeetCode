@@ -9,10 +9,14 @@ namespace CSharpConsoleApp.Solutions
      *
      * https://leetcode-cn.com/problems/relative-ranks/description/
      *
-     * algorithms
-     * Easy (56.02%)
-     * Likes:    74
-     * Dislikes: 0
+     * Category	Difficulty	Likes	Dislikes
+     * algorithms	Easy (56.02%)	74	-
+     * Tags
+     * Unknown
+     * 
+     * Companies
+     * google
+     * 
      * Total Accepted:    17.1K
      * Total Submissions: 30.5K
      * Testcase Example:  '[5,4,3,2,1]'
@@ -39,15 +43,15 @@ namespace CSharpConsoleApp.Solutions
         /// <summary>
         /// 难度
         /// </summary>
-        public override Difficulity GetDifficulity() { return Difficulity.Medium; }
+        public override Difficulity GetDifficulity() { return Difficulity.Easy; }
         /// <summary>
         /// 关键字:
         /// </summary>
-        public override string[] GetKeyWords() { return new string[] { "等差数列" }; }
+        public override string[] GetKeyWords() { return new string[] { "相对名次" }; }
         /// <summary>
         /// 标签：
         /// </summary>
-        public override Tag[] GetTags() { return new Tag[] { Tag.Math, Tag.DynamicProgramming, }; }
+        public override Tag[] GetTags() { return new Tag[] { Tag.Unknown }; }
 
         public override bool Test(System.Diagnostics.Stopwatch sw)
         {

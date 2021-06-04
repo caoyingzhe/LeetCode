@@ -46,16 +46,30 @@ namespace CSharpConsoleApp.Solutions
      * ⁠当然, 我们还需要1步进行拼写。
      * ⁠因此最终的输出是 4。
      * 
-     * 
      * 提示：
      * ring 和 key 的字符串长度取值范围均为 1 至 100；
      * 两个字符串中都只有小写字符，并且均可能存在重复字符；
      * 字符串 key 一定可以由字符串 ring 旋转拼出。
-     * 
-     * 
      */
-    public class Solution514
+    public class Solution514 : SolutionBase
     {
+        /// <summary>
+        /// 难度
+        /// </summary>
+        public override Difficulity GetDifficulity() { return Difficulity.Hard; }
+        /// <summary>
+        /// 关键字:
+        /// </summary>
+        public override string[] GetKeyWords() { return new string[] { }; }
+        /// <summary>
+        /// 标签：
+        /// </summary>
+        public override Tag[] GetTags() { return new Tag[] { Tag.DivideAndConquer, Tag.DynamicProgramming, Tag.DepthFirstSearch }; }
+
+        public override bool Test(System.Diagnostics.Stopwatch sw)
+        {
+            return true;
+        }
         /// <summary>
         /// 303/303 cases passed (88 ms)
         /// Your runtime beats 100 % of csharp submissions

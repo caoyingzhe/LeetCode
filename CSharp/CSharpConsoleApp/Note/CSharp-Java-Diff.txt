@@ -1,5 +1,15 @@
 ﻿Java和C#代码替换常见误区
 
+JavaDoc :
+    https://tool.oschina.net/apidocs/apidoc?api=jdk-zh  JDK1.6
+    https://docs.oracle.com/javase/8/docs/api/java/util/Deque.html JDk1.8
+
+C# Doc :
+    
+C++ Doc :
+    
+
+
 1.  字符串
 
 	字符串截取
@@ -68,7 +78,7 @@
 3.  数据结构对照
 	
 	3.1 栈
-		Deque<Integer> xStack;	//Java Deque 实现了 ArrayDeque
+		Deque<Integer> xStack;	//Java Deque 实现了 ArrayDeque  双端队列,支持在两端插入和移除元素
 		Stack<int> xStack;      //C#
 		stack<int> xStack;      //C++
  
@@ -84,6 +94,9 @@
         xStack.Peek();                //C#    取得栈顶  或xStack.First<int>(); 需要 using System.Linq;
 		xStack.FirstOrDefault<int>(); //C#    取得栈顶  或xStack.First<int>(); 需要 using System.Linq;
 		xStack.top();                 //C++   取得栈顶
+
+        xStack.offerLast(0);            //Java
+        xStack.Push(0);                 //C#
 
 	
 	3.2 堆

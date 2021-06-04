@@ -717,6 +717,15 @@ namespace CSharpConsoleApp.Solutions
             }
             return result.ToString();
         }
+        //public string GetArray2DStr<T>(IList<T[]> llist, string seperator = ",", string lineSeperator = "\n")
+        //{
+        //    string result = "";
+        //    foreach (T[] iList in llist)
+        //    {
+        //        result += "[" + string.Join(seperator, iList.ToArray()) + "]" + lineSeperator;
+        //    }
+        //    return result;
+        //}
         public string GetArray2DStr<T>(IList<IList<T>> llist, string seperator = ",", string lineSeperator = "\n")
         {
             string result = "";
@@ -791,7 +800,7 @@ namespace CSharpConsoleApp.Solutions
             }
             return string.Join(",", aList).Equals(string.Join(",", bList));
         }
-        public bool IsArraySame(int[] a, int[] b, bool ignoreTail = true)
+        public bool IsArraySame<T>(T[] a, T[] b, bool ignoreTail = true)
         {
             int alen = a == null ? 0 : a.Length;
             int blen = b == null ? 0 : b.Length;
@@ -806,11 +815,10 @@ namespace CSharpConsoleApp.Solutions
             {
                 for (int i = 0; i < compareLen; i++)
                 {
-                    if (a[i] != b[i])
+                    if (!a[i].Equals(b[i]))
                         return false;
                 }
             }
-
             return true;
         }
         public bool IsArray2DSame(IList<IList<int>> a, IList<IList<int>> b, bool useSort = false)

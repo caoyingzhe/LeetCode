@@ -61,7 +61,7 @@ namespace CSharpConsoleApp.Solutions
         /// <summary>
         /// 标签：
         /// </summary>
-        public override Tag[] GetTags() { return new Tag[] { Tag.Backtracking, Tag.DynamicProgramming, }; }
+        public override Tag[] GetTags() { return new Tag[] { Tag.Backtracking, Tag.BitManipulation, }; }
 
         public override bool Test(System.Diagnostics.Stopwatch sw)
         {
