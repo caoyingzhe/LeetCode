@@ -38,9 +38,26 @@ namespace CSharpConsoleApp.Solutions
      * -10 <= nums[i] <= 10
      * nums 中的所有元素 互不相同
      */
-    public class Solution78
+    public class Solution78 : SolutionBase
     {
+        /// <summary>
+        /// 难度
+        /// </summary>
+        public override Difficulity GetDifficulity() { return Difficulity.Medium; }
+        /// <summary>
+        /// 关键字:
+        /// </summary>
+        public override string[] GetKeyWords() { return new string[] { }; }
+        /// <summary>
+        /// 标签：
+        /// </summary>
+        public override Tag[] GetTags() { return new Tag[] { Tag.Array, Tag.BitManipulation, Tag.Backtracking }; }
 
+        public override bool Test(System.Diagnostics.Stopwatch sw)
+        {
+            bool isSuccess = true;
+            return isSuccess;
+        }
 
         /// <summary>
         /// 迭代法，利用了int的位操作充当mask的特点。

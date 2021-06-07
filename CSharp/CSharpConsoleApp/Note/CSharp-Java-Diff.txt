@@ -110,6 +110,44 @@ C++ Doc :
 		PriorityQueue.offer 相当于 Queue.Push();
 		PriorityQueue.poll  相当于 Queue.Pop();
 
+
+        重大区别：
+
+        C#代码实现的 【PriorityQueue】不完全等同于 Java中的【PriorityQueue】。
+        Java中如果不指定比较器，对于数组，默认是从第一个元素到最后一个元素升序。
+        C#代码实现的 【PriorityQueue】如果不指定，则不做任何排序。
+
+        该问题发现与第401题，接雨水中
+        Java代码为：
+            PriorityQueue<int[]> pq = new PriorityQueue<>((
+                o1, o2) -> o1[2] - o2[2]    //优先对元素3升序，然后是默认对元素1，2升序。
+            );
+        C#直接拷贝代码为，但得到确实错误的结果
+            PriorityQueue<int[]> pq = new PriorityQueue<int[]> (new ComparerSolution407());
+            public class ComparerSolution407 : IComparer<int[]>
+            {
+                public int Compare(int[] pair1, int[] pair2) {
+                    return pair2[2] - pair1[2];  //只对元素3升序
+                }
+            }
+
+            正确的比较器如下：
+            public class ComparerSolution407 : IComparer<int[]>
+            {
+                public int Compare(int[] pair1, int[] pair2)
+                {
+                    if(pair2[2] != pair1[2])
+                        return pair2[2] - pair1[2];  //元素3升序
+                    else if (pair2[0] != pair1[0])
+                    {
+                        return pair2[0] - pair1[0];  //元素1升序
+                    }
+                    else// (pair2[0] != pair1[0])
+                    {
+                        return pair2[1] - pair1[1];  //元素2升序
+                    }
+                }
+            }
    3.3 TreeSet
         Java TreeSet简介
         TreeSet 是一个有序的集合，它的作用是提供有序的Set集合。它继承于AbstractSet抽象类，实现了NavigableSet<E>, Cloneable, java.io.Serializable接口。

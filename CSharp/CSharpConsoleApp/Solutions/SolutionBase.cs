@@ -441,6 +441,44 @@ namespace CSharpConsoleApp.Solutions
         /// 这个程序使用堆(heap)来实现优先队列。所以，所需的空间是最小的。
         /// Count 属性和 Top 方法的时间复杂度是 O(1)，
         /// Push 和 Pop 方法的时间复杂度都是 O(logN)。
+        ///
+        /// 特别注意：
+        /// C#代码实现的 【PriorityQueue】不完全等同于 Java中的【PriorityQueue】。
+        /// Java中如果不指定比较器，对于数组，默认是从第一个元素到最后一个元素升序。
+        /// 本【PriorityQueue】如果不指定，则不做任何排序。
+        /// 
+        /// 该问题发现于第401题【接雨水中】
+        /// Java代码为：
+        ///     PriorityQueue<int[]> pq = new PriorityQueue<>((
+        ///         o1, o2)->o1[2] - o2[2]    //优先对元素3升序，然后是默认对元素1，2升序。
+        ///     );
+        /// C#直接拷贝代码为，但得到确实错误的结果
+        ///     PriorityQueue<int[]> pq = new PriorityQueue<int[]>(new ComparerSolution407());
+        /// public class ComparerSolution407 : IComparer<int[]>
+        /// {
+        ///     public int Compare(int[] pair1, int[] pair2)
+        ///     {
+        ///         return pair2[2] - pair1[2];  //只对元素3升序
+        ///     }
+        /// }
+        /// 
+        /// 正确的比较器如下：
+        /// public class ComparerSolution407 : IComparer<int[]>
+        /// {
+        ///     public int Compare(int[] pair1, int[] pair2)
+        ///     {
+        ///         if (pair2[2] != pair1[2])
+        ///             return pair2[2] - pair1[2];  //元素3升序
+        ///         else if (pair2[0] != pair1[0])
+        ///         {
+        ///             return pair2[0] - pair1[0];  //元素1升序
+        ///         }
+        ///         else// (pair2[0] != pair1[0])
+        ///         {
+        ///             return pair2[1] - pair1[1];  //元素2升序
+        ///         }
+        ///     }
+        /// }
         /// </summary>
         /// <typeparam name="T"></typeparam>
         public class PriorityQueue<T>
@@ -821,7 +859,7 @@ namespace CSharpConsoleApp.Solutions
             }
             return true;
         }
-        public bool IsArray2DSame(IList<IList<int>> a, IList<IList<int>> b, bool useSort = false)
+        public bool IsArray2DSame<T>(IList<IList<T>> a, IList<IList<T>> b, bool useSort = false)
         {
             if ((a == null || a.Count == 0) && (b == null || b.Count == 0))
                 return true;
@@ -839,8 +877,8 @@ namespace CSharpConsoleApp.Solutions
 
                     for (int row = 0; row < a.Count; row++)
                     {
-                        int[] arrA = a[row].ToArray(); Array.Sort(arrA);
-                        int[] arrB = b[row].ToArray(); Array.Sort(arrB);
+                        T[] arrA = a[row].ToArray(); Array.Sort(arrA);
+                        T[] arrB = b[row].ToArray(); Array.Sort(arrB);
                         strA.Add(string.Join(",", arrA));
                         strB.Add(string.Join(",", arrB));
                     }
@@ -859,7 +897,7 @@ namespace CSharpConsoleApp.Solutions
                         {
                             for (int i = 0; i < a[row].Count; i++)
                             {
-                                if (a[row][i] != b[row][i])
+                                if (!a[row][i].Equals( b[row][i]))
                                     return false;
                             }
                         }

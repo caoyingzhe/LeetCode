@@ -49,8 +49,27 @@ namespace CSharpConsoleApp.Solutions
      * 你可以不使用代码库中的排序函数来解决这道题吗？
      * 你能想出一个仅使用常数空间的一趟扫描算法吗？
      */
-    public class Solution75
+    public class Solution75 : SolutionBase
     {
+        /// <summary>
+        /// 难度
+        /// </summary>
+        public override Difficulity GetDifficulity() { return Difficulity.Medium; }
+        /// <summary>
+        /// 关键字:
+        /// </summary>
+        public override string[] GetKeyWords() { return new string[] { }; }
+        /// <summary>
+        /// 标签：
+        /// </summary>
+        public override Tag[] GetTags() { return new Tag[] { Tag.Array, Tag.TwoPointers, Tag.Sort }; }
+
+        public override bool Test(System.Diagnostics.Stopwatch sw)
+        {
+            bool isSuccess = true;
+            return isSuccess;
+        }
+
         /// <summary>
         /// https://leetcode-cn.com/problems/sort-colors/solution/yan-se-fen-lei-by-leetcode-solution/
         /// 87/87 cases passed (268 ms)

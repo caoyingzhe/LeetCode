@@ -37,8 +37,27 @@ namespace CSharpConsoleApp.Solutions
      * 1 <= m, n <= 100
      * -10^4 <= matrix[i][j], target <= 10^4
      */
-    public class Solution74
+    public class Solution74 : SolutionBase
     {
+        /// <summary>
+        /// 难度
+        /// </summary>
+        public override Difficulity GetDifficulity() { return Difficulity.Medium; }
+        /// <summary>
+        /// 关键字:
+        /// </summary>
+        public override string[] GetKeyWords() { return new string[] { }; }
+        /// <summary>
+        /// 标签：
+        /// </summary>
+        public override Tag[] GetTags() { return new Tag[] { Tag.Array, Tag.BinarySearch }; }
+
+        public override bool Test(System.Diagnostics.Stopwatch sw)
+        {
+            bool isSuccess = true;
+            return isSuccess;
+        }
+
         /// <summary>
         /// 133/133 cases passed (112 ms)
         /// Your runtime beats 62.66 % of csharp submissions
