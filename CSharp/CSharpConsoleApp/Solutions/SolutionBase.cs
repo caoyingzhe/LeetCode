@@ -59,7 +59,8 @@ namespace CSharpConsoleApp.Solutions
             TwoPointers,        //双指针
             UnionFind,          //并查集
             Unknown,            //未定
-            RedBlackTree        //红黑树
+            RedBlackTree,       //红黑树
+            PrefixSum,          //前缀和
         }
         /// <summary>
         /// Get problem No on leetcode site.
