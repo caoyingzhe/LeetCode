@@ -281,6 +281,11 @@
     <Compile Include="Solutions\0000\Solution96.cs" />
     <Compile Include="Solutions\0400\Solution443.cs" />
     <Compile Include="Solutions\0100\Solution151.cs" />
+    <Compile Include="Solutions\0200\Solution202.cs" />
+    <Compile Include="Solutions\0200\Solution235.cs" />
+    <Compile Include="Solutions\0200\Solution211.cs" />
+    <Compile Include="Solutions\0400\Solution421.cs" />
+    <Compile Include="Solutions\0400\Solution415.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

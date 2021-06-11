@@ -333,6 +333,13 @@ namespace CSharpConsoleApp.Solutions
                 return Helper3(nums, 0, nums.Length - 1, new Random()); // 该方法OK
             }
 
+            /// <summary>
+            /// 节点排序（from Solution75)
+            /// </summary>
+            /// <param name="nums"></param>
+            /// <param name="left"></param>
+            /// <param name="right"></param>
+            /// <returns></returns>
             private static TreeNode Helper1(int[] nums, int left, int right)
             {
                 if (left > right)
@@ -350,6 +357,7 @@ namespace CSharpConsoleApp.Solutions
             }
 
             /// <summary>
+            /// 节点排序（from Solution75)
             /// 方法二：中序遍历，总是选择中间位置右边的数字作为根节点
             /// </summary>
             /// <param name="nums"></param>
@@ -374,6 +382,7 @@ namespace CSharpConsoleApp.Solutions
 
 
             /// <summary>
+            /// 节点排序（from Solution75)
             /// 方法三：中序遍历，选择任意一个中间位置数字作为根节点
             /// </summary>
             private static TreeNode Helper3(int[] nums, int left, int right, Random rand)
@@ -429,6 +438,35 @@ namespace CSharpConsoleApp.Solutions
                 GetNodeList(node.left, nodeList);
                 nodeList.Add(node);
                 GetNodeList(node.right, nodeList);
+            }
+
+            /// <summary>
+            /// 获取当前节点路径(from Solution235)
+            /// 特别注意：
+            ///     该方法只可用于2查搜索树（左边小，右边大），
+            ///     不可用于非规则树。
+            /// </summary>
+            /// <param name="root"></param>
+            /// <param name="target"></param>
+            /// <returns></returns>
+            public List<TreeNode> GetPath(TreeNode root, TreeNode target)
+            {
+                List<TreeNode> path = new List<TreeNode>();
+                TreeNode node = root;
+                while (node != target)
+                {
+                    path.Add(node);
+                    if (target.val < node.val)
+                    {
+                        node = node.left;
+                    }
+                    else
+                    {
+                        node = node.right;
+                    }
+                }
+                path.Add(node);
+                return path;
             }
         }
 
@@ -612,6 +650,69 @@ namespace CSharpConsoleApp.Solutions
             public TrieNode() { }
         }
 
+        public class Trie {}
+
+        public class Trie208 : Trie
+        {
+            public static int count = 0;
+            private Trie208[] children; //[字母映射表]
+            private bool isEnd;
+
+            /** Initialize your data structure here. */
+            public Trie208()
+            {
+                count++;
+                //System.Diagnostics.Debug.Print("new Trie() : " + count);
+                this.children = new Trie208[26];
+                isEnd = false;
+            }
+
+            /** Inserts a word into the trie. */
+            public void Insert(string word)
+            {
+                Trie208 node = this;
+                for (int i = 0; i < word.Length; i++)
+                {
+                    char ch = word[i];
+                    int index = ch - 'a';
+                    if (node.children[index] == null)
+                    {
+                        node.children[index] = new Trie208();
+                    }
+                    node = node.children[index];
+                }
+                node.isEnd = true; // 这里的node不是自己，而是单词最后一个字幕对应的children中的node
+            }
+
+            /** Returns if the word is in the trie. */
+            public bool Search(string word)
+            {
+                Trie208 node = SearchPrefix(word);
+                return node != null && node.isEnd;
+            }
+
+            /** Returns if there is any word in the trie that starts with the given prefix. */
+            public bool StartsWith(string prefix)
+            {
+                return SearchPrefix(prefix) != null;
+            }
+
+            private Trie208 SearchPrefix(string prefix)
+            {
+                Trie208 node = this;
+                for (int i = 0; i < prefix.Length; i++)
+                {
+                    char ch = prefix[i];
+                    int index = ch - 'a';
+                    if (node.children[index] == null)
+                    {
+                        return null;
+                    }
+                    node = node.children[index];
+                }
+                return node;
+            }
+        }
 
         /// <summary>
         /// Solution 208也使用了类名 Trie，为了区分，后面添加Solution号码加以区分。
@@ -619,7 +720,7 @@ namespace CSharpConsoleApp.Solutions
         ///作者：LeetCode-Solution
         ///链接：https://leetcode-cn.com/problems/palindrome-pairs/solution/hui-wen-dui-by-leetcode-solution/
         /// </summary>
-        public class Trie336
+        public class Trie336 : Trie
         {
             public class Node
             {

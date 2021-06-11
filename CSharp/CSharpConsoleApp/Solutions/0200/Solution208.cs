@@ -82,7 +82,7 @@ namespace CSharpConsoleApp.Solutions
         {
             bool isSuccess = true;
 
-            Trie trie = new Trie();
+            Trie208 trie = new Trie208();
             //trie.Insert("apple");
             //System.Diagnostics.Debug.Assert(trie.Search("apple")== true);    // 返回 True
             //System.Diagnostics.Debug.Assert(trie.Search("app") == false);    // 返回 False
@@ -102,69 +102,6 @@ namespace CSharpConsoleApp.Solutions
             //System.Diagnostics.Debug.Assert(trie.Search("diagno") == false); // 返回 True
 
             return isSuccess;
-        }
-
-    }
-
-    public class Trie
-    {
-        public static int count = 0;
-        private Trie[] children; //[字母映射表]
-        private bool isEnd;
-
-        /** Initialize your data structure here. */
-        public Trie()
-        {
-            count++;
-            //System.Diagnostics.Debug.Print("new Trie() : " + count);
-            this.children = new Trie[26];
-            isEnd = false;
-        }
-
-        /** Inserts a word into the trie. */
-        public void Insert(string word)
-        {
-            Trie node = this;
-            for(int i=0; i<word.Length; i++)
-            {
-                char ch = word[i];
-                int index = ch - 'a';
-                if (node.children[index] == null)
-                {
-                    node.children[index] = new Trie();
-                }
-                node = node.children[index];
-            }
-            node.isEnd = true; // 这里的node不是自己，而是单词最后一个字幕对应的children中的node
-        }
-
-        /** Returns if the word is in the trie. */
-        public bool Search(string word)
-        {
-            Trie node = SearchPrefix(word);
-            return node != null && node.isEnd;
-        }
-
-        /** Returns if there is any word in the trie that starts with the given prefix. */
-        public bool StartsWith(string prefix)
-        {
-            return SearchPrefix(prefix) != null;
-        }
-
-        private Trie SearchPrefix(string prefix)
-        {
-            Trie node = this;
-            for(int i= 0; i<prefix.Length; i++)
-            {
-                char ch = prefix[i];
-                int index = ch - 'a';
-                if(node.children[index] == null)
-                {
-                    return null;
-                }
-                node = node.children[index];
-            }
-            return node;
         }
     }
 }
