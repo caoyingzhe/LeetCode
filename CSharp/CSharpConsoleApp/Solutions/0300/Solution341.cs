@@ -107,22 +107,56 @@ namespace CSharpConsoleApp.Solutions._0300
      * NestedIterator i = new NestedIterator(nestedList);
      * while (i.HasNext()) v[f()] = i.Next();
      */
+
+    //作者：LeetCode - Solution
+    //链接：https://leetcode-cn.com/problems/flatten-nested-list-iterator/solution/bian-ping-hua-qian-tao-lie-biao-die-dai-ipjzq/
+
+    ///43/43 cases passed (252 ms)
+    ///Your runtime beats 99.56 % of csharp submissions
+    ///Your memory usage beats 79.04 % of csharp submissions(32.2 MB)
     public class NestedIterator
     {
+        private List<int> vals;
+        private int index;
 
         public NestedIterator(IList<NestedInteger> nestedList)
         {
-
+            vals = new List<int>();
+            dfs(nestedList);
+            index = -1;
         }
 
         public bool HasNext()
         {
-            return false;
+            return index < vals.Count-1;
         }
 
         public int Next()
         {
-            return -1;
+            if (HasNext())
+            {
+                index++;
+                return vals[index];
+            }
+            else
+            { 
+                return -1;
+            }
+        }
+
+        private void dfs(IList<NestedInteger> nestedList)
+        {
+            foreach (NestedInteger nest in nestedList)
+            {
+                if (nest.IsInteger())
+                {
+                    vals.Add(nest.GetInteger());
+                }
+                else
+                {
+                    dfs(nest.GetList());
+                }
+            }
         }
     }
 }

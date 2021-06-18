@@ -14,10 +14,14 @@ namespace CSharpConsoleApp.Solutions._0200
      *
      * https://leetcode-cn.com/problems/serialize-and-deserialize-binary-tree/description/
      *
-     * algorithms
-     * Hard (54.23%)
-     * Likes:    540
-     * Dislikes: 0
+     * Category	Difficulty	Likes	Dislikes
+     * algorithms	Hard (54.91%)	575	-
+     * Tags
+     * tree | design
+     * 
+     * Companies
+     * amazon | bloomberg | facebook | google | linkedin | microsoft | uber | yahoo
+     *
      * Total Accepted:    76.4K
      * Total Submissions: 140.4K
      * Testcase Example:  '[1,2,3,null,null,4,5]'
@@ -32,44 +36,29 @@ namespace CSharpConsoleApp.Solutions._0200
      * 序列化二叉树的格式。你并非必须采取这种方式，你也可以采用其他的方法解决这个问题。
      * 
      * 
-     * 
      * 示例 1：
-     * 
-     * 
      * 输入：root = [1,2,3,null,null,4,5]
      * 输出：[1,2,3,null,null,4,5]
      * 
      * 
      * 示例 2：
-     * 
-     * 
      * 输入：root = []
      * 输出：[]
      * 
      * 
      * 示例 3：
-     * 
-     * 
      * 输入：root = [1]
      * 输出：[1]
      * 
      * 
      * 示例 4：
-     * 
-     * 
      * 输入：root = [1,2]
      * 输出：[1,2]
      * 
      * 
-     * 
-     * 
      * 提示：
-     * 
-     * 
      * 树中结点数在范围 [0, 10^4] 内
      * -1000 
-     * 
-     * 
      */
 
     // @lc code=start
@@ -98,20 +87,79 @@ namespace CSharpConsoleApp.Solutions._0200
             return isSuccess;
         }
     }
+    //Using string
+    //52/52 cases passed(1104 ms)
+    //Your runtime beats 5.06 % of csharp submissions
+    //Your memory usage beats 7.6 % of csharp submissions(48.7 MB)
 
+    //Using stringBuilder replace of string.
+    //52/52 cases passed(448 ms)
+    //Your runtime beats 25.32 % of csharp submissions
+    //Your memory usage beats 83.54 % of csharp submissions(33.2 MB)
+
+    //Using stringBuilder replace of string.
+    //use index++ replace of list.RemoveAt(0);
+    //52/52 cases passed(136 ms)
+    //Your runtime beats 84.81 % of csharp submissions
+    //Your memory usage beats 60.76 % of csharp submissions(33.4 MB)
+    //作者：LeetCode - Solution
+    //链接：https://leetcode-cn.com/problems/serialize-and-deserialize-binary-tree/solution/er-cha-shu-de-xu-lie-hua-yu-fan-xu-lie-hua-by-le-2/
     public class Codec
     {
+        string STRING_NULL = "NULL";
+        char CHAR_SPLIT = ',';
+        int rdesIndex = 0;
         // Encodes a tree to a single string.
-        public string serialize(TreeNode root)
+        public StringBuilder rserialize(TreeNode root, StringBuilder sb)
         {
-            return "";
+            if (root == null)
+            {
+                //根为空，添加空字符+分隔符, 默认为 "NULL,";
+                //str += STRING_NULL + CHAR_SPLIT;
+                sb.Append("NULL,");
+            }
+            else
+            {
+                //处理顺序：根->左->右。
+                sb.Append(root.val).Append(CHAR_SPLIT); //string.valueOf = .Tostring()
+                sb = rserialize(root.left, sb);
+                sb = rserialize(root.right, sb);
+            }
+            return sb;
+        }
+
+        public TreeNode rdeserialize(List<string> l)
+        {
+            //if (l[0].Equals(STRING_NULL))
+            if (l[rdesIndex].Equals("NULL"))
+            {
+                //l.RemoveAt(0);  //
+                rdesIndex++;
+                return null;
+            }
+
+            //处理顺序：根->左->右。
+            TreeNode root = new TreeNode(int.Parse(l[rdesIndex]));
+            //l.RemoveAt(0);
+            rdesIndex++;
+            root.left = rdeserialize(l);
+            root.right = rdeserialize(l);
+
+            return root;
+        }
+
+        public string serialize(TreeNode root) {
+            return rserialize(root, new StringBuilder()).ToString();
         }
 
         // Decodes your encoded data to tree.
         public TreeNode deserialize(string data)
         {
-            int[] arr = new int[] { }; // from data
-            return new TreeNode();
+            string[] data_array = data.Split(CHAR_SPLIT);
+            List<string> data_list = new List<string>(data_array);
+
+            this.rdesIndex = 0;
+            return rdeserialize(data_list);
         }
     }
 }

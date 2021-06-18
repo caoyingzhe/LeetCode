@@ -286,6 +286,31 @@
     <Compile Include="Solutions\0200\Solution211.cs" />
     <Compile Include="Solutions\0400\Solution421.cs" />
     <Compile Include="Solutions\0400\Solution415.cs" />
+    <Compile Include="Solutions\0400\Solution417.cs" />
+    <Compile Include="Solutions\0400\Solution447.cs" />
+    <Compile Include="Solutions\0400\Solution448.cs" />
+    <Compile Include="Solutions\0400\Solution451.cs" />
+    <Compile Include="Solutions\0200\Solution204.cs" />
+    <Compile Include="Solutions\0400\Solution459.cs" />
+    <Compile Include="Solutions\premium\Solution625.cs" />
+    <Compile Include="Solutions\0400\Solution463.cs" />
+    <Compile Include="Solutions\0400\Solution474.cs" />
+    <Compile Include="Solutions\0400\Solution475.cs" />
+    <Compile Include="Solutions\0400\Solution480.cs" />
+    <Compile Include="Solutions\0200\Solution295.cs" />
+    <Compile Include="Solutions\0200\Solution297.cs" />
+    <Compile Include="Solutions\0400\Solution481.cs" />
+    <Compile Include="Solutions\0400\Solution482.cs" />
+    <Compile Include="Solutions\0400\Solution483.cs" />
+    <Compile Include="Solutions\0400\Solution485.cs" />
+    <Compile Include="Solutions\0400\Solution486.cs" />
+    <Compile Include="Solutions\0400\Solution494.cs" />
+    <Compile Include="Solutions\0400\Solution498.cs" />
+    <Compile Include="Solutions\0500\Solution501.cs" />
+    <Compile Include="Solutions\0500\Solution503.cs" />
+    <Compile Include="Solutions\0200\Solution284.cs" />
+    <Compile Include="Solutions\0000\Solution89.cs" />
+    <Compile Include="Solutions\0000\Solution90.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

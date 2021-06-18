@@ -779,6 +779,66 @@ namespace CSharpConsoleApp.Solutions
         }
         #endregion
 
+        #region ------------------ Math Functions
+        /// <summary>
+        /// 判断x是否是质数 （From Solution204）
+        /// </summary>
+        /// <param name="x"></param>
+        /// <returns></returns>
+        public bool IsPrime(int x)
+        {
+            for (int i = 2; i * i <= x; ++i)
+            {
+                if (x % i == 0)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// 判断是否是质数，不是更新质因数列表（不含1）
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="factors"></param>
+        /// <returns></returns>
+        public bool IsPrime(int x, List<int> factors)
+        {
+            if (factors == null) factors = new List<int>();
+
+            for (int i = 2; i * i <= x; ++i)
+            {
+                if (x % i == 0)
+                {
+                    factors.Add(i);
+                    IsPrime(x / i, factors);
+                    break;
+                }
+            }
+            return factors.Count == 0;
+        }
+
+        /// <summary>
+        /// 判断是否是质数，不是更新所有因数列表（不含1）
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="factors"></param>
+        /// <returns></returns>
+        public bool IsPrime2(int x, List<int> factors)
+        {
+            if (factors == null) factors = new List<int>();
+
+            for (int i = 2; i <= x / 2; ++i)
+            {
+                if (x % i == 0)
+                {
+                    factors.Add(i);
+                }
+            }
+            return factors.Count == 0;
+        }
+        #endregion
         #region ------------------------- Util Functions -------------------------
         public int GetOrDefault<T>(Dictionary<T, int> dict, T x, int defaultVal = 0)
         {
@@ -940,6 +1000,15 @@ namespace CSharpConsoleApp.Solutions
             }
             return string.Join(",", aList).Equals(string.Join(",", bList));
         }
+        public bool IsSame<T>(T a, T b)
+        {
+            if (a == null && b != null)
+                return false;
+            if (a != null && b == null)
+                return false;
+            return a.ToString().Equals(b.ToString());
+        }
+        
         public bool IsArraySame<T>(T[] a, T[] b, bool ignoreTail = true)
         {
             int alen = a == null ? 0 : a.Length;
@@ -1040,7 +1109,12 @@ namespace CSharpConsoleApp.Solutions
             }
             return true;
         }
-
+        public void PrintResult(bool isSuccess, object result, object checkResult)
+        {
+            Print("isSuccess = {0} | result = {1} | anticipated = {2}", isSuccess,
+                result == null ? "null" : (result),
+                checkResult == null ? "null" : (checkResult));
+        }
         public void Print(string log, params object[] args)
         {
             string formatLog = string.Format(log, args);
