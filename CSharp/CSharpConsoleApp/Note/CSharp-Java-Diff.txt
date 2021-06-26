@@ -3,9 +3,12 @@
 JavaDoc :
     https://tool.oschina.net/apidocs/apidoc?api=jdk-zh  JDK1.6
     https://docs.oracle.com/javase/8/docs/api/java/util/Deque.html JDk1.8
+    https://jdk.java.net/archive/ 
 
 C# Doc :
-    
+    https://www.cnblogs.com/wjcx-sqh/p/6049314.html
+    https://www.tutorialspoint.com/csharp/csharp_arrays.htm
+    https://www.runoob.com/csharp/csharp-queue.html?ivk_sa=1024320u
 C++ Doc :
     
 
@@ -17,7 +20,10 @@ C++ Doc :
 	string.SubString(i, j-i);	//C#     startIndex, length     第二个参数为截取长度，也就是 j-i;
 
 2. Array
-	
+
+    常见误区：
+    Array.Equals(A,B) 在Java中比较的是值，在C#中比较的是内存
+
 	Arrays  //Java
 	Array   //C#
     Arrays.binarySearch(object[ ], object key);     //Java写法
@@ -78,9 +84,10 @@ C++ Doc :
 3.  数据结构对照
 	
 	3.1 栈
-		Deque<Integer> xStack;	//Java Deque 实现了 ArrayDeque  双端队列,支持在两端插入和移除元素
-		Stack<int> xStack;      //C#
-		stack<int> xStack;      //C++
+		Deque<Integer> xStack;	      //Java Deque 实现了 ArrayDeque  双端队列,支持在两端插入和移除元素
+		Stack<int> xStack;            //C#
+        LinkedList<int> linkedList    //C#  参考 Solution227
+		stack<int> xStack;            //C++
  
         xStack.addLast(0);            //Java
         xStack.Push(0);               //C#
@@ -93,12 +100,16 @@ C++ Doc :
 		xStack.peek();                //Java  取得栈顶
         xStack.Peek();                //C#    取得栈顶  或xStack.First<int>(); 需要 using System.Linq;
 		xStack.FirstOrDefault<int>(); //C#    取得栈顶  或xStack.First<int>(); 需要 using System.Linq;
+        linkedList.Last.Value;        //C#    
 		xStack.top();                 //C++   取得栈顶
 
-        xStack.offerLast(0);            //Java
-        xStack.Push(0);                 //C#
+        xStack.pollLast();            //Java
+        linkedList.RemoveLast();      //C#
 
-	
+        xStack.offerLast(0);          //Java
+        xStack.Push(0);               //C#
+        
+	    
 	3.2 堆
 		priority_queue<pair<int, int>> q;                                           //C++
 		PriorityQueue<int[]> pq = new PriorityQueue<int[]>(new Comparator<int[]>(); //Java
@@ -150,6 +161,10 @@ C++ Doc :
             }
    3.3 TreeSet
         Java TreeSet简介
+        TreeSet 基于红黑树，
+            查找和插入都是 O(logk) 复杂度。
+            整体复杂度为 O(nlogk)
+
         TreeSet 是一个有序的集合，它的作用是提供有序的Set集合。它继承于AbstractSet抽象类，实现了NavigableSet<E>, Cloneable, java.io.Serializable接口。
         TreeSet 继承于AbstractSet，所以它是一个Set集合，具有Set的属性和方法。支持add、remove、get等方法。
         TreeSet 实现了NavigableSet接口，意味着它支持一系列的导航方法。比如查找与指定目标最匹配项。
@@ -166,6 +181,7 @@ C++ Doc :
         ceiling()方法用于返回等于或大于给定元素(ele)的最低元素(如果存在)，否则返回null。
 
         c# //这将是System.Collections.Generic.SortedSet<T>。
+        c# //这将是System.Collections.Generic.SortedDictionary<K,T>。
 
    3.4 哈希表
        C++  : Set、multiset都是集合类，差别在与set中不允许有重复元素，

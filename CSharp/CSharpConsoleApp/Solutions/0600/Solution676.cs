@@ -20,11 +20,8 @@ namespace CSharpConsoleApp.Solutions
         public override bool Test(System.Diagnostics.Stopwatch sw)
         {
             bool isSuccess = true;
+            //TODO
             return isSuccess;
-        }
-
-        public Solution676()
-        {
         }
     }
 

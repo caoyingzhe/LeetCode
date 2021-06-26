@@ -295,7 +295,40 @@ namespace CSharpConsoleApp.Solutions
                             }
                             else if (i % 2 == 0 && i > 0)
                             {
-                                if(nodes[parentIndex] != null)
+                                if (nodes[parentIndex] != null)
+                                    nodes[parentIndex].right = newNode;
+                            }
+                        }
+                    }
+                }
+                return nodes[0];
+            }
+
+            public static TreeNode Create(int[] nums, int nullValue)
+            {
+                List<TreeNode> nodes = new List<TreeNode>();
+                for (int i = 0; i < nums.Length; i++)
+                {
+                    if (nums[i] == nullValue)
+                    {
+                        nodes.Add(null);
+                    }
+                    else
+                    {
+                        var newNode = new TreeNode(nums[i]);
+                        nodes.Add(newNode);
+
+                        if (i > 0)
+                        {
+                            //根据完全二叉搜索表的特性，i节点的父对象的索引为 [(i-1)/2]
+                            int parentIndex = (i - 1) / 2;
+                            if (i % 2 == 1 && i > 0)
+                            {
+                                nodes[parentIndex].left = newNode;
+                            }
+                            else if (i % 2 == 0 && i > 0)
+                            {
+                                if (nodes[parentIndex] != null)
                                     nodes[parentIndex].right = newNode;
                             }
                         }
@@ -401,9 +434,9 @@ namespace CSharpConsoleApp.Solutions
                 return root;
             }
 
-            public string GetNodeString()
+            public string GetNodeString(bool noAddNullNode = false)
             {
-                var nodes = GetNodeList();
+                var nodes = GetNodeList(noAddNullNode);
 
                 string str = "";
                 for (int i = 0; i < nodes.Count; i++)
@@ -414,10 +447,10 @@ namespace CSharpConsoleApp.Solutions
                 }
                 return str;
             }
-            public List<TreeNode> GetNodeList()
+            public List<TreeNode> GetNodeList(bool noAddNullNode = false)
             {
                 List<TreeNode> list = new List<TreeNode>();
-                GetNodeList(this, list);
+                GetNodeList(this, list, noAddNullNode);
                 return list;
             }
 
@@ -435,9 +468,9 @@ namespace CSharpConsoleApp.Solutions
                         nodeList.Add(node);
                     return;
                 }
-                GetNodeList(node.left, nodeList);
+                GetNodeList(node.left, nodeList, noAddNullNode);
                 nodeList.Add(node);
-                GetNodeList(node.right, nodeList);
+                GetNodeList(node.right, nodeList, noAddNullNode);
             }
 
             /// <summary>
@@ -526,7 +559,7 @@ namespace CSharpConsoleApp.Solutions
             T[] heap;
 
             public int Count { get; private set; }
-
+            public bool IsEmpty() { return Count == 0; }
             public PriorityQueue() : this(null) { }
             public PriorityQueue(int capacity) : this(capacity, null) { }
             public PriorityQueue(IComparer<T> comparer) : this(16, comparer) { }
@@ -536,7 +569,7 @@ namespace CSharpConsoleApp.Solutions
                 this.comparer = (comparer == null) ? Comparer<T>.Default : comparer;
                 this.heap = new T[capacity];
             }
-
+            public void Offer(T v) { Push(v); } //Java Like Function
             public void Push(T v)
             {
                 if (Count >= heap.Length) Array.Resize(ref heap, Count * 2);
@@ -544,6 +577,7 @@ namespace CSharpConsoleApp.Solutions
                 SiftUp(Count++);
             }
 
+            public T Poll() { return Pop(); } //Java Like Function
             public T Pop()
             {
                 var v = Top();
@@ -552,16 +586,18 @@ namespace CSharpConsoleApp.Solutions
                 return v;
             }
 
+            
+            public T Peek()  { return Top(); } //Java Like Function
             public T Top()
             {
                 if (Count > 0) return heap[0];
                 throw new InvalidOperationException("优先队列为空");
             }
-            public T Tail()
-            {
-                if (Count > 0) return heap[Count - 1];
-                throw new InvalidOperationException("优先队列为空");
-            }
+            //public T Tail()
+            //{
+            //    if (Count > 0) return heap[Count - 1];
+            //    throw new InvalidOperationException("优先队列为空");
+            //}
 
             void SiftUp(int n)
             {
@@ -650,7 +686,7 @@ namespace CSharpConsoleApp.Solutions
             public TrieNode() { }
         }
 
-        public class Trie {}
+        public class Trie { }
 
         public class Trie208 : Trie
         {
@@ -838,6 +874,54 @@ namespace CSharpConsoleApp.Solutions
             }
             return factors.Count == 0;
         }
+
+        /// <summary>
+        /// 无符号右移, 相当于java里的 value>>>pos
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="pos"></param>
+        /// <returns></returns>
+        public int RightMove(int value, int pos)
+        {
+            //移动 0 位时直接返回原值
+            if (pos != 0)
+            {
+                // int.MaxValue = 0x7FFFFFFF 整数最大值
+                int mask = int.MaxValue;
+                //无符号整数最高位不表示正负但操作数还是有符号的，有符号数右移1位，正数时高位补0，负数时高位补1
+                value = value >> 1;
+                //和整数最大值进行逻辑与运算，运算后的结果为忽略表示正负值的最高位
+                value = value & mask;
+                //逻辑运算后的值无符号，对无符号的值直接做右移运算，计算剩下的位
+                value = value >> pos - 1;
+            }
+
+            return value;
+        }
+
+        /// <summary>
+        /// 无符号右移, 相当于java里的 value>>>pos
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="pos"></param>
+        /// <returns></returns>
+        public long RightMove(long value, int pos)
+        {
+            //移动 0 位时直接返回原值
+            if (pos != 0)
+            {
+                // long.MaxValue = 0x7FFFFFFFFFFFFFFF 整数最大值
+                long mask = long.MaxValue;
+                //无符号整数最高位不表示正负但操作数还是有符号的，有符号数右移1位，正数时高位补0，负数时高位补1
+                value = value >> 1;
+                //和整数最大值进行逻辑与运算，运算后的结果为忽略表示正负值的最高位
+                value = value & mask;
+                //逻辑运算后的值无符号，对无符号的值直接做右移运算，计算剩下的位
+                value = value >> pos - 1;
+            }
+            return value;
+        }
+
         #endregion
         #region ------------------------- Util Functions -------------------------
         public int GetOrDefault<T>(Dictionary<T, int> dict, T x, int defaultVal = 0)
@@ -956,15 +1040,18 @@ namespace CSharpConsoleApp.Solutions
 
         public string GetArrayStr<T>(HashSet<T> a, string seperator = "")
         {
+            if (a == null) return "null";
             return string.Join(",", a.ToArray());
         }
 
         public string GetArrayStr<T>(IList<T> a, string seperator = "")
         {
+            if (a == null) return "null";
             return string.Join(",", a);
         }
         public string GetArrayStr(IList<string> a, string seperator = "")
         {
+            if (a == null) return "null";
             return string.Join(",", a);
         }
         public string GetArrayStr(char[][] a, string seperator = "")
@@ -1000,15 +1087,35 @@ namespace CSharpConsoleApp.Solutions
             }
             return string.Join(",", aList).Equals(string.Join(",", bList));
         }
+
         public bool IsSame<T>(T a, T b)
         {
             if (a == null && b != null)
                 return false;
             if (a != null && b == null)
                 return false;
+
+            if(typeof(T) == typeof(TreeNode))
+            {
+                TreeNode nodeA = a as TreeNode;
+                TreeNode nodeB = a as TreeNode;
+                return nodeA.GetNodeString() == nodeB.GetNodeString();
+            }
             return a.ToString().Equals(b.ToString());
         }
-        
+        public bool IsSame<T>(T[] a, T[] b, bool ignoreTail = true)
+        {
+            return IsArraySame<T>(a, b, ignoreTail);
+        }
+        public bool IsSame<T>(IList<IList<T>> a, IList<IList<T>> b, bool useSort = false)
+        {
+            return IsArray2DSame<T>(a, b, useSort);
+        }
+        public bool IsSame<T>(IList<T> a, IList<T> b, bool useSort = true)
+        {
+            return IsListSame<T>(a, b, useSort);
+        }
+
         public bool IsArraySame<T>(T[] a, T[] b, bool ignoreTail = true)
         {
             int alen = a == null ? 0 : a.Length;

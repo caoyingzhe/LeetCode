@@ -37,8 +37,6 @@ namespace CSharpConsoleApp.Solutions
      * 
      * // getRandom()方法应随机返回1,2,3中的一个，保证每个元素被返回的概率相等。
      * solution.getRandom();
-     * 
-     * 
      */
 
     // @lc code=start
@@ -86,6 +84,7 @@ namespace CSharpConsoleApp.Solutions
         public override bool Test(System.Diagnostics.Stopwatch sw)
         {
             bool isSuccess = true;
+            //TODO
             return isSuccess;
         }
 

@@ -1,0 +1,14 @@
+﻿1. queue
+
+
+    let queue = [['white',root,0]];
+    let [color,node,sum] = queue.shift();
+    let target = sum+node.val;
+    queue.push(['gray',node,target])
+
+    1、push()：在数组末端添加项；
+    2、shift()：把数组中的第一个元素删除；
+    3、pop()：把数组中的最后一个元素删除；
+    4、unshift()：在数组前端添加项；
+    5、push(),unshift()在推入多个项时，各个项之间的顺序不变
+    6、push(),unshift()将数组的长度+1并返回的是数组的长度，pop(),shift()将数组length-1并返回的是移除的项
