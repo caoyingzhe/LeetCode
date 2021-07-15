@@ -132,7 +132,7 @@ namespace CSharpConsoleApp.Solutions
                     // 如果超出容量，虚拟删除， 其实是删除双向链表的尾部节点
                     DLinkedNode tail = VirtualRemoveTail();
                     //真正删除节点
-                    cacheDict.Remove(tail.key);
+                    cacheDict.Remove(int.Parse(tail.key));
                     --size;
                 }
             }

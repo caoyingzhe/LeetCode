@@ -114,15 +114,17 @@ namespace CSharpConsoleApp.Solutions
         //    return isSuccess;
         //}
         #region ---------------- Data Struct ---------------------------
-        public class DLinkedNode
+        //Solution 146
+        public class DLinkedNode 
         {
-            public int key;
+            public string key;
             public int value;
             public DLinkedNode prev;
             public DLinkedNode next;
 
             public DLinkedNode() { }
-            public DLinkedNode(int _key, int _value) { key = _key; value = _value; }
+            public DLinkedNode(int _key, int _value) { key = _key.ToString(); value = _value; }
+            public DLinkedNode(string _key, int _value) { key = _key; value = _value; }
         }
 
         public class ListNode
@@ -471,6 +473,62 @@ namespace CSharpConsoleApp.Solutions
                 GetNodeList(node.left, nodeList, noAddNullNode);
                 nodeList.Add(node);
                 GetNodeList(node.right, nodeList, noAddNullNode);
+            }
+
+            /// <summary>
+            /// 获取值列表（中序遍历）
+            /// </summary>
+            /// <param name="node"></param>
+            /// <param name="nodeList"></param>
+            /// <param name="noAddNullNode"></param>
+            /// <param name="nullVale"></param>
+            public static void GetValueList(TreeNode node, List<int> nodeList, bool noAddNullNode = false, int nullVale = int.MinValue)
+            {
+                if (node == null)
+                {
+                    if (!noAddNullNode)
+                        nodeList.Add(nullVale);
+                    return;
+                }
+                GetValueList(node.left, nodeList, noAddNullNode, nullVale);
+                nodeList.Add(node.val);
+                GetValueList(node.right, nodeList, noAddNullNode, nullVale);
+            }
+
+            /// <summary>
+            /// 获取值列表（后序遍历） Solution145
+            /// </summary>
+            /// <param name="node"></param>
+            /// <param name="nodeList"></param>
+            /// <param name="noAddNullNode"></param>
+            /// <param name="nullVale"></param>
+            public void GetValueList_Postorder(TreeNode node, List<int> nodeList)
+            {
+                if (node == null)
+                {
+                    return;
+                }
+                GetValueList_Postorder(node.left, nodeList);
+                GetValueList_Postorder(node.right, nodeList);
+                nodeList.Add(node.val);
+            }
+
+            /// <summary>
+            /// 获取值列表（前序遍历） Solution144
+            /// </summary>
+            /// <param name="node"></param>
+            /// <param name="nodeList"></param>
+            /// <param name="noAddNullNode"></param>
+            /// <param name="nullVale"></param>
+            public void GetValueList_Preorder(TreeNode node, List<int> nodeList)
+            {
+                if (node == null)
+                {
+                    return;
+                }
+                nodeList.Add(node.val);
+                GetValueList_Preorder(node.left, nodeList);
+                GetValueList_Preorder(node.right, nodeList);
             }
 
             /// <summary>
@@ -1099,7 +1157,10 @@ namespace CSharpConsoleApp.Solutions
             {
                 TreeNode nodeA = a as TreeNode;
                 TreeNode nodeB = a as TreeNode;
-                return nodeA.GetNodeString() == nodeB.GetNodeString();
+                string strA = nodeA.GetNodeString(true);
+                string strB = nodeB.GetNodeString(true);
+                Print("A:{0} | B:{1} ", strA, strB);
+                return strA == strB;
             }
             return a.ToString().Equals(b.ToString());
         }
@@ -1218,7 +1279,13 @@ namespace CSharpConsoleApp.Solutions
         }
         public void PrintResult(bool isSuccess, object result, object checkResult)
         {
-            Print("isSuccess = {0} | result = {1} | anticipated = {2}", isSuccess,
+            Print("isSuccess = {0} result: = {1} anticipated: = {2}", isSuccess,
+                result == null ? "null" : (result),
+                checkResult == null ? "null" : (checkResult));
+        }
+        public void PrintResult2(bool isSuccess, object result, object checkResult)
+        {
+            Print("isSuccess = {0} \nresult:\n = {1} \nanticipated:\n = {2}", isSuccess,
                 result == null ? "null" : (result),
                 checkResult == null ? "null" : (checkResult));
         }

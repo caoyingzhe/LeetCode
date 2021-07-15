@@ -127,16 +127,16 @@ namespace CSharpConsoleApp.Solutions
             StringBuilder sb = new StringBuilder();
             int n = S.Length;
 
-            for(int i=n-1,j=0; i>=0; --i)
+            for (int i = n - 1, j = 0; i >= 0; --i)
             {
-                if(S[i] != '-')
+                if (S[i] != '-')
                 {
-                    sb.Insert(0,S[i]);
+                    sb.Insert(0, S[i]);
                     j++;
 
-                    if(j== K && sb.Length > 0)
+                    if (j == K && sb.Length > 0)
                     {
-                        sb.Insert(0,'-');
+                        sb.Insert(0, '-');
                         j = 0;
                     }
                 }

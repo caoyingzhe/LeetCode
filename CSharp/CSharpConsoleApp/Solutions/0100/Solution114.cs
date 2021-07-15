@@ -141,7 +141,7 @@ namespace CSharpConsoleApp.Solutions
             GetNodeList(root, list, true);
 
             //list.Sort((a,b) =>  a.val - b.val);
-            for(int i=1; i<list.Count; i++)
+            for (int i = 1; i < list.Count; i++)
             {
                 list[i - 1].left = null;
                 list[i - 1].right = list[i];

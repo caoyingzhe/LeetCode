@@ -7,11 +7,15 @@ namespace CSharpConsoleApp.Solutions
      * [33] 搜索旋转排序数组
      *
      * https://leetcode-cn.com/problems/search-in-rotated-sorted-array/description/
-     *
-     * algorithms
-     * Medium (41.65%)
-     * Likes:    1358
-     * Dislikes: 0
+     * 
+     * Category	Difficulty	Likes	Dislikes
+     * algorithms	Medium (42.03%)	1422	-
+     * Tags
+     * array | binary-search
+     * 
+     * Companies
+     * bloomberg | facebook | linkedin | microsoft | uber
+     * 
      * Total Accepted:    278.5K
      * Total Submissions: 668.1K
      * Testcase Example:  '[4,5,6,7,0,1,2]\n0'
@@ -71,7 +75,6 @@ namespace CSharpConsoleApp.Solutions
         public override bool Test(System.Diagnostics.Stopwatch sw)
         {
             bool isSuccess = true;
-            string s = "barfoothefoobarman";
             int[] nums;
             int target;
             int result, checkResult;
@@ -136,6 +139,10 @@ namespace CSharpConsoleApp.Solutions
             
             return isSuccess;
         }
+
+        /// 作者：LeetCode-Solution
+        /// 链接：https://leetcode-cn.com/problems/search-in-rotated-sorted-array/solution/sou-suo-xuan-zhuan-pai-xu-shu-zu-by-leetcode-solut/
+
         public int Search(int[] nums, int target)
         {
             int n = nums.Length;
@@ -158,13 +165,12 @@ namespace CSharpConsoleApp.Solutions
                 {
                     if(mid == n-1)
                     {
-                        k = 0;
-                        break;
+                        k = 0; break;
                     }
                     if (m > nums[mid + 1]) //找到K
                     {
                         k = n - mid - 1;  //[4,5,1,2,3] [1]<[2] mid = 1, k = n -(mid+1) = 3;
-                                      //[3,4,5,1,2] [2]>[3] mid = 2, k = n -(mid+1) = 2
+                                          //[3,4,5,1,2] [2]>[3] mid = 2, k = n -(mid+1) = 2
                         break;
                     }
                     else
@@ -177,8 +183,7 @@ namespace CSharpConsoleApp.Solutions
                 {
                     if (mid == 0)
                     {
-                        k = 0;
-                        break;
+                        k = 0; break;
                     }
                     if (nums[mid-1] > m) //找到K
                     {

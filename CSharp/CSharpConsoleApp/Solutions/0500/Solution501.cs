@@ -118,7 +118,7 @@ namespace CSharpConsoleApp.Solutions
             BST(root.left);
 
             //Step2. 处理中间节点
-            { 
+            {
                 if (root.val == pre_value)
                 {
                     //如果和前一个相同 count+1
@@ -145,7 +145,7 @@ namespace CSharpConsoleApp.Solutions
             BST(root.right);
         }
 
-        
+
     }
     // @lc code=end
 

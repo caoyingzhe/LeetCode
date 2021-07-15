@@ -125,7 +125,7 @@ namespace CSharpConsoleApp.Solutions
             inorder = new int[] { 9, 3, 15, 20, 7 };
             postorder = new int[] { 9, 15, 7, 20, 3 };
             result = BuildTree(inorder, postorder);
-            checkResult = TreeNode.Create(new int[] { 3,9,20,NULL, NULL, 15,17 }, NULL);
+            checkResult = TreeNode.Create(new int[] { 3, 9, 20, NULL, NULL, 15, 17 }, NULL);
 
             isSuccess &= IsSame(result, checkResult);
             PrintResult(isSuccess, (result).GetNodeString(true), (checkResult).GetNodeString(true));
@@ -172,7 +172,7 @@ namespace CSharpConsoleApp.Solutions
         ///     [元素-下标]键值对的哈希表， 用于高效查找根节点元素在中序遍历数组中的下标，存储中序序列数据。
         /// </param>
         /// <returns></returns>
-        public TreeNode helper(int in_left, int in_right,  int[] inorder, int[] postorder, Dictionary<int, int> idx_map)
+        public TreeNode helper(int in_left, int in_right, int[] inorder, int[] postorder, Dictionary<int, int> idx_map)
         {
             // 如果这里没有节点构造二叉树了，就结束
             if (in_left > in_right)

@@ -166,7 +166,7 @@ namespace CSharpConsoleApp.Solutions
                 long radix = getRadix(len, num);
                 if (radix != -1)
                 {
-                    return(radix).ToString();
+                    return (radix).ToString();
                 }
             }
             return (num - 1).ToString();
@@ -208,5 +208,5 @@ namespace CSharpConsoleApp.Solutions
             return sum;
         }
     }
-    
+
 }

@@ -35,6 +35,11 @@ C++ Doc :
 	Array.Clone();                                  //C#写法  Clone()返回值是Object，
     Array.Copy();                                   //C#写法  Copy返回值为void
 
+    Arrays数组中最大的值
+    int maxVal = Arrays.stream(nums).max().getAsInt();   //Java
+    int maxVal = *max_element(nums.begin(), nums.end()); //C++
+
+
 	/*********** Arrays.binarySearch 测试代码 ************/
 	public static void main (String []args)
     {
@@ -55,6 +60,15 @@ C++ Doc :
 	/// 但是索引从1开始，返回-4.
 	/*********** 输出结果：***********/
 
+    Java : ArrayQueue
+    https://www.cnblogs.com/chenglc/p/10722304.html
+    ArrayDeque类的使用详解
+    ArrayDeque是Deque接口的一个实现，使用了可变数组，所以没有容量上的限制。
+    同时，ArrayDeque是线程不安全的，在没有外部同步的情况下，不能再多线程环境下使用。
+    ArrayDeque是Deque的实现类，可以作为栈来使用，效率高于Stack；
+    也可以作为队列来使用，效率高于LinkedList。
+    需要注意的是，ArrayDeque不支持null值。
+
 3. List
 
 	List和LinkedList
@@ -66,20 +80,20 @@ C++ Doc :
 	int id = LinkedLis.First();  //C#写法   获取列表的头(第一个元素)。
     LinkedLis.RemoveFirst();     //C#写法   移除此列表的头(第一个元素)。
 
-	------------------------------------------------------------------
+	-------------------------------------------------------------------------
 	Queue<int> queue = new LinkedList<>();         //Java写法
 	queue.offer(10);                               //Java写
 	
 	LinkedList<int> queue = new LinkedList<int>(); //C#写法
 	queue.AddLast(10);                             //C#写法
-	------------------------------------------------------------------
+	-------------------------------------------------------------------------
 	T t = queue.poll();                            //Java写 取值并删除 （对应C#两行）
     //poll(): it retrieves the head element of the queue and then 
     //removes the head element of the queue.
 
-    T t = queue.First();                           //C#写法 先取值
-    queue.RemoveFirst();                           //C#写法 再删除
-	------------------------------------------------------------------
+    T t = queue.First.Value;                       //C#写法 先取值  Solution675
+    queue.RemoveFirst();                           //C#写法 再删除  Solution675
+	-------------------------------------------------------------------------
 
 3.  数据结构对照
 	
@@ -95,7 +109,6 @@ C++ Doc :
         xStack.removeLast();          //Java
         xStack.Pop();                 //C#
 
-
         xStack.peekLast();            //Java  取得栈顶
 		xStack.peek();                //Java  取得栈顶
         xStack.Peek();                //C#    取得栈顶  或xStack.First<int>(); 需要 using System.Linq;
@@ -103,11 +116,23 @@ C++ Doc :
         linkedList.Last.Value;        //C#    
 		xStack.top();                 //C++   取得栈顶
 
+
+        var stack_cur = stack.poll();          //Java
+        var stack_cur = linkedList.Last.Value; //C# Step1  From Solution143
+        linkedList.RemoveLast();               //C# Step2
+
         xStack.pollLast();            //Java
         linkedList.RemoveLast();      //C#
 
+        int[] cur = xStack.pollFirst();  //Java
+        int[] cur = xStack.First.Value;  //C#    Soluton675
+        linkedList.RemoveFirst();        //C#    Soluton675
+
         xStack.offerLast(0);          //Java
         xStack.Push(0);               //C#
+
+        xStack.offerFirst(0);          //Java
+        linkedList.AddFirst(0);        //C#    Soluton675
         
 	    
 	3.2 堆

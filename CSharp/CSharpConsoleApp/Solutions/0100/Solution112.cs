@@ -152,7 +152,7 @@ namespace CSharpConsoleApp.Solutions
             if (root == null) return false;
 
             LinkedList<Data> queue = new LinkedList<Data>();
-            queue.AddLast(new Data ( root, root.val));
+            queue.AddLast(new Data(root, root.val));
 
             while (queue.Count > 0)
             {
@@ -171,13 +171,14 @@ namespace CSharpConsoleApp.Solutions
                     return true;
                 }
                 if (node.left != null)
-                    queue.AddLast(new Data( node.left, sum + node.left.val ));
+                    queue.AddLast(new Data(node.left, sum + node.left.val));
                 if (node.right != null)
-                    queue.AddLast(new Data( node.right, sum + node.right.val));
+                    queue.AddLast(new Data(node.right, sum + node.right.val));
             }
             return false;
         }
-        public class Data{
+        public class Data
+        {
             public TreeNode node;
             public int sum;
             public Data(TreeNode node, int sum)

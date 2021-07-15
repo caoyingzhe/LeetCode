@@ -60,7 +60,7 @@ namespace CSharpConsoleApp.Solutions
                 new int[] { 4, 5, 6 },
                 new int[] { 7, 8, 9 },
             };
-            checkResult = new int[] { 1, 2, 4, 7, 5, 3, 6, 8, 9 } ;
+            checkResult = new int[] { 1, 2, 4, 7, 5, 3, 6, 8, 9 };
             result = FindDiagonalOrder(nums);
 
             isSuccess &= IsSame(result, checkResult);
@@ -149,7 +149,7 @@ namespace CSharpConsoleApp.Solutions
 
             if (m == 1)
                 return mat[0];
-            if(n == 1)
+            if (n == 1)
             {
                 int[] rtn = new int[m];
                 for (int idx = 0; idx < m; idx++)
@@ -162,12 +162,12 @@ namespace CSharpConsoleApp.Solutions
             int dir = 0;
             int i = 0; int j = 0;
             List<int> list = new List<int>();
-            while (count < max )
+            while (count < max)
             {
                 list.Add(mat[i][j]);
                 count++;
 
-                
+
                 int nextDir = dir;
                 if (i == 0 && dir == 0)
                 {
@@ -186,9 +186,9 @@ namespace CSharpConsoleApp.Solutions
                 }
                 else if (j == 0 && dir == 3)
                 {
-                    if(i==0)
+                    if (i == 0)
                         nextDir = 0;
-                    else if(j== n-1)
+                    else if (j == n - 1)
                         nextDir = 2;
                 }
 

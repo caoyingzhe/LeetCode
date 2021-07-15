@@ -74,11 +74,6 @@ namespace CSharpConsoleApp.Solutions
         public override Tag[] GetTags() { return new Tag[] { Tag.Tree, Tag.BreadthFirstSearch }; }
 
         /// <summary>
-        /// 入度：每个课程节点的入度数量等于其先修课程的数量；
-        /// 出度：每个课程节点的出度数量等于其指向的后续课程数量；
-        /// 所以只有当一个课程节点的入度为零时，其才是一个可以学习的自由课程。
-        ///
-        /// 拓扑排序即是将一个无环有向图转换为线性排序的过程。
         /// </summary>
         /// <param name="sw"></param>
         /// <returns></returns>

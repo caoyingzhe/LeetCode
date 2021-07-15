@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
+
 namespace CSharpConsoleApp.Solutions
 {
     /*
@@ -84,7 +86,8 @@ namespace CSharpConsoleApp.Solutions
         public override bool Test(System.Diagnostics.Stopwatch sw)
         {
             bool isSuccess = true;
-
+            Print(ComplexNumberMultiply("1+1i", "1+1i"));
+            Print(ComplexNumberMultiply("1+-1i", "1+-1i"));
             return isSuccess;
         }
 
@@ -148,6 +151,34 @@ namespace CSharpConsoleApp.Solutions
             }
             return root;
         }
+
+        /// <summary>
+        /// 55/55 cases passed (112 ms)
+        /// Your runtime beats 41.67 % of csharp submissions
+        /// Your memory usage beats 100 % of csharp submissions(22.5 MB)
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <returns></returns>
+        public string ComplexNumberMultiply(string a, string b)
+        {
+            //using System.Text.RegularExpressions;
+            //正则表达式
+            //string[] x = Regex.Split(a, "\\+|i", RegexOptions.IgnoreCase);
+            //string[] y = Regex.Split(b, "\\+|i", RegexOptions.IgnoreCase);
+
+            string[] x = a.Remove(a.Length-1).Split('+');
+            string[] y = b.Remove(b.Length - 1).Split('+');
+            int a_real = int.Parse(x[0].ToString());
+            int a_img = int.Parse(x[1].ToString());
+            int b_real = int.Parse(y[0].ToString());
+            int b_img = int.Parse(y[1].ToString());
+            Print("{0} | {1} | {2} | {3} ", a_real, a_img, b_real, b_img);
+            return (a_real * b_real - a_img * b_img) + "+" + (a_real * b_img + a_img * b_real) + "i";
+        }
+
+//        作者：Code_respect
+//        链接：https://leetcode-cn.com/problems/complex-number-multiplication/solution/javazi-fu-chuan-chu-li-by-code_respect-vpc0/
     }
     // @lc code=end
 
