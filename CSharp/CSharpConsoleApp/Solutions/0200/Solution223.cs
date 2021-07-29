@@ -2,56 +2,45 @@
 namespace CSharpConsoleApp.Solutions
 {
     /*
- * @lc app=leetcode.cn id=223 lang=csharp
- *
- * [223] 矩形面积
- *
- * https://leetcode-cn.com/problems/rectangle-area/description/
- *
- * algorithms
- * Medium (45.23%)
- * Likes:    113
- * Dislikes: 0
- * Total Accepted:    18.5K
- * Total Submissions: 40.9K
- * Testcase Example:  '-3\n0\n3\n4\n0\n-1\n9\n2'
- *
- * 给你 二维 平面上两个 由直线构成的 矩形，请你计算并返回两个矩形覆盖的总面积。
- * 
- * 每个矩形由其 左下 顶点和 右上 顶点坐标表示：
- * 
- * 
- * 
- * 第一个矩形由其左下顶点 (ax1, ay1) 和右上顶点 (ax2, ay2) 定义。
- * 第二个矩形由其左下顶点 (bx1, by1) 和右上顶点 (bx2, by2) 定义。
- * 
- * 
- * 
- * 
- * 
- * 示例 1：
- * 
- * 
- * 输入：ax1 = -3, ay1 = 0, ax2 = 3, ay2 = 4, bx1 = 0, by1 = -1, bx2 = 9, by2 = 2
- * 输出：45
- * 
- * 
- * 示例 2：
- * 
- * 
- * 输入：ax1 = -2, ay1 = -2, ax2 = 2, ay2 = 2, bx1 = -2, by1 = -2, bx2 = 2, by2 = 2
- * 输出：16
- * 
- * 
- * 
- * 
- * 提示：
- * 
- * 
- * -10^4 
- * 
- * 
- */
+     * @lc app=leetcode.cn id=223 lang=csharp
+     *
+     * [223] 矩形面积
+     *
+     * https://leetcode-cn.com/problems/rectangle-area/description/
+     *
+     * Category	Difficulty	Likes	Dislikes
+     * algorithms	Medium (45.23%)	113	-
+     * Tags
+     * math
+     * 
+     * Companies
+     * Unknown
+     * 
+     * Total Accepted:    18.5K
+     * Total Submissions: 40.9K
+     * Testcase Example:  '-3\n0\n3\n4\n0\n-1\n9\n2'
+     *
+     * 给你 二维 平面上两个 由直线构成的 矩形，请你计算并返回两个矩形覆盖的总面积。
+     * 
+     * 每个矩形由其 左下 顶点和 右上 顶点坐标表示：
+     * 
+     * 第一个矩形由其左下顶点 (ax1, ay1) 和右上顶点 (ax2, ay2) 定义。
+     * 第二个矩形由其左下顶点 (bx1, by1) 和右上顶点 (bx2, by2) 定义。
+     * 
+     * 
+     * 示例 1：
+     * 输入：ax1 = -3, ay1 = 0, ax2 = 3, ay2 = 4, bx1 = 0, by1 = -1, bx2 = 9, by2 = 2
+     * 输出：45
+     * 
+     * 
+     * 示例 2：
+     * 输入：ax1 = -2, ay1 = -2, ax2 = 2, ay2 = 2, bx1 = -2, by1 = -2, bx2 = 2, by2 = 2
+     * 输出：16
+     * 
+     * 
+     * 提示：
+     * -10^4 <= ax1, ay1, ax2, ay2, bx1, by1, bx2, by2 <= 10^4 
+     */
 
     // @lc code=start
     public class Solution223 : SolutionBase
@@ -67,9 +56,9 @@ namespace CSharpConsoleApp.Solutions
         /// <summary>
         /// 标签：
         /// </summary>
-        public override Tag[] GetTags() { return new Tag[] { Tag.HashTable, Tag.BitManipulation }; }
+        public override Tag[] GetTags() { return new Tag[] { Tag.Math }; }
 
-        public int NULL = -1;
+        
         public override bool Test(System.Diagnostics.Stopwatch sw)
         {
             bool isSuccess = true;

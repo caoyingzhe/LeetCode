@@ -70,7 +70,7 @@ namespace CSharpConsoleApp.Solutions
         /// </summary>
         public override Tag[] GetTags() { return new Tag[] { Tag.Array, Tag.BinarySearch }; }
 
-        public int NULL = -1;
+        
         public override bool Test(System.Diagnostics.Stopwatch sw)
         {
             bool isSuccess = true;

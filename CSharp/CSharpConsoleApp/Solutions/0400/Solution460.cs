@@ -292,6 +292,81 @@ namespace CSharpConsoleApp.Solutions
             this.value = value;
             this.bucket = bucket;
         }
+
+        public int val {
+            get { return this.value; }
+            set { this.value = value; }
+        }
+    }
+
+    public partial class Solution427
+    {
+        public class Node
+        {
+            public bool val;
+            public bool isLeaf;
+            public Node topLeft;
+            public Node topRight;
+            public Node bottomLeft;
+            public Node bottomRight;
+
+            public Node()
+            {
+                val = false;
+                isLeaf = false;
+                topLeft = null;
+                topRight = null;
+                bottomLeft = null;
+                bottomRight = null;
+            }
+
+            public Node(bool _val, bool _isLeaf)
+            {
+                val = _val;
+                isLeaf = _isLeaf;
+                topLeft = null;
+                topRight = null;
+                bottomLeft = null;
+                bottomRight = null;
+            }
+
+            public Node(bool _val, bool _isLeaf, Node _topLeft, Node _topRight, Node _bottomLeft, Node _bottomRight)
+            {
+                val = _val;
+                isLeaf = _isLeaf;
+                topLeft = _topLeft;
+                topRight = _topRight;
+                bottomLeft = _bottomLeft;
+                bottomRight = _bottomRight;
+            }
+
+            //TODO NG
+            public int depth
+            {
+                get { return Depth(this); }
+            }
+            public static int Depth(Node root)
+            {
+                if (root == null) return 0;
+                return DFS(0, root) + 1;
+            }
+            public static int DFS(int depth, Node root)
+            {
+                if (root == null)
+                {
+                    return depth;
+                }
+                int tl = 0, tr = 0, bl = 0, br = 0;
+                DFS(tl + depth, root.topLeft);
+                DFS(tr + depth, root.topRight);
+                DFS(bl + depth, root.bottomLeft);
+                DFS(br + depth, root.bottomRight);
+
+                Math.Max(Math.Max(tl, tr), Math.Max(bl, br));
+
+                return depth;
+            }
+        }
     }
 
     public class Bucket

@@ -61,6 +61,9 @@ namespace CSharpConsoleApp.Solutions
             Unknown,            //未定
             RedBlackTree,       //红黑树
             PrefixSum,          //前缀和
+
+            Shadowsocks,
+            NeedStudy           //需要多次学习的，目前不理解
         }
         /// <summary>
         /// Get problem No on leetcode site.
@@ -114,6 +117,8 @@ namespace CSharpConsoleApp.Solutions
         //    return isSuccess;
         //}
         #region ---------------- Data Struct ---------------------------
+        public int NULL = -1;
+
         //Solution 146
         public class DLinkedNode 
         {
@@ -871,6 +876,49 @@ namespace CSharpConsoleApp.Solutions
                 return ret;
             }
         }
+
+        public class Node4
+        {
+            public class Node
+            {
+                public bool val;
+                public bool isLeaf;
+                public Node topLeft;
+                public Node topRight;
+                public Node bottomLeft;
+                public Node bottomRight;
+
+                public Node()
+                {
+                    val = false;
+                    isLeaf = false;
+                    topLeft = null;
+                    topRight = null;
+                    bottomLeft = null;
+                    bottomRight = null;
+                }
+
+                public Node(bool _val, bool _isLeaf)
+                {
+                    val = _val;
+                    isLeaf = _isLeaf;
+                    topLeft = null;
+                    topRight = null;
+                    bottomLeft = null;
+                    bottomRight = null;
+                }
+
+                public Node(bool _val, bool _isLeaf, Node _topLeft, Node _topRight, Node _bottomLeft, Node _bottomRight)
+                {
+                    val = _val;
+                    isLeaf = _isLeaf;
+                    topLeft = _topLeft;
+                    topRight = _topRight;
+                    bottomLeft = _bottomLeft;
+                    bottomRight = _bottomRight;
+                }
+            }
+        }
         #endregion
 
         #region ------------------ Math Functions
@@ -914,7 +962,7 @@ namespace CSharpConsoleApp.Solutions
         }
 
         /// <summary>
-        /// 判断是否是质数，不是更新所有因数列表（不含1）
+        /// 判断是否是质数，不是更新所有因数列表（不含1，是因数不是质因数） 
         /// </summary>
         /// <param name="x"></param>
         /// <param name="factors"></param>

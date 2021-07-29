@@ -1,4 +1,17 @@
-﻿
+﻿Tag中的关键字说明：
+
+    "简单Lv=1"  : 过于简单，适合初级者，自己可以忽略不看
+        列表： Solution605
+
+    "通过"  自己完成的题目，相对比较简单，不追求最优解的情况下，可以忽略不看
+        列表： SolutionXXX
+
+    "掌握"  方法已经掌握，完成题目没有难度，不追求最优解的情况下，可以忽略不看
+        列表： Solution515
+
+    "抄作业" 抄官方答案，还没有消化的题目。
+        列表：[722] 删除注释
+
 https://just4once.gitbooks.io/leetcode-notes/content/leetcode/math/296-best-meeting-point.html
 https://www.programcreek.com/2014/07/leetcode-best-meeting-point-java/
 	296-best-meeting-point

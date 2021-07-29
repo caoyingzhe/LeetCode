@@ -64,7 +64,7 @@ namespace CSharpConsoleApp.Solutions
         /// </summary>
         public override Tag[] GetTags() { return new Tag[] { Tag.Math, Tag.BinarySearch }; }
 
-        public int NULL = -1;
+        
         /// <summary>
         /// </summary>
         /// <param name="sw"></param>
