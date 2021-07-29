@@ -105,6 +105,7 @@
     <Compile Include="Solutions\0500\Solution557.cs" />
     <Compile Include="Solutions\0500\Solution563.cs" />
     <Compile Include="Solutions\0500\Solution566.cs" />
+    <Compile Include="Solutions\0600\Solution621.cs" />
     <Compile Include="Solutions\premium\Solution296.cs" />
     <Compile Include="Solutions\0100\Solution108.cs" />
     <Compile Include="Solutions\0100\Solution121.cs" />
