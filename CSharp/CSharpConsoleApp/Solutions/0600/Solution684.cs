@@ -68,7 +68,7 @@ namespace CSharpConsoleApp.Solutions
         /// <summary>
         /// 标签： 
         /// </summary>
-        public override Tag[] GetTags() { return new Tag[] { Tag.Tree, Tag.UnionFind, Tag.Graph}; }
+        public override Tag[] GetTags() { return new Tag[] { Tag.Tree, Tag.UnionFind, Tag.Graph }; }
 
         public override bool Test(System.Diagnostics.Stopwatch sw)
         {
@@ -113,7 +113,7 @@ namespace CSharpConsoleApp.Solutions
 
                 int parent1 = Find(parent, node1);
                 int parent2 = Find(parent, node2);
-                
+
                 if (parent1 != parent2)
                 {
                     Print("Union {0} | {1} | parent = {2} | {3}", node1, node2, parent1, parent2);

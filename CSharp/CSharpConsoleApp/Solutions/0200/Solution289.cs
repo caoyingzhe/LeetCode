@@ -124,10 +124,10 @@ namespace CSharpConsoleApp.Solutions
         }
 
         //更新board的值，更新值左移一位，保留源值在最后一位。
-        void CheckChange(int[][] board ,int row, int col, int rowMax, int colMax)
+        void CheckChange(int[][] board, int row, int col, int rowMax, int colMax)
         {
             int sum = 0;
-            for(int i=-1; i<=1; i++)
+            for (int i = -1; i <= 1; i++)
             {
                 int r = row + i;
                 if (r < 0 || r == rowMax)
@@ -138,14 +138,14 @@ namespace CSharpConsoleApp.Solutions
                         continue;
 
                     int c = col + j;
-                    if(c < 0 || c == colMax)
+                    if (c < 0 || c == colMax)
                         continue;
                     sum += board[r][c] & 1; //更新Sum, 判断标准为board的值最后一位。（无视倒数第二位）
                 }
             }
 
-            int org  = board[row][col];
-            if(board[row][col] == 1)
+            int org = board[row][col];
+            if (board[row][col] == 1)
             {
                 if (sum < 2)
                     board[row][col] = 1; // & org; // return 0;  (binary 01 | org=1)

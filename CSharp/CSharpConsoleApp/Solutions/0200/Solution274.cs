@@ -47,7 +47,7 @@ namespace CSharpConsoleApp.Solutions
         /// <summary>
         /// 关键字:
         /// </summary>
-        public override string[] GetKeyWords() { return new string[] { "直方图"  }; }
+        public override string[] GetKeyWords() { return new string[] { "直方图" }; }
         /// <summary>
         /// 标签： 
         /// </summary>
@@ -76,13 +76,13 @@ namespace CSharpConsoleApp.Solutions
             list.Sort();
 
             // 0,1,3,
-            for(int i=n-1; i>=0; i--)
+            for (int i = n - 1; i >= 0; i--)
             {
                 //list[i]代表被引用的次数, i+1代表第几篇文章
                 int h = i + 1;
                 map.Add(h, list.Where<int>(t => t >= h).Count());
-                
-                if(h <= map[h])
+
+                if (h <= map[h])
                     return h;
             }
             return 0;
@@ -131,9 +131,9 @@ namespace CSharpConsoleApp.Solutions
             // s = 2 < k = 4 | k-- => 3, papker[k] = 0
             // s = 3 < k = 3 | k-- => 2, papker[k] = 1
             int s = papers[n];
-            for (; s < k ; s += papers[k])
+            for (; s < k; s += papers[k])
             {
-                Print("s={0} < k= {1} |  k -- => {2}, papker[k] = {3}", s, k, (k-1), papers[k]);
+                Print("s={0} < k= {1} |  k -- => {2}, papker[k] = {3}", s, k, (k - 1), papers[k]);
                 k--;
             }
             Print("s={0} < k= {1} |  k -- => {2}, papker[k] = {3}", s, k, (k - 1), papers[k]);

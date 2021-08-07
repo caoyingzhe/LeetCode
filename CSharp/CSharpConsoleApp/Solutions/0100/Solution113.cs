@@ -89,7 +89,7 @@ namespace CSharpConsoleApp.Solutions
         /// </summary>
         public override Tag[] GetTags() { return new Tag[] { Tag.Tree, Tag.BreadthFirstSearch }; }
 
-        
+
         /// <summary>
         /// </summary>
         /// <param name="sw"></param>
@@ -169,12 +169,12 @@ namespace CSharpConsoleApp.Solutions
                 result.Add(tmp.ToArray());
 
             if (root.left != null)
-            { 
+            {
                 DFS(result, tmp, rootTop, root.left, sum, targetSum);
                 tmp.RemoveAt(tmp.Count - 1);
             }
             if (root.right != null)
-            { 
+            {
                 DFS(result, tmp, rootTop, root.right, sum, targetSum);
                 tmp.RemoveAt(tmp.Count - 1);
             }

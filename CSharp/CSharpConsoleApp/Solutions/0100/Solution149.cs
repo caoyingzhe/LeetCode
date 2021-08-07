@@ -61,7 +61,7 @@ namespace CSharpConsoleApp.Solutions
         /// <summary>
         /// 关键字:
         /// </summary>
-        public override string[] GetKeyWords() { return new string[] { "点在直线上", "斜率精度"}; }
+        public override string[] GetKeyWords() { return new string[] { "点在直线上", "斜率精度" }; }
         /// <summary>
         /// 标签：
         /// </summary>
@@ -87,7 +87,7 @@ namespace CSharpConsoleApp.Solutions
 
             isSuccess &= result == checkResult;
             Print("isSuccess = {0} | result = {1} | anticipated = {2}", isSuccess, (result), (checkResult));
-            
+
             return isSuccess;
         }
 

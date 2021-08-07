@@ -142,7 +142,7 @@ namespace CSharpConsoleApp.Solutions
             }
 
             // ring 和 key的长度最多100，所以定个150很安全
-            int[,] dp = new int[m,150];
+            int[,] dp = new int[m, 150];
 
             // dp[0][j] 只需要计算从12点方向到key[0]所需要走的最短距离
 
@@ -155,7 +155,7 @@ namespace CSharpConsoleApp.Solutions
                 // 第一个12点方向的字符的下标，其实就是0
                 int y = lists[ringChar[0] - 'a'][0];
 
-                dp[0,j] = Math.Min(Math.Abs(x - y), n - Math.Abs(x - y)) + 1;
+                dp[0, j] = Math.Min(Math.Abs(x - y), n - Math.Abs(x - y)) + 1;
             }
 
             for (int i = 1; i < keyChar.Length; i++)
@@ -177,12 +177,12 @@ namespace CSharpConsoleApp.Solutions
                         // 上一个字符pre出现在ring圆盘上每一个位置的下标
                         int y = lists[pre - 'a'][k];
 
-                        int steps = dp[i - 1,k] + Math.Min(Math.Abs(x - y), n - Math.Abs(x - y)) + 1;
+                        int steps = dp[i - 1, k] + Math.Min(Math.Abs(x - y), n - Math.Abs(x - y)) + 1;
 
                         minSteps = Math.Min(minSteps, steps);
                     }
 
-                    dp[i,j] = minSteps;
+                    dp[i, j] = minSteps;
                 }
             }
 
@@ -192,8 +192,8 @@ namespace CSharpConsoleApp.Solutions
             for (int k = 0; k < 150; k++)
             {
                 // 当等于0时，说明已经越界了，直接跳出循环
-                if (dp[keyChar.Length - 1,k] == 0) break;
-                ans = Math.Min(ans, dp[keyChar.Length - 1,k]);
+                if (dp[keyChar.Length - 1, k] == 0) break;
+                ans = Math.Min(ans, dp[keyChar.Length - 1, k]);
             }
             return ans;
         }

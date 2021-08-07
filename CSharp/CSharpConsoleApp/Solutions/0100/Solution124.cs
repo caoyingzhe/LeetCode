@@ -95,7 +95,7 @@ namespace CSharpConsoleApp.Solutions
             result = MaxPathSum(root);
             isSuccess &= (checkResult == result);
             Print("isSuccess ={0} | result = {1} | checkResult = {2}", isSuccess, result, checkResult);
-            
+
             return isSuccess;
         }
 
@@ -134,14 +134,14 @@ namespace CSharpConsoleApp.Solutions
             int leftGain = Math.Max(MaxGain(node.left, " [" + node.val + "]->L"), 0);
             int rightGain = Math.Max(MaxGain(node.right, " [" + node.val + "]->R"), 0);
 
-            
+
             // 节点的最大路径和取决于该节点的值与该节点的左右子节点的最大贡献值
             int priceNewpath = node.val + leftGain + rightGain;
             Print("<<< Node ={0} End, | L={1}, R= {2} | price ={3} | maxSum = {4} => {5} | nodeSum= {6}", node.val, leftGain, rightGain, priceNewpath, maxSum, Math.Max(maxSum, priceNewpath), node.val + Math.Max(leftGain, rightGain));
             // 更新答案
             maxSum = Math.Max(maxSum, priceNewpath);
 
-            
+
             // 返回节点的最大贡献值 = 自己 + 左右贡献大的值。(该处理是递归）
             return node.val + Math.Max(leftGain, rightGain);
         }

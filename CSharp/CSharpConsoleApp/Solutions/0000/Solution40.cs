@@ -93,7 +93,7 @@ namespace CSharpConsoleApp.Solutions
                 new int[] {1,7 },
                 new int[] {2,6 }
             };
-            
+
             isSuccess &= IsArray2DSame(result, checkResult, true);
             Print("isSuccess = {0} result = {1} | checkResult = {2}", isSuccess, GetArray2DStr(result), GetArray2DStr(checkResult));
 
@@ -221,7 +221,7 @@ namespace CSharpConsoleApp.Solutions
                 int size = freq.Count;
                 if (freq.Count == 0 || num != freq[size - 1][0])
                 {
-                    freq.Add(new int[] { num, 1 });  
+                    freq.Add(new int[] { num, 1 });
                 }
                 else
                 {

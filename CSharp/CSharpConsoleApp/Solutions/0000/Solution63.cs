@@ -144,7 +144,7 @@ namespace CSharpConsoleApp.Solutions
                     obstacleInline = true;
                 dp[i, 0] = obstacleInline ? 0 : 1;
             }
-                
+
             for (j = 0; j < n; j++)
             {
                 if (obstacleGrid[0][j] == 1)
@@ -156,10 +156,10 @@ namespace CSharpConsoleApp.Solutions
             {
                 for (j = 1; j < n; j++)
                 {
-                    int U = obstacleGrid[i - 1][j] == 1 ? 0 : dp[i - 1,j];
-                    int L = obstacleGrid[i][j-1] == 1 ? 0 : dp[i, j - 1];
-                    int R = j+1 >=n || obstacleGrid[i][j+1] == 1 ? 0 : dp[i, j + 1];
-                    int D = i + 1 >= m || obstacleGrid[i+1][j] == 1 ? 0 : dp[i + 1, j];
+                    int U = obstacleGrid[i - 1][j] == 1 ? 0 : dp[i - 1, j];
+                    int L = obstacleGrid[i][j - 1] == 1 ? 0 : dp[i, j - 1];
+                    int R = j + 1 >= n || obstacleGrid[i][j + 1] == 1 ? 0 : dp[i, j + 1];
+                    int D = i + 1 >= m || obstacleGrid[i + 1][j] == 1 ? 0 : dp[i + 1, j];
                     dp[i, j] = obstacleGrid[i][j] == 1 ? 0 : L + R + U + D;
                 }
             }

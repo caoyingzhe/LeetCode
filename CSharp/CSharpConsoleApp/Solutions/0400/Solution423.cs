@@ -91,8 +91,8 @@ namespace CSharpConsoleApp.Solutions
             // building hashmap letter -> its frequency
             // 数组范围为  0～ z, 实际使用范围为'a' ~ 'z',
             // 虽然浪费了部分空间，但是省去了字符串转索引的处理。 
-            char[] count = new char[26 + (int)'a']; 
-            foreach(char letter in s)
+            char[] count = new char[26 + (int)'a'];
+            foreach (char letter in s)
             {
                 count[letter]++;
             }
@@ -122,9 +122,9 @@ namespace CSharpConsoleApp.Solutions
 
             // building output string
             System.Text.StringBuilder output = new System.Text.StringBuilder();
-            for(int i = 0; i< 10; i++)
-              for (int j = 0; j< rtn[i]; j++)
-                output.Append(i);
+            for (int i = 0; i < 10; i++)
+                for (int j = 0; j < rtn[i]; j++)
+                    output.Append(i);
             return output.ToString();
         }
 
@@ -133,34 +133,34 @@ namespace CSharpConsoleApp.Solutions
             Dictionary<char, int> dict = new Dictionary<char, int>();
             Dictionary<char, int> dictTarget = new Dictionary<char, int>();
             int[] charsCount = new int[26];
-            for(int i=0; i< 9; i++)
+            for (int i = 0; i < 9; i++)
             {
                 string numStr = numbers[i];
-                foreach(char c in numStr)
+                foreach (char c in numStr)
                 {
-                    charsCount[c-'a']++;
+                    charsCount[c - 'a']++;
                 }
             }
             string log = "";
             List<char> chars = new List<char>();
-            for(int i=0; i<26; i++)
+            for (int i = 0; i < 26; i++)
             {
                 if (charsCount[i] > 0)
                 {
                     char c = (char)('a' + i);
                     chars.Add(c);
                     dict.Add(c, charsCount[i]);
-                    log += "" + c  + " : " + charsCount[i] + "\n";
+                    log += "" + c + " : " + charsCount[i] + "\n";
                 }
             }
             Print(log);
 
-            
+
             foreach (char c in s)
             {
                 if (!dictTarget.ContainsKey(c))
                 {
-                    dictTarget[c]=0;
+                    dictTarget[c] = 0;
                 }
                 dictTarget[c]++;
             }

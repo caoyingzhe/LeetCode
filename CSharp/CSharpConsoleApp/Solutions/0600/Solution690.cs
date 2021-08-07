@@ -104,9 +104,9 @@ namespace CSharpConsoleApp.Solutions
 
             Employee employee = dict[id];
             int sum = employee.importance;
-            if(employee.subordinates != null)
-            { 
-                for(int i=0; i<employee.subordinates.Count; i++)
+            if (employee.subordinates != null)
+            {
+                for (int i = 0; i < employee.subordinates.Count; i++)
                 {
                     sum += DFS(employee.subordinates[i]);
                 }
@@ -130,7 +130,7 @@ namespace CSharpConsoleApp.Solutions
             while (queue.Count > 0)
             {
                 //把当前id，移出队列 
-                int curId = queue.Dequeue(); 
+                int curId = queue.Dequeue();
                 Employee employee = dict[curId];
                 //累加计算重要度
                 total += employee.importance;

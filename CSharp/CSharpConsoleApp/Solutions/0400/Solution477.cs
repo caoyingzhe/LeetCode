@@ -62,7 +62,7 @@ namespace CSharpConsoleApp.Solutions
         /// </summary>
         public override Tag[] GetTags() { return new Tag[] { Tag.BitManipulation }; }
 
-        
+
         public override bool Test(System.Diagnostics.Stopwatch sw)
         {
             bool isSuccess = true;
@@ -70,7 +70,7 @@ namespace CSharpConsoleApp.Solutions
             int[] nums;
             int result, checkResult;
 
-            nums = new int[] { 1, 4};
+            nums = new int[] { 1, 4 };
             checkResult = 2;
             result = TotalHammingDistance(nums);
             isSuccess &= IsSame(result, checkResult);
@@ -83,7 +83,7 @@ namespace CSharpConsoleApp.Solutions
             isSuccess &= IsSame(result, checkResult);
             PrintResult(isSuccess, result, checkResult);
 
-            nums = new int[] { 4, 14, 4};
+            nums = new int[] { 4, 14, 4 };
             checkResult = 4;
             result = TotalHammingDistance(nums);
             isSuccess &= IsSame(result, checkResult);
@@ -145,7 +145,7 @@ namespace CSharpConsoleApp.Solutions
             int n = nums.Length;
             Dictionary<int, int> dict = new Dictionary<int, int>();
             List<int> list = new List<int>();
-            for(int i=0; i<n; i++)
+            for (int i = 0; i < n; i++)
             {
                 if (!dict.ContainsKey(nums[i]))
                 {
@@ -157,9 +157,9 @@ namespace CSharpConsoleApp.Solutions
             }
 
             int sum = 0;
-            for(int i=list.Count-1; i>0 ; i--)
+            for (int i = list.Count - 1; i > 0; i--)
             {
-                for(int j=0; j<i; j++)
+                for (int j = 0; j < i; j++)
                 {
                     sum += HammingDistance(list[i], list[j]) * dict[list[i]] * dict[list[j]];
                 }

@@ -82,94 +82,95 @@ namespace CSharpConsoleApp.Solutions
             SolveSudoku(board2);
             //SolveSudoku_MyNotComplete(board2);
             isSuccess &= IsArraySame(board2, checkResult2);
-            System.Diagnostics.Debug.Print("---- isSuccess :{0} callCount :{1}\n {2}\n--------------------\n{3}", isSuccess, callCount, GetArrayStr(board2, " "),GetArrayStr(checkResult2, " "));
+            System.Diagnostics.Debug.Print("---- isSuccess :{0} callCount :{1}\n {2}\n--------------------\n{3}", isSuccess, callCount, GetArrayStr(board2, " "), GetArrayStr(checkResult2, " "));
             return isSuccess;
         }
 
 
 #if LeetCode
         #region  LeetCode Commit
-    public static int callCount = 0;
-    bool Fill(int i, int j, char[][] board)
-    {
-        callCount++;
-
-        if (j == 9)
+        public static int callCount = 0;
+        bool Fill(int i, int j, char[][] board)
         {
-            i++;
-            j = 0;
-            if (i == 9)
-            {
-                return true;
-            }
-        }
+            callCount++;
 
-        if (board[i][j] != '.')
-        {
-            return Fill(i, j + 1, board);
-        }
-
-        for (int num = 1; num <= 9; num++)
-        {
-            char c = num.ToString()[0];
-            if (HasConflict(i, j, c, board))
-                continue;
-
-            board[i][j] = c;
-            if (Fill(i, j + 1, board))
+            if (j == 9)
             {
-                return true;
-            }
-            else
-            {
-                board[i][j] = '.';
-            }
-        }
-        return false;
-    }
-    bool HasConflict(int row, int col, char fillChar, char[][] board)
-    {
-        for (int i = 0; i < 9; i++)
-        {
-            if (board[row][i] == fillChar || board[i][col] == fillChar)
-            {
-                return true;
-            }
-        }
-
-        int bi = (row / 3) * 3;
-        int bj = (col / 3) * 3;
-        for (int i = 0; i < 3; i++)
-        {
-            for (int j = 0; j < 3; j++)
-            {
-                if (board[bi + i][bj + j] == fillChar)
+                i++;
+                j = 0;
+                if (i == 9)
                 {
                     return true;
                 }
             }
-        }
-        return false;
-    }public void SolveSudoku(char[][] board)
-    {
-            Fill(0, 0, board);
-    }
-    int RemoveImpossibleChar(int i, int j, char removeChar, Dictionary<int, List<char>> dict, char[][] board)
-    {
-        int index = i * 9 + j;
-        if (dict.ContainsKey(index))
-        {
-            dict[index].Remove(removeChar);
-            if (dict[index].Count == 1)
+
+            if (board[i][j] != '.')
             {
-                board[i][j] = dict[index][0];
-                dict.Remove(index);
+                return Fill(i, j + 1, board);
             }
-            return 1;
+
+            for (int num = 1; num <= 9; num++)
+            {
+                char c = num.ToString()[0];
+                if (HasConflict(i, j, c, board))
+                    continue;
+
+                board[i][j] = c;
+                if (Fill(i, j + 1, board))
+                {
+                    return true;
+                }
+                else
+                {
+                    board[i][j] = '.';
+                }
+            }
+            return false;
         }
-        return 0;
-    }
-    
+        bool HasConflict(int row, int col, char fillChar, char[][] board)
+        {
+            for (int i = 0; i < 9; i++)
+            {
+                if (board[row][i] == fillChar || board[i][col] == fillChar)
+                {
+                    return true;
+                }
+            }
+
+            int bi = (row / 3) * 3;
+            int bj = (col / 3) * 3;
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    if (board[bi + i][bj + j] == fillChar)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        public void SolveSudoku(char[][] board)
+        {
+            Fill(0, 0, board);
+        }
+        int RemoveImpossibleChar(int i, int j, char removeChar, Dictionary<int, List<char>> dict, char[][] board)
+        {
+            int index = i * 9 + j;
+            if (dict.ContainsKey(index))
+            {
+                dict[index].Remove(removeChar);
+                if (dict[index].Count == 1)
+                {
+                    board[i][j] = dict[index][0];
+                    dict.Remove(index);
+                }
+                return 1;
+            }
+            return 0;
+        }
+
         #endregion
 #elif FirstChanllenged
         #region First Chanllenged

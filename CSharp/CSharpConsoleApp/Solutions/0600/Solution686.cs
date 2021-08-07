@@ -110,7 +110,7 @@ namespace CSharpConsoleApp.Solutions
             int n = (b.Length / a.Length + 1) * 3;
 
             string s = "";
-            for(int i=1; i<=n; i++)
+            for (int i = 1; i <= n; i++)
             {
                 s += a;
 

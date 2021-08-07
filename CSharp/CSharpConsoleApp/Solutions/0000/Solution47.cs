@@ -113,7 +113,7 @@ namespace CSharpConsoleApp.Solutions
             {
                 if (vis[i] || (i > 0 && output[i] == output[i - 1] && !vis[i - 1]))
                 {
-                    Print("first={0} i={1} | vis = {2} | {3}", first,i, GetArrayStr(vis), GetArrayStr(output));
+                    Print("first={0} i={1} | vis = {2} | {3}", first, i, GetArrayStr(vis), GetArrayStr(output));
                     continue;
                 }
 
@@ -124,7 +124,7 @@ namespace CSharpConsoleApp.Solutions
 
                 // 继续递归填下一个数
                 Backtrack46(n, output, res, nums, first + 1); //下一个
-                
+
                 // 撤销操作
                 CollectionsSwap<int>(output, first, i); //交换元素 first 和 i；//Collections.swap(output, first, i); 
                 vis[i] = false;

@@ -52,7 +52,7 @@ namespace CSharpConsoleApp.Solutions
         /// </summary>
         public override Tag[] GetTags() { return new Tag[] { Tag.DynamicProgramming }; }
 
-        
+
         public override bool Test(System.Diagnostics.Stopwatch sw)
         {
             bool isSuccess = true;
@@ -106,12 +106,12 @@ namespace CSharpConsoleApp.Solutions
             for (int i = 2; i < n; i++)
             {
                 int maxF = max; int minF = min;
-                
+
                 //比较当前值 ，当前值*上一组最大乘积，上一个最小的乘积*当前值比较出最大的
-                max =   Math.Max(nums[i] * maxF,   Math.Max(nums[i], minF * nums[i]));
+                max = Math.Max(nums[i] * maxF, Math.Max(nums[i], minF * nums[i]));
                 //比较当前值 ，当前值*上一组最小乘积，上一个最大的乘积*当前值比较出最小的的
-                min =   Math.Min(nums[i] * minF,   Math.Min(nums[i], maxF * nums[i]));
-                
+                min = Math.Min(nums[i] * minF, Math.Min(nums[i], maxF * nums[i]));
+
                 //ans =   Math.Max(ans, max);
                 if (ans <= max) ans = max;
             }
@@ -121,7 +121,7 @@ namespace CSharpConsoleApp.Solutions
 
         //作者：LeetCode - Solution
         //链接：https://leetcode-cn.com/problems/maximum-product-subarray/solution/cheng-ji-zui-da-zi-shu-zu-by-leetcode-solution/
-            
+
         public int MaxProduct1(int[] nums)
         {
             int n = nums.Length;
@@ -131,13 +131,13 @@ namespace CSharpConsoleApp.Solutions
             Array.Copy(nums, minF, n);
             for (int i = 1; i < n; ++i)
             {
-                maxF[i] =   Math.Max(maxF[i - 1] * nums[i],   Math.Max(nums[i], minF[i - 1] * nums[i]));
-                minF[i] =   Math.Min(minF[i - 1] * nums[i],   Math.Min(nums[i], maxF[i - 1] * nums[i]));
+                maxF[i] = Math.Max(maxF[i - 1] * nums[i], Math.Max(nums[i], minF[i - 1] * nums[i]));
+                minF[i] = Math.Min(minF[i - 1] * nums[i], Math.Min(nums[i], maxF[i - 1] * nums[i]));
             }
             int ans = maxF[0];
             for (int i = 1; i < n; ++i)
             {
-                ans =   Math.Max(ans, maxF[i]);
+                ans = Math.Max(ans, maxF[i]);
             }
             return ans;
         }
@@ -149,9 +149,9 @@ namespace CSharpConsoleApp.Solutions
             for (int i = 1; i < n; ++i)
             {
                 int mx = maxF, mn = minF;
-                maxF =   Math.Max(mx * nums[i],   Math.Max(nums[i], mn * nums[i]));
-                minF =   Math.Min(mn * nums[i],   Math.Min(nums[i], mx * nums[i]));
-                ans =   Math.Max(maxF, ans);
+                maxF = Math.Max(mx * nums[i], Math.Max(nums[i], mn * nums[i]));
+                minF = Math.Min(mn * nums[i], Math.Min(nums[i], mx * nums[i]));
+                ans = Math.Max(maxF, ans);
             }
             return ans;
         }
@@ -204,7 +204,7 @@ namespace CSharpConsoleApp.Solutions
             //}
             //return ans;
 
-            int max = int.MinValue, imax = nums[0] * nums[1], imin = nums[0]*nums[1];
+            int max = int.MinValue, imax = nums[0] * nums[1], imin = nums[0] * nums[1];
             for (int i = 1; i < nums.Length; i++)
             {
                 //if (nums[i] < 0)
@@ -213,16 +213,16 @@ namespace CSharpConsoleApp.Solutions
                 //    imax = imin;
                 //    imin = tmp;
                 //}
-                imax =   Math.Max(imax * nums[i], nums[i]);
-                imin =   Math.Min(imin * nums[i], nums[i]);
+                imax = Math.Max(imax * nums[i], nums[i]);
+                imin = Math.Min(imin * nums[i], nums[i]);
 
-                max =   Math.Max(max, imax);
+                max = Math.Max(max, imax);
             }
             return max;
 
             //作者：guanpengchn
             //链接：https://leetcode-cn.com/problems/maximum-product-subarray/solution/hua-jie-suan-fa-152-cheng-ji-zui-da-zi-xu-lie-by-g/
-            
+
         }
 
         //作者：LeetCode-Solution

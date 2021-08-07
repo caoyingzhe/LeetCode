@@ -59,7 +59,7 @@ namespace CSharpConsoleApp.Solutions
         /// <summary>
         /// 标签： 
         /// </summary>
-        public override Tag[] GetTags() { return new Tag[] { Tag.BinarySearch, Tag.DynamicProgramming, Tag.Queue}; }
+        public override Tag[] GetTags() { return new Tag[] { Tag.BinarySearch, Tag.DynamicProgramming, Tag.Queue }; }
 
         public override bool Test(System.Diagnostics.Stopwatch sw)
         {
@@ -107,7 +107,7 @@ namespace CSharpConsoleApp.Solutions
 
             int n = matrix.Length;
 
-            int[] dp = new int[n+1];
+            int[] dp = new int[n + 1];
             //动态方程
 
             return dp[n];
@@ -147,7 +147,7 @@ namespace CSharpConsoleApp.Solutions
                     {
                         s += v;
                         //int ceil = sumSet.ceiling(s - k); //Java TreeSet.ceiling 返回Set中大于/等于e的最小元素
-                        
+
                         int sk = s - k;
                         if (sk >= sumSet.Min() && sk <= sumSet.Max())
                         {
@@ -217,13 +217,13 @@ namespace CSharpConsoleApp.Solutions
         public int maxSumSubmatrix_Step1(int[][] matrix, int k)
         {
             int rows = matrix.Length, cols = matrix[0].Length, max = int.MinValue;
-            int[,,,] dp = new int[rows + 1,cols + 1, rows + 1, cols + 1]; // from (i1,j1) to (i2,j2)
+            int[,,,] dp = new int[rows + 1, cols + 1, rows + 1, cols + 1]; // from (i1,j1) to (i2,j2)
 
             for (int i1 = 1; i1 <= rows; i1++)
             {
                 for (int j1 = 1; j1 <= cols; j1++)
                 {
-                    dp[i1,j1, i1, j1] = matrix[i1 - 1][j1 - 1];
+                    dp[i1, j1, i1, j1] = matrix[i1 - 1][j1 - 1];
                     for (int i2 = i1; i2 <= rows; i2++)
                     {
                         for (int j2 = j1; j2 <= cols; j2++)
@@ -260,13 +260,13 @@ namespace CSharpConsoleApp.Solutions
             {
                 for (int j1 = 1; j1 <= cols; j1++)
                 {
-                    int[,] dp = new int[rows + 1,cols + 1]; // renew  // from (i1,j1) to (i2,j2)
-                    dp[i1,j1] = matrix[i1 - 1][j1 - 1];
+                    int[,] dp = new int[rows + 1, cols + 1]; // renew  // from (i1,j1) to (i2,j2)
+                    dp[i1, j1] = matrix[i1 - 1][j1 - 1];
                     for (int i2 = i1; i2 <= rows; i2++)
                     {
                         for (int j2 = j1; j2 <= cols; j2++)
                         {
-                            dp[i2,j2] = dp[i2 - 1, j2] + dp[i2, j2 - 1] - dp[i2 - 1, j2 - 1] + matrix[i2 - 1][j2 - 1];
+                            dp[i2, j2] = dp[i2 - 1, j2] + dp[i2, j2 - 1] - dp[i2 - 1, j2 - 1] + matrix[i2 - 1][j2 - 1];
                             if (dp[i2, j2] <= k && dp[i2, j2] > max) max = dp[i2, j2];
                         }
                     }
@@ -282,7 +282,7 @@ namespace CSharpConsoleApp.Solutions
             int rows = matrix.Length, cols = matrix[0].Length, max = int.MinValue;
             // O(cols ^ 2 * rows)
             //for (int i1 = 1; i1 <= rows; i1++) 减少了第一层循环。
-            { 
+            {
                 for (int l = 0; l < cols; l++)
                 { // 枚举左边界
                     int[] rowSum = new int[rows]; // 左边界改变才算区域的重新开始 rowSum代表最左边到左边界的和，这样就减少了第一层循环。

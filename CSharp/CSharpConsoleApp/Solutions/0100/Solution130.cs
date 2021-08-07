@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CSharpConsoleApp.Solutions
 {
-    class Solution130: SolutionBase
+    class Solution130 : SolutionBase
     {
         /// <summary>
         /// 难易度:
@@ -42,7 +42,7 @@ namespace CSharpConsoleApp.Solutions
                 new char[] {'X','X','X','X'},
                 new char[] {'X','O','X','X'}};
             isSuccess = Solve(board, checkResult);
-            
+
             board = new char[][] {
                 new char[] { 'X', 'O', 'X' },
                 new char[] { 'X', 'O', 'X' },
@@ -74,7 +74,7 @@ namespace CSharpConsoleApp.Solutions
             //System.Diagnostics.Debug.Print("---- anticipated ----\n" + GetArrayStr(checkResult));
             bool isSuccess = IsArraySame(result, checkResult);
             //System.Diagnostics.Debug.Print(string.Format("isSuccess = {0} ", isSuccess));
-           
+
             return isSuccess;
         }
 
@@ -118,7 +118,7 @@ namespace CSharpConsoleApp.Solutions
                 //    System.Diagnostics.Debug.Print("------ 第一列开始深度遍历  --i=[" + i + "]------\n" + GetArrayStr(board));
                 //    CloneArray(board, boardClone);
                 //}
-                    
+
                 // 最后一列元素开始深度遍历
                 dfs(board, i, n - 1);
                 //if (!IsArraySame(board, boardClone))

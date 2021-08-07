@@ -99,16 +99,16 @@ namespace CSharpConsoleApp.Solutions._0300
 
             int n = nums.Length;
             for (int i = 0; i < n; i++)
-            { 
-                long[] numsPrefixSum = new long[n-i];
+            {
+                long[] numsPrefixSum = new long[n - i];
                 long sum = 0;
-                for (int j=i; j< n; j++)
+                for (int j = i; j < n; j++)
                 {
                     sum += nums[j];
                     if (sum >= lower && sum <= upper)
                         result++;
 
-                    numsPrefixSum[j-i] = sum;
+                    numsPrefixSum[j - i] = sum;
                 }
                 Print(GetArrayStr(numsPrefixSum));
             }
@@ -119,14 +119,14 @@ namespace CSharpConsoleApp.Solutions._0300
         public int CountRangeSum(int[] nums, int lower, int upper)
         {
             long s = 0;
-            long[] sum = new long[nums.Length+ 1]; //第一层前缀和 ([0]=0;
+            long[] sum = new long[nums.Length + 1]; //第一层前缀和 ([0]=0;
             for (int i = 0; i < nums.Length; ++i)
             {
                 s += nums[i];
                 sum[i + 1] = s;
             }
-            
-            return CountRangeSumRecursive(sum, lower, upper, 0, sum.Length- 1);
+
+            return CountRangeSumRecursive(sum, lower, upper, 0, sum.Length - 1);
         }
         int count = 0;
         /// <summary>
@@ -145,10 +145,10 @@ namespace CSharpConsoleApp.Solutions._0300
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        public int CountRangeSumRecursive(long[] sum, int lower, int upper, int left, int right, string info="")
+        public int CountRangeSumRecursive(long[] sum, int lower, int upper, int left, int right, string info = "")
         {
-            count++; 
-            Print("sum = {0} L={1} | R={2} | {3}", GetArrayStr(sum), left, right, " | count = " + count + info );
+            count++;
+            Print("sum = {0} L={1} | R={2} | {3}", GetArrayStr(sum), left, right, " | count = " + count + info);
             if (left == right)
             {
                 return 0;

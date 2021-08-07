@@ -116,13 +116,13 @@ namespace CSharpConsoleApp.Solutions
                 new int[] { 3, 1 },
                 new int[] { 3, 2 },
             };
-            checkResult = new int[] { 0, 1, 2 ,3 };
+            checkResult = new int[] { 0, 1, 2, 3 };
             result = FindOrder(numCourses, prerequisites);
             isSuccess &= IsArraySame(result, checkResult);
             Print("isSuccess = {0} | result= {1} | checkResult= {2} | ", isSuccess, (result), (checkResult));
 
             numCourses = 1;
-            prerequisites = new int[][] {};
+            prerequisites = new int[][] { };
             checkResult = new int[] { 0 };
             result = FindOrder(numCourses, prerequisites);
             isSuccess &= IsArraySame(result, checkResult);

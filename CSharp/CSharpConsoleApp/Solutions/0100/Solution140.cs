@@ -54,13 +54,13 @@ namespace CSharpConsoleApp.Solutions
             bool isSuccess = true;
 
             s = "catsanddog";
-            wordDict = new List<string>( new string[]{ "cat", "cats", "and", "sand", "dog" });
+            wordDict = new List<string>(new string[] { "cat", "cats", "and", "sand", "dog" });
             result = WordBreak(s, wordDict).ToList<string>();
-            resultChecked = new List<string>( new string[] { "cats and dog", "cat sand dog" });
+            resultChecked = new List<string>(new string[] { "cats and dog", "cat sand dog" });
 
             isSuccess &= IsListSame(result, resultChecked);
 
-            Print("isSuccess = {0} | result= {1} | resultChecked = {2}", isSuccess, GetArrayStr(result),GetArrayStr(resultChecked));
+            Print("isSuccess = {0} | result= {1} | resultChecked = {2}", isSuccess, GetArrayStr(result), GetArrayStr(resultChecked));
             return false;
         }
 
@@ -69,7 +69,7 @@ namespace CSharpConsoleApp.Solutions
         {
             //用于记忆法剪枝的字典（Java中使用Map接口的HashMap类）
             Dictionary<int, List<List<String>>> map = new Dictionary<int, List<List<String>>>();
-            
+
             //问题的解决方案
             List<List<String>> wordBreaks = Backtrack(s, s.Length, new HashSet<String>(wordDict), 0, map);
 
@@ -103,14 +103,14 @@ namespace CSharpConsoleApp.Solutions
                 for (int i = index + 1; i <= length; i++)
                 {
                     //String word = s.substring(index, i);
-                    String word = s.Substring(index, i-index);
+                    String word = s.Substring(index, i - index);
 
                     Print("======>>>Check : Substring ({0},{1}) | index = {0} wordSet.Contains({2}) = {3}", index, i, word, wordSet.Contains(word));
                     if (wordSet.Contains(word))
                     {
                         List<List<String>> nextWordBreaks = Backtrack(s, length, wordSet, i, map);
                         Print("======>>> index = {0} Get nextWordBreaks = {1}", index, GetArray2DStr(nextWordBreaks, "，", ";"));
-                        for (int j=0; j<nextWordBreaks.Count; j++)
+                        for (int j = 0; j < nextWordBreaks.Count; j++)
                         //foreach (List<String> nextWordBreak in nextWordBreaks)
                         {
                             List<String> nextWordBreak = nextWordBreaks[j];
@@ -124,7 +124,7 @@ namespace CSharpConsoleApp.Solutions
                     }
                 }
                 map.Add(index, wordBreaks);
-                Print("===>>> Add Dictionary Data : index ={0} wordBreaks = {1} ", index, GetArray2DStr(wordBreaks,",", ";"));
+                Print("===>>> Add Dictionary Data : index ={0} wordBreaks = {1} ", index, GetArray2DStr(wordBreaks, ",", ";"));
 
             }
             Print("<<< map[{0}] = {1}", index, GetArray2DStr(map[index], "，", "|"));

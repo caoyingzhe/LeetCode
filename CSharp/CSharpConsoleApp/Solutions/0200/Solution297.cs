@@ -148,7 +148,8 @@ namespace CSharpConsoleApp.Solutions._0200
             return root;
         }
 
-        public string serialize(TreeNode root) {
+        public string serialize(TreeNode root)
+        {
             return rserialize(root, new StringBuilder()).ToString();
         }
 

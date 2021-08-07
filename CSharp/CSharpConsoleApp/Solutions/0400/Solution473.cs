@@ -107,7 +107,7 @@ namespace CSharpConsoleApp.Solutions
             //isSuccess &= IsSame(result, checkResult);
             //PrintResult(isSuccess, result, checkResult);
 
-            matchsticks = new int[] { 1, 2, 3, 4, 1, 2, 3, 4, 5, 5, 6, 7, 8, 9, 10};
+            matchsticks = new int[] { 1, 2, 3, 4, 1, 2, 3, 4, 5, 5, 6, 7, 8, 9, 10 };
             checkResult = false;
             result = Makesquare(matchsticks);
             isSuccess &= IsSame(result, checkResult);
@@ -195,7 +195,7 @@ namespace CSharpConsoleApp.Solutions
 
             int n = matchsticks.Length;
             int length = 0;
-            for(int i=0; i< n; i++) length += matchsticks[i];
+            for (int i = 0; i < n; i++) length += matchsticks[i];
 
             if (length == 0 || length % 4 != 0) return false;
             int sideLen = length / 4;
@@ -235,7 +235,7 @@ namespace CSharpConsoleApp.Solutions
             return false;
         }
 
-            }
+    }
     // @lc code=end
 
 

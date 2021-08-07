@@ -49,13 +49,13 @@ namespace CSharpConsoleApp.Solutions
         /// <summary>
         /// 关键字:
         /// </summary>
-        public override string[] GetKeyWords() { return new string[] { "基数排序",  }; }
+        public override string[] GetKeyWords() { return new string[] { "基数排序", }; }
         /// <summary>
         /// 标签：
         /// </summary>
         public override Tag[] GetTags() { return new Tag[] { Tag.Array, Tag.BinarySearch }; }
 
-        
+
         public override bool Test(System.Diagnostics.Stopwatch sw)
         {
             bool isSuccess = true;
@@ -77,7 +77,7 @@ namespace CSharpConsoleApp.Solutions
             return isSuccess;
         }
 
-        
+
         //不讲武德的code， 效率确实也不咋地
         //40/40 cases passed (336 ms)
         //Your runtime beats 32.14 % of csharp submissions

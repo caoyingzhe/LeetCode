@@ -69,13 +69,13 @@ namespace CSharpConsoleApp.Solutions
         /// <summary>
         /// 关键字:
         /// </summary>
-        public override string[] GetKeyWords() { return new string[] { "插入排序"  }; }
+        public override string[] GetKeyWords() { return new string[] { "插入排序" }; }
         /// <summary>
         /// 标签：
         /// </summary>
         public override Tag[] GetTags() { return new Tag[] { Tag.LinkedList, Tag.Sort }; }
 
-        
+
         public override bool Test(System.Diagnostics.Stopwatch sw)
         {
             bool isSuccess = true;

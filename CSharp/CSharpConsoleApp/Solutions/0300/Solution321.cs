@@ -93,7 +93,7 @@ namespace CSharpConsoleApp.Solutions._0300
             result = MaxNumber(nums1, nums2, k);
             isSuccess &= IsArraySame(result.ToArray(), checkResult);
             Print("isSuccess = {0} | result = {1} | anticipated = {2}", isSuccess, GetArrayStr<int>(result), GetArrayStr<int>(checkResult));
-            
+
             return isSuccess;
         }
         /// <summary>

@@ -81,7 +81,7 @@ namespace CSharpConsoleApp.Solutions
                 q.Pop();
                 for (int j = 0; j < k; ++j)
                 {
-                    long num = 1 * cur *primes[j];
+                    long num = 1 * cur * primes[j];
                     if (!s.Contains(num))
                     {
                         s.Add(num);
@@ -102,10 +102,10 @@ namespace CSharpConsoleApp.Solutions
 
             PriorityQueue<long> queue = new PriorityQueue<long>(n, new ComparerLongDesc());
             int value = 1;
-            for(int i=0; i<n; i++)
+            for (int i = 0; i < n; i++)
             {
                 value = 1;
-                for (int j=0; j<primes.Length; j++)
+                for (int j = 0; j < primes.Length; j++)
                 {
                     value *= primes[j];
                     if (value < 0)
@@ -113,10 +113,10 @@ namespace CSharpConsoleApp.Solutions
                     if (!set.Contains(value))
                     {
                         set.Add(value);
-                        Print("Add {0} | set.Count = {1}",value, set.Count);
+                        Print("Add {0} | set.Count = {1}", value, set.Count);
                         if (set.Count == n)
                         {
-                            if(queue.Top() > value)
+                            if (queue.Top() > value)
                             {
                                 Print("Top = {0} | new Value = {1}", queue.Top(), value);
                                 queue.Pop();
@@ -125,7 +125,7 @@ namespace CSharpConsoleApp.Solutions
                             }
                         }
                         else
-                        { 
+                        {
                             //if(value > 0)
                             {
                                 queue.Push(value);

@@ -67,7 +67,7 @@ namespace CSharpConsoleApp.Solutions
         /// </summary>
         public override Tag[] GetTags() { return new Tag[] { Tag.Math }; }
 
-        
+
         public override bool Test(System.Diagnostics.Stopwatch sw)
         {
             bool isSuccess = true;
@@ -136,7 +136,7 @@ namespace CSharpConsoleApp.Solutions
             if (b.Count == 0) return 1;
             int last = b[b.Count - 1];
             //b.pop_back();
-            b.RemoveAt(b.Count -1);
+            b.RemoveAt(b.Count - 1);
 
             int part1 = Mypow(a, last);
             int part2 = Mypow(SuperPow2(a, b), 10);

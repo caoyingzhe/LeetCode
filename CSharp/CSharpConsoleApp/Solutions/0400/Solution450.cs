@@ -95,7 +95,7 @@ namespace CSharpConsoleApp.Solutions
         /// </summary>
         public override Tag[] GetTags() { return new Tag[] { Tag.Math }; }
 
-        
+
         public override bool Test(System.Diagnostics.Stopwatch sw)
         {
             bool isSuccess = true;
@@ -146,14 +146,14 @@ namespace CSharpConsoleApp.Solutions
             {
                 // 情况1，欲删除节点无左子
                 if (root.left != null)
-                    return root.right; 
+                    return root.right;
 
                 // 情况2，欲删除节点无右子
                 if (root.right != null)
-                    return root.left;  
+                    return root.left;
 
                 // 情况3，欲删除节点左右子都有 
-                TreeNode node = root.right;           
+                TreeNode node = root.right;
                 while (node.left != null)          // 寻找欲删除节点右子树的最左节点
                     node = node.left;
                 node.left = root.left;             // 将欲删除节点的左子树成为其右子树的最左节点的左子树

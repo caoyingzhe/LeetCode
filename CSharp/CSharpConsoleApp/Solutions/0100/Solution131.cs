@@ -54,7 +54,7 @@ namespace CSharpConsoleApp.Solutions
         /// </summary>
         public override Tag[] GetTags() { return new Tag[] { Tag.Backtracking }; }
 
-        
+
         /// <summary>
         /// </summary>
         /// <param name="sw"></param>
@@ -109,7 +109,7 @@ namespace CSharpConsoleApp.Solutions
             ans = new List<String>();
 
             n = s.Length;
-            if(n == 1)
+            if (n == 1)
             {
                 ret.Add(new string[] { s });
                 return ret;

@@ -119,7 +119,7 @@ namespace CSharpConsoleApp.Solutions._0000
                         if (sum == target)
                         {
                             //如果和等于target，则将枚举到的四个数加到答案中，
-                            quadruplets.Add(new List<int>(new int[] { nums[i], nums[j], nums[left], nums[right]}));
+                            quadruplets.Add(new List<int>(new int[] { nums[i], nums[j], nums[left], nums[right] }));
 
                             //然后将左指针右移直到遇到不同的数，
                             while (left < right && nums[left] == nums[left + 1])

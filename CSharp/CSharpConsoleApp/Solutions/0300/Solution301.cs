@@ -70,7 +70,7 @@ namespace CSharpConsoleApp.Solutions
             IList<string> result, checkResult;
 
             s = "()())()";
-            checkResult = new string[] { "(())()", "()()()" } ;
+            checkResult = new string[] { "(())()", "()()()" };
             result = RemoveInvalidParentheses(s);
             isSuccess &= IsListSame(result, checkResult, true);
             Print("isSuccess = {0} result = {1} | checkResult = {2}", isSuccess, GetArrayStr(result), GetArrayStr(checkResult));

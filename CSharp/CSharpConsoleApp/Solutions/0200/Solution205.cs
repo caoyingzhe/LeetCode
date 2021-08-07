@@ -97,7 +97,7 @@ namespace CSharpConsoleApp.Solutions
             result = IsIsomorphic(s, t);
             isSuccess &= IsSame(result, checkResult);
             PrintResult(isSuccess, (result), (checkResult));
-            
+
             s = "qwertyuiop[]asdfghjkl;'\\\\zxcvbnm,./";
             t = "',.pyfgcrl/=aoeuidhtns-\\\\;qjkxbmwvz";
             checkResult = true;

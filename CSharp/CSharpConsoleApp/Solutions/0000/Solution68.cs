@@ -186,12 +186,12 @@ namespace CSharpConsoleApp.Solutions
         public string UpdateLastLine(string s)
         {
             int n = s.Length;
-            while(s.Contains("  "))
+            while (s.Contains("  "))
             {
                 s = s.Replace("  ", " ");
             }
             int m = s.Length;
-            for(int i=0; i<m-n; i++)
+            for (int i = 0; i < m - n; i++)
             {
                 s += " ";
             }
@@ -218,15 +218,15 @@ namespace CSharpConsoleApp.Solutions
                     wordsLength += word.Length;
                 }
                 int spaceNumber = maxWidth - wordsLength;   // 空格数
-                int gap = (spaceNumber) / (currentLineWords.Count- 1);    // 间隙
-                string[] spaceWords = new string[currentLineWords.Count- 1];
+                int gap = (spaceNumber) / (currentLineWords.Count - 1);    // 间隙
+                string[] spaceWords = new string[currentLineWords.Count - 1];
                 // 多余的空格数
-                int left = spaceNumber - (gap * (currentLineWords.Count- 1));
+                int left = spaceNumber - (gap * (currentLineWords.Count - 1));
                 System.Text.StringBuilder sb = new System.Text.StringBuilder();
                 for (int j = 0; j < currentLineWords.Count; j++)
                 {
                     string word = currentLineWords[j];
-                    if (j == currentLineWords.Count- 1)
+                    if (j == currentLineWords.Count - 1)
                     {
                         sb.Append(word); // 最后一行不需要空格
                     }

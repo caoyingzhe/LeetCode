@@ -159,7 +159,7 @@ namespace CSharpConsoleApp.Solutions
                 Print("i= {0} | next ={1}", GetArrayStr(next), len - next[len]);
             }
             // 最后判断是否是重复的子字符串
-            if (next[len] > 0 && len % (len - next[len]) == 0) 
+            if (next[len] > 0 && len % (len - next[len]) == 0)
             {
                 Print("next ={0} | len - next[len] = {1} ", GetArrayStr(next), len - next[len]);
                 return true;
@@ -181,9 +181,9 @@ namespace CSharpConsoleApp.Solutions
             if (n == 1) return false;
 
             List<int> factors = new List<int>();
-            if(IsPrime2(n, factors))
+            if (IsPrime2(n, factors))
             {
-                if(s[0]!=s[1])
+                if (s[0] != s[1])
                     return false;
             }
 
@@ -199,7 +199,7 @@ namespace CSharpConsoleApp.Solutions
 
                     bool allMatch = true;
                     string word = s.Substring(0, wordLen);
-                    for (int j = wordLen; j < n; j+= wordLen)
+                    for (int j = wordLen; j < n; j += wordLen)
                     {
                         string tmpWord = s.Substring(j, wordLen);
                         if (!tmpWord.Equals(word))
@@ -223,7 +223,7 @@ namespace CSharpConsoleApp.Solutions
         {
             if (factors == null) factors = new List<int>();
 
-            for (int i = x / 2; i >=2; --i)
+            for (int i = x / 2; i >= 2; --i)
             {
                 if (x % i == 0)
                 {

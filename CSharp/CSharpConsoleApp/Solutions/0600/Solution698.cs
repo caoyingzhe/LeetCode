@@ -122,7 +122,7 @@ namespace CSharpConsoleApp.Solutions
 
             //先排序
             Array.Sort(nums);
-            return DFS(nums , nums.Length - 1, sum / k, size);
+            return DFS(nums, nums.Length - 1, sum / k, size);
         }
 
         public bool DFS(int[] nums, int index, int target, int[] size)

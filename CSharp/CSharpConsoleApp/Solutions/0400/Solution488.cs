@@ -19,7 +19,7 @@ namespace CSharpConsoleApp.Solutions
         /// <summary>
         /// 关键字:
         /// </summary>
-        public override string[] GetKeyWords() { return new string[] { "DFS"}; }
+        public override string[] GetKeyWords() { return new string[] { "DFS" }; }
         /// <summary>
         /// 标签： 
         /// </summary>
@@ -38,14 +38,14 @@ namespace CSharpConsoleApp.Solutions
             result = FindMinStep(board, hand);
             isSuccess &= (checkResult == result);
             Print("{4} board ={0} board={1} result={2} | anticipated = {3}", board, hand, result, checkResult, isSuccess);
-            
+
             board = "WWRRBBWW";
             hand = "WRBRW";
             checkResult = 2;
             result = FindMinStep(board, hand);
             isSuccess &= (checkResult == result);
             Print("{4} board ={0} board={1} result={2} | anticipated = {3}", board, hand, result, checkResult, isSuccess);
-            
+
             board = "G";
             hand = "GGGGG";
             checkResult = 2;
@@ -153,15 +153,15 @@ namespace CSharpConsoleApp.Solutions
                     }
                     if (j - i >= 3)
                     {
-                        sb.Remove(i, j-i); // sb.delete(i, j); //Java StringBuilder delete?(int start, int end)
+                        sb.Remove(i, j - i); // sb.delete(i, j); //Java StringBuilder delete?(int start, int end)
                         flag = true;
                     }
                 }
             }
             return sb;
         }
-     //作者：617076674
-     //https://leetcode-cn.com/problems/zuma-game/solution/zu-ma-you-xi-by-617076674/
+        //作者：617076674
+        //https://leetcode-cn.com/problems/zuma-game/solution/zu-ma-you-xi-by-617076674/
 
 #elif USE_CPP
         #region Version C++  测试用例2不过

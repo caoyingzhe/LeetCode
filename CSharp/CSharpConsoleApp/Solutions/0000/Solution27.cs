@@ -87,7 +87,7 @@ namespace CSharpConsoleApp.Solutions._0000
             nums = new int[] { 3, 3 };
             k = 3;
             checkResult = 0;
-            checkResultArr = new int[] {  };
+            checkResultArr = new int[] { };
             result = RemoveElement(nums, k);
             isSuccess &= result == checkResult;
             isSuccess &= IsArraySame(nums, checkResultArr);
@@ -110,7 +110,7 @@ namespace CSharpConsoleApp.Solutions._0000
             int n = nums.Length;
             int ri = n - 1;
             int li = 0; int j = n - 1;
-            
+
             while (li < ri)
             {
                 bool isLSame = nums[li] == val;
@@ -145,7 +145,7 @@ namespace CSharpConsoleApp.Solutions._0000
             }
 
             int count = 0;
-            for (int i=0; i<n; i++)
+            for (int i = 0; i < n; i++)
             {
                 if (nums[i] == val)
                     break;

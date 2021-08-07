@@ -76,7 +76,7 @@ namespace CSharpConsoleApp.Solutions._0000
             int result;
             int checkResult;
 
-            nums = new int[] {1, 8, 6, 2, 5, 4, 8, 3, 7};
+            nums = new int[] { 1, 8, 6, 2, 5, 4, 8, 3, 7 };
             checkResult = 49;
             result = MaxArea(nums);
             isSuccess &= result == checkResult;
@@ -108,14 +108,14 @@ namespace CSharpConsoleApp.Solutions._0000
             //sortHeight.Sort((a,b) => { return a[1] - b[1]; }); //降序
             //Dictionary<int, int[]> heightIndexDict = new Dictionary<int, int[]>();
 
-            for (int i=0; i<n; i++)
+            for (int i = 0; i < n; i++)
             {
-                int vol = (n-1 - i) * Math.Min(height[i], height[n-1]);
+                int vol = (n - 1 - i) * Math.Min(height[i], height[n - 1]);
 
                 max = Math.Max(vol, max);
-                for (int j= n-2; j>i; j--)
+                for (int j = n - 2; j > i; j--)
                 {
-                    if (height[j] < height[j+1])
+                    if (height[j] < height[j + 1])
                     {
                         continue;
                     }

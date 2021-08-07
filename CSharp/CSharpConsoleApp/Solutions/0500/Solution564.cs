@@ -141,7 +141,7 @@ namespace CSharpConsoleApp.Solutions
             }
 
             int length = s.Length; long n = long.Parse(s);
-            if (n < 10 || n == Math.Pow(10,length - 1))
+            if (n < 10 || n == Math.Pow(10, length - 1))
             {
                 return (n - 1).ToString();
             }
@@ -176,10 +176,10 @@ namespace CSharpConsoleApp.Solutions
             foreach (int dx in new int[] { -1, 0, 1 })
             {
                 string tmpS = (pre + dx).ToString();
-                
+
                 // tmp = [s[:length/2] + s[::-1]
                 //return Math.Min(tmp, key = lambda x: (x == s, Math.Abs(int(x) - n)));
-                
+
             }
             return "";
         }
@@ -245,7 +245,7 @@ namespace CSharpConsoleApp.Solutions
             return ll.Append(rr.Substring(startIndex, rr.Length - startIndex)).ToString();
         }
 
-        
+
     }
     // @lc code=end
 }

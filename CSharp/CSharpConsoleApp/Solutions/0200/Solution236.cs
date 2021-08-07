@@ -162,7 +162,7 @@ namespace CSharpConsoleApp.Solutions
                 {
                     lastSameNode = parents_p[len1];
                 }
-                else 
+                else
                 {
                     if (lastSameNode != null)
                         break;
@@ -171,7 +171,7 @@ namespace CSharpConsoleApp.Solutions
                 len1 = Math.Min(len1 + 1, m - 1);
                 len2 = Math.Min(len2 + 1, n - 1);
 
-                if(len1 == m - 1 && len2 == n-1)
+                if (len1 == m - 1 && len2 == n - 1)
                     break;
             }
             return lastSameNode;
@@ -182,9 +182,9 @@ namespace CSharpConsoleApp.Solutions
         {
             if (root == null) return;
 
-            if(!find_p)
+            if (!find_p)
                 parents_p.Add(root);
-            if(!find_q)
+            if (!find_q)
                 parents_q.Add(root);
 
             if (p == root)

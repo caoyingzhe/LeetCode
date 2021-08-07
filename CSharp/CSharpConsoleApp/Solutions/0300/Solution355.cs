@@ -69,7 +69,7 @@ namespace CSharpConsoleApp.Solutions
         /// <summary>
         /// 关键字:
         /// </summary>
-        public override string[] GetKeyWords() { return new string[] { "设计推特",}; }
+        public override string[] GetKeyWords() { return new string[] { "设计推特", }; }
         /// <summary>
         /// 标签：
         /// </summary>
@@ -151,7 +151,7 @@ namespace CSharpConsoleApp.Solutions
         /// Your runtime beats 88.89 % of csharp submissions
         /// Your memory usage beats 44.44 % of csharp submissions(30.7 MB)
         /// </summary>
-        public class Twitter 
+        public class Twitter
         {
             Dictionary<int, HashSet<int>> followings;
 
@@ -211,7 +211,7 @@ namespace CSharpConsoleApp.Solutions
 
                     foreach (int followingId in followingList)
                     {
-                        
+
                         if (twitter.ContainsKey(followingId))
                         {
                             Tweet tweet = twitter[followingId];

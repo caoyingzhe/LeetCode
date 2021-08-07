@@ -45,7 +45,7 @@ namespace CSharpConsoleApp.Solutions
         /// <summary>
         /// 标签： 
         /// </summary>
-        public override Tag[] GetTags() { return new Tag[] { Tag.Design}; }
+        public override Tag[] GetTags() { return new Tag[] { Tag.Design }; }
         public override bool Test(System.Diagnostics.Stopwatch sw)
         {
             List<int> result = new List<int>();
@@ -70,7 +70,7 @@ namespace CSharpConsoleApp.Solutions
             checkResult = new int[] { 1, -1, -1, 3, 4 };
             isSuccess &= IsArraySame(checkResult, result.ToArray());
 
-            
+
             return isSuccess;
         }
 
@@ -87,7 +87,7 @@ namespace CSharpConsoleApp.Solutions
 
         public void Debug()
         {
-            foreach(int key in cacheDict.Keys)
+            foreach (int key in cacheDict.Keys)
             {
 
             }
@@ -144,7 +144,7 @@ namespace CSharpConsoleApp.Solutions
             VirtualAddToHead(node);
         }
 
-        
+
         private void VirtualAddToHead(DLinkedNode node)
         {
             //修正自身节点的前后为头节点和次头节点。

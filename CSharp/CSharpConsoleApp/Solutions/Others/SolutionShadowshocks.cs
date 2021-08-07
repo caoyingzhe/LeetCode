@@ -78,7 +78,7 @@ namespace CSharpConsoleApp.Solutions.Others
             ///Users/wxh/Documents/workspace-study/Leetcode/LeetcodeSolutionAnswers/1800 
             if (Directory.Exists(dirPath))
             {
-                for(int i=0; i<1800; i++)
+                for (int i = 0; i < 1800; i++)
                 {
                     string dir1 = string.Format("{0:D4}", (i / 100) * 100);
                     string dir2 = string.Format("{0:D4}", i);
@@ -117,16 +117,16 @@ namespace CSharpConsoleApp.Solutions.Others
         }
         public void GenerateURLS(string filePath, string outputPath = "")
         {
-            if(File.Exists(filePath))
+            if (File.Exists(filePath))
             {
                 string[] lines = File.ReadAllLines(filePath);
 
                 List<string> result = new List<string>();
 
-                foreach(string line in lines)
+                foreach (string line in lines)
                 {
                     SSData ss = SSData.ParseJson(line);
-                    if(ss != null)
+                    if (ss != null)
                     {
                         Print("ss://" + bota(ss.GetURL()) + "#" + ss.remarks);
                     }
@@ -198,7 +198,7 @@ namespace CSharpConsoleApp.Solutions.Others
 
         public class SSData
         {
-            public string remarks;    
+            public string remarks;
             public string server;     //"my_server_ip",
             public string server_port;//"8388",
             public string method;     //"chacha20-ietf-poly1305"
@@ -240,15 +240,15 @@ namespace CSharpConsoleApp.Solutions.Others
                             continue;
 
                         string[] dataArr = data.Split(':');
-                        if(dataArr == null || dataArr.Length != 2)
+                        if (dataArr == null || dataArr.Length != 2)
                             continue;
 
-                        if(ssdata == null)
+                        if (ssdata == null)
                             ssdata = new SSData();
                         string data_1 = dataArr[0];
                         string data_2 = dataArr[1];
                         if (data_1.StartsWith("\""))
-                                data_1 = data_1.Remove(data_1.Length-1, 1).Remove(0, 1);
+                            data_1 = data_1.Remove(data_1.Length - 1, 1).Remove(0, 1);
                         if (data_2.StartsWith("\""))
                             data_2 = data_2.Remove(data_2.Length - 1, 1).Remove(0, 1);
 

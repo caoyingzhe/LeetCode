@@ -190,7 +190,7 @@ namespace CSharpConsoleApp.Solutions
                 for (int i = firstMasks.Length; i >= 1; i--)
                 {
                     //此处逻辑是错误的
-                    if ((firstNum >= firstMasks[i-1])) //多字节判断
+                    if ((firstNum >= firstMasks[i - 1])) //多字节判断
                     {
                         matchNumber = i;
                         break;
@@ -198,9 +198,9 @@ namespace CSharpConsoleApp.Solutions
                 }
 
                 //matchNumber 不可以大于4，即个值不可以大于248(11111xxx),范围为110000 
-                if (matchNumber < 4 && matchNumber > 0 && matchNumber <= n-1)
+                if (matchNumber < 4 && matchNumber > 0 && matchNumber <= n - 1)
                 {
-                    for(int i=1; i<= matchNumber; i++)
+                    for (int i = 1; i <= matchNumber; i++)
                     {
                         if (data[i] < mask0 || data[i] >= mask1) //多字节判断  10xxxxxx ~ 11000000 OK
                         {

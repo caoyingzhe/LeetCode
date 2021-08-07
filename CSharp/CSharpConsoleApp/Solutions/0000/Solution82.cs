@@ -117,22 +117,22 @@ namespace CSharpConsoleApp.Solutions
         /// <returns></returns>
         public ListNode DeleteDuplicates(ListNode head)
         {
-            List<ListNode> list =  GetValueList(head);
+            List<ListNode> list = GetValueList(head);
 
             //int preVal = list[list.Count - 1].val;
             bool remove = false;
-            for (int i= list.Count - 1; i>= 0; i--)
+            for (int i = list.Count - 1; i >= 0; i--)
             {
-                if(i > 0)
-                { 
-                    if (list[i-1].val == list[i].val)
+                if (i > 0)
+                {
+                    if (list[i - 1].val == list[i].val)
                     {
                         remove = true;
                         list.RemoveAt(i);
                     }
                     else
                     {
-                        if(remove)
+                        if (remove)
                         {
                             remove = false;
                             list.RemoveAt(i);
@@ -144,15 +144,15 @@ namespace CSharpConsoleApp.Solutions
                     if (remove)
                     {
                         list.RemoveAt(i);
-                    }  
+                    }
                 }
             }
-            for(int i=0; i<list.Count; i++)
+            for (int i = 0; i < list.Count; i++)
             {
                 if (i >= list.Count - 1)
                     list[i].next = null;
                 else
-                    list[i].next = list[i + 1]; 
+                    list[i].next = list[i + 1];
             }
             return list.Count == 0 ? null : list[0];
         }

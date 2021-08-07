@@ -51,7 +51,7 @@ namespace CSharpConsoleApp.Solutions
 
             result = MergeKLists(nodes);
             isSuccess = ListNode.IsSame(result, checkResult);
-            
+
             Print(string.Format("isSuccss ={0}, result={1} checkResult={2}", isSuccess, result, checkResult));
             return isSuccess;
         }
@@ -68,7 +68,7 @@ namespace CSharpConsoleApp.Solutions
         /// <returns></returns>
         public ListNode MergeKLists(ListNode[] lists)
         {
-            if(lists.Length == 0)
+            if (lists.Length == 0)
                 return new ListNode();
 
             Dictionary<int, ListNode> dict = new Dictionary<int, ListNode>();
@@ -76,7 +76,7 @@ namespace CSharpConsoleApp.Solutions
             ListNode tailNode = null;
             List<ListNode> firstNodeList = new List<ListNode>();
 
-            for(int i=0; i<lists.Length; i++)
+            for (int i = 0; i < lists.Length; i++)
             {
                 ListNode curNode = lists[i];
                 while (true)
@@ -89,7 +89,7 @@ namespace CSharpConsoleApp.Solutions
                     }
                     else
                     {
-                        firstNodeList.Add(curNode);      
+                        firstNodeList.Add(curNode);
                         if (tailNode != null)            //对于i=1, tailNode = dict[1] = {1,1,3,4} => {1 | 1,3,4} => {1 | 1, null}
                             tailNode.next = null;
                         dict.Add(curNode.val, curNode);  //对于i=1, dict[3] = {3,4}
@@ -107,7 +107,7 @@ namespace CSharpConsoleApp.Solutions
 
             firstNodeList.Sort((a, b) => { return a.val - b.val; });
 
-            for(int i=0; i< firstNodeList.Count -1; i++)
+            for (int i = 0; i < firstNodeList.Count - 1; i++)
             {
                 dict[firstNodeList[i].val].next = firstNodeList[i + 1];
             }

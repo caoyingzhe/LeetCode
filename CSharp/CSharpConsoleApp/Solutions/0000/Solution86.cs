@@ -136,7 +136,7 @@ namespace CSharpConsoleApp.Solutions
             L.next = RHead.next;
             return LHead.next;
         }
-        
+
         public ListNode Partition_MY(ListNode head, int x)
         {
             List<ListNode> list = GetValueList(head);

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 namespace CSharpConsoleApp.Solutions
 {
     /*
@@ -8,10 +9,13 @@ namespace CSharpConsoleApp.Solutions
      *
      * https://leetcode-cn.com/problems/two-sum-iv-input-is-a-bst/description/
      *
-     * algorithms
-     * Easy (58.81%)
-     * Likes:    256
-     * Dislikes: 0
+     * Category	Difficulty	Likes	Dislikes
+     * algorithms	Easy (58.81%)	256	-
+     * Tags
+     * tree
+     * 
+     * Companies
+     * facebook
      * Total Accepted:    35.2K
      * Total Submissions: 59.6K
      * Testcase Example:  '[5,3,6,2,4,null,7]\n9'
@@ -65,12 +69,88 @@ namespace CSharpConsoleApp.Solutions
      *     }
      * }
      */
-    public class Solution653 
+    public class Solution653 : SolutionBase
     {
-        //public bool FindTarget(TreeNode root, int k)
-        //{
-        //    return false;
-        //}
+        /// <summary>
+        /// 难度
+        /// </summary>
+        public override Difficulity GetDifficulity() { return Difficulity.Medium; }
+        /// <summary>
+        /// 关键字:
+        /// </summary>
+        public override string[] GetKeyWords() { return new string[] { "通过" }; }
+        /// <summary>
+        /// 标签：
+        /// </summary>
+        public override Tag[] GetTags() { return new Tag[] { Tag.Trie, Tag.HashTable }; }
+
+        /// <summary>
+        /// </summary>
+        /// <param name="sw"></param>
+        /// <returns></returns>
+        public override bool Test(System.Diagnostics.Stopwatch sw)
+        {
+            bool isSuccess = true;
+            TreeNode root; int k;
+            bool result, checkResult;
+
+            root = TreeNode.Create(new int[] { 5, 3, 6, 2, 4, NULL, 7 }, NULL);
+            k = 9; checkResult = true;
+            result = FindTarget(root, k);
+            isSuccess &= IsSame(result, checkResult);
+            PrintResult(isSuccess, result, checkResult);
+
+            root = TreeNode.Create(new int[] { 5, 3, 6, 2, 4, NULL, 7 }, NULL);
+            k = 28; checkResult = false;
+            result = FindTarget(root, k);
+            isSuccess &= IsSame(result, checkResult);
+            PrintResult(isSuccess, result, checkResult);
+
+            root = TreeNode.Create(new int[] { 2, 1, 3 }, NULL);
+            k = 4; checkResult = true;
+            result = FindTarget(root, k);
+            isSuccess &= IsSame(result, checkResult);
+            PrintResult(isSuccess, result, checkResult);
+
+            root = TreeNode.Create(new int[] { 2, 1, 3 }, NULL);
+            k = 1; checkResult = false;
+            result = FindTarget(root, k);
+            isSuccess &= IsSame(result, checkResult);
+            PrintResult(isSuccess, result, checkResult);
+
+            root = TreeNode.Create(new int[] { 2, 1, 3 }, NULL);
+            k = 3; checkResult = true;
+            result = FindTarget(root, k);
+            isSuccess &= IsSame(result, checkResult);
+            PrintResult(isSuccess, result, checkResult);
+
+            return isSuccess;
+        }
+
+        /// <summary>
+        /// 422/422 cases passed (124 ms)
+        /// Your runtime beats 80.77 % of csharp submissions
+        /// Your memory usage beats 92.31 % of csharp submissions(30.4 MB)
+        /// </summary>
+        HashSet<int> findMap;
+        public bool FindTarget(TreeNode root, int k)
+        {
+            findMap = new HashSet<int>();
+            return DFS(root, k);
+        }
+
+        public bool DFS(TreeNode root, int k)
+        {
+            if (root == null)
+                return false;
+
+            if (findMap.Contains(root.val))
+                return true;
+
+            findMap.Add(k - root.val);
+
+            return DFS(root.left, k) || DFS(root.right, k);
+        }
     }
     // @lc code=end
 

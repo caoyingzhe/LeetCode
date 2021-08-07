@@ -65,7 +65,7 @@ namespace CSharpConsoleApp.Solutions
         /// <summary>
         /// 标签： 
         /// </summary>
-        public override Tag[] GetTags() { return new Tag[] { Tag.DivideAndConquer, Tag.Backtracking}; }
+        public override Tag[] GetTags() { return new Tag[] { Tag.DivideAndConquer, Tag.Backtracking }; }
 
         public override bool Test(System.Diagnostics.Stopwatch sw)
         {
@@ -124,7 +124,7 @@ namespace CSharpConsoleApp.Solutions
                 if (i != pos && num[pos] == '0')
                 {
 #if DebugSolution282
-                    Print("i= {0} num[{1}] = 0", i,  pos);
+                    Print("i= {0} num[{1}] = 0", i, pos);
 #endif
                     break;
                 }

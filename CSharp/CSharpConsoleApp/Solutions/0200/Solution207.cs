@@ -57,11 +57,11 @@ namespace CSharpConsoleApp.Solutions
         /// <summary>
         /// 关键字:
         /// </summary>
-        public override string[] GetKeyWords() { return new string[] { "拓扑排序"    }; }
+        public override string[] GetKeyWords() { return new string[] { "拓扑排序" }; }
         /// <summary>
         /// 标签：
         /// </summary>
-        public override Tag[] GetTags() { return new Tag[] { Tag.DepthFirstSearch, Tag.BreadthFirstSearch,Tag.Graph, Tag.TopologicalSort }; }
+        public override Tag[] GetTags() { return new Tag[] { Tag.DepthFirstSearch, Tag.BreadthFirstSearch, Tag.Graph, Tag.TopologicalSort }; }
 
         /// <summary>
         /// 入度：每个课程节点的入度数量等于其先修课程的数量；
@@ -124,7 +124,7 @@ namespace CSharpConsoleApp.Solutions
             for (int i = 0; i < n; i++)
             {
                 //prerequisites[i][0] : requireCourse
-                int course   = prerequisites[i][0];  //后修课程
+                int course = prerequisites[i][0];  //后修课程
                 int required = prerequisites[i][1];  //先修课程
                 indegree[course]++;                  //每个节点的入度++
                 adjacency[required].Add(course);     //邻接矩阵[先修课程].Add(后修课程)
@@ -140,10 +140,10 @@ namespace CSharpConsoleApp.Solutions
             while (help.Count != 0)
             {
                 // 当前学习的课程  C++: int visited = help.front()
-                int visited = help.First.Value;           
+                int visited = help.First.Value;
                 count++;
                 // 学完，出队
-                help.RemoveFirst();                       
+                help.RemoveFirst();
                 // 将刚学完的课程的所有后续课程的入度减一
                 for (int i = 0; i < adjacency[visited].Count; i++)
                 {

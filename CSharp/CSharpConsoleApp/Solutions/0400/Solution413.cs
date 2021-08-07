@@ -49,7 +49,7 @@ namespace CSharpConsoleApp.Solutions
         /// <summary>
         /// 关键字:
         /// </summary>
-        public override string[] GetKeyWords() { return new string[] {  }; }
+        public override string[] GetKeyWords() { return new string[] { }; }
         /// <summary>
         /// 标签：
         /// </summary>
@@ -94,12 +94,12 @@ namespace CSharpConsoleApp.Solutions
             int count = 0;
             int start = -1;
             int i = 0;
-            while(i<n-2)
+            while (i < n - 2)
             {
-                bool isOK = nums[i] + nums[i + 2] == nums[i+1] * 2;
+                bool isOK = nums[i] + nums[i + 2] == nums[i + 1] * 2;
                 if (start == -1)
                 {
-                    if(isOK)
+                    if (isOK)
                     {
                         start = i;
                         if (i == n - 3)
@@ -111,15 +111,15 @@ namespace CSharpConsoleApp.Solutions
                             break;
                         }
                     }
-                        
+
                 }
                 else
                 {
-                    if(!isOK)
+                    if (!isOK)
                     {
                         int end = i + 1;
                         int N = end - start + 1;
-                        count += (N*N - 3*N + 2) / 2;
+                        count += (N * N - 3 * N + 2) / 2;
                         //Print(GetArrayStr(list.GetRange(start, N)));
                         start = -1;
                     }

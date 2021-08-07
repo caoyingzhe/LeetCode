@@ -65,7 +65,7 @@ namespace CSharpConsoleApp.Solutions
         /// <summary>
         /// 关键字:
         /// </summary>
-        public override string[] GetKeyWords() { return new string[] {  }; }
+        public override string[] GetKeyWords() { return new string[] { }; }
         /// <summary>
         /// 标签：
         /// </summary>
@@ -84,7 +84,7 @@ namespace CSharpConsoleApp.Solutions
             string s1, s2, s3;
             bool result, checkResult;
 
-            s1 = "aabcc"; s2= "dbbca"; s3 = "aadbbcbcac";
+            s1 = "aabcc"; s2 = "dbbca"; s3 = "aadbbcbcac";
             checkResult = true;
             result = IsInterleave(s1, s2, s3);
             isSuccess &= IsSame(result, checkResult);

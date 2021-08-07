@@ -69,7 +69,7 @@ namespace CSharpConsoleApp.Solutions
         /// <summary>
         /// 关键字:
         /// </summary>
-        public override string[] GetKeyWords() { return new string[] { "回溯模型", "IP地址"}; }
+        public override string[] GetKeyWords() { return new string[] { "回溯模型", "IP地址" }; }
         /// <summary>
         /// 标签：
         /// </summary>
@@ -131,7 +131,7 @@ namespace CSharpConsoleApp.Solutions
         {
             if (start == sLength)
             {
-                if(nums.Count == 4)
+                if (nums.Count == 4)
                 {
                     result.Add(string.Join(".", nums.ToArray()));
                 }
@@ -145,7 +145,7 @@ namespace CSharpConsoleApp.Solutions
                 if (start + len > sLength) break;
 
                 //处理节点;
-                
+
                 string num = s.Substring(start, len);
                 if (IsBit10X3(num))
                 {

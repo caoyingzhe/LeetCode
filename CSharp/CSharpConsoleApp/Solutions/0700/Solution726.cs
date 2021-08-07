@@ -100,7 +100,7 @@ namespace CSharpConsoleApp.Solutions
             isSuccess &= checkResult == result;
             Print("isSuccess = {0} | result = {1} | anticipated = {2}", isSuccess, (result), (checkResult));
 
-            
+
             return isSuccess;
         }
         public String CountOfAtoms(String formula)
@@ -121,45 +121,45 @@ namespace CSharpConsoleApp.Solutions
                     Dictionary<String, int> top = stack.Pop();
                     int iStart = ++i, multiplicity = 1;
                     while (i < N && char.IsNumber(formula[i])) i++;
-                    if (i > iStart) multiplicity = int.Parse(formula.Substring(iStart, i-iStart));
+                    if (i > iStart) multiplicity = int.Parse(formula.Substring(iStart, i - iStart));
                     foreach (String c in top.Keys)
                     {
                         int v = top[c];
                         //stack.Peek().put(c, stack.Peek().getOrDefault(c, 0) + v * multiplicity);
-                        stack.Peek()[c] = (stack.Peek().ContainsKey(c) ? stack.Peek()[c] :  0) + v * multiplicity;
+                        stack.Peek()[c] = (stack.Peek().ContainsKey(c) ? stack.Peek()[c] : 0) + v * multiplicity;
                     }
                 }
                 else
                 {
                     int iStart = i++;
                     while (i < N && char.IsLower(formula[i])) i++;
-                    String name = formula.Substring(iStart, i- iStart);
+                    String name = formula.Substring(iStart, i - iStart);
                     iStart = i;
                     while (i < N && char.IsNumber(formula[i])) i++;
-                    int multiplicity = i > iStart ? int.Parse(formula.Substring(iStart, i- iStart)) : 1;
+                    int multiplicity = i > iStart ? int.Parse(formula.Substring(iStart, i - iStart)) : 1;
                     //stack.Peek().put(name, stack.Peek().getOrDefault(name, 0) + multiplicity);
-                    stack.Peek()[name] =  (stack.Peek().ContainsKey(name) ? stack.Peek()[name] :  0) + multiplicity;
+                    stack.Peek()[name] = (stack.Peek().ContainsKey(name) ? stack.Peek()[name] : 0) + multiplicity;
                 }
             }
 
             StringBuilder ans = new StringBuilder();
 
             List<string> names = new List<string>();
-            
+
             foreach (String name in stack.Peek().Keys)
             {
                 names.Add(name);
             }
             names.Sort();
 
-            for (int i=0; i<names.Count; i++)
+            for (int i = 0; i < names.Count; i++)
             {
                 string name = names[i];
                 int multiplicity = stack.Peek()[name];
                 ans.Append(name);
                 if (multiplicity > 1)
                     ans.Append("" + multiplicity);
-                
+
             }
             return ans.ToString();
         }

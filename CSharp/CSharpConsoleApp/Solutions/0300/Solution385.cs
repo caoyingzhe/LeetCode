@@ -114,7 +114,7 @@ namespace CSharpConsoleApp.Solutions
             Print("result3 = {0}", result3.GetInteger());
             //Print("result4 = {0}", result4.GetInteger());
 
-            isSuccess &= result1.GetInteger() == 123 ;
+            isSuccess &= result1.GetInteger() == 123;
             return isSuccess;
         }
 
@@ -129,7 +129,7 @@ namespace CSharpConsoleApp.Solutions
             if (s.Length == 0) return new NestedInteger();
 
             Print("Deserialize : {0}", s);
-            if (s[0] != '[') return new NestedInteger(int.Parse(s.TrimEnd(new char[] {',', ']'})));
+            if (s[0] != '[') return new NestedInteger(int.Parse(s.TrimEnd(new char[] { ',', ']' })));
             if (s.Length == 2) return new NestedInteger();
 
             NestedInteger ni = new NestedInteger();
@@ -139,7 +139,7 @@ namespace CSharpConsoleApp.Solutions
                 {
                     // s[length - 1]肯定是]。 注意这个if要排第一，
                     //如果s.chartAt(i) == ']'排在这前面，会少执行一次add操作
-                    ni.Add(Deserialize_DFS(s.Substring(start, i-start+1))); // 加入兄弟节点
+                    ni.Add(Deserialize_DFS(s.Substring(start, i - start + 1))); // 加入兄弟节点
                     start = i + 1;
                 }
                 else if (s[i] == '[')
@@ -201,9 +201,9 @@ namespace CSharpConsoleApp.Solutions
 
         public int SimpleParse(string s)
         {
-            for(int i=0; i<s.Length; i++)
+            for (int i = 0; i < s.Length; i++)
             {
-                if(char.IsNumber(s[i]))
+                if (char.IsNumber(s[i]))
                 {
                     if (i == 0)
                         return int.MaxValue;
@@ -237,7 +237,8 @@ namespace CSharpConsoleApp.Solutions
         public void SetInteger(int value) { val = value; isInt = true; }
 
         // Set this NestedInteger to hold a nested list and adds a nested integer to it.
-        public void Add(NestedInteger ni) {
+        public void Add(NestedInteger ni)
+        {
             if (ni == null) return;
             if (list == null) list = new List<NestedInteger>();
             list.Add(ni);

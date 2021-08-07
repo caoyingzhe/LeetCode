@@ -27,8 +27,8 @@ namespace CSharpConsoleApp.Solutions
 
             root = TreeNode.Create(new string[] { "6", "2", "8", "0", "4", "7", "9" });
             List<TreeNode> list = root.GetNodeList();
-            p = list.Find(o => o!= null && o.val == 4);
-            q = list.Find(o => o!= null && o.val == 8);
+            p = list.Find(o => o != null && o.val == 4);
+            q = list.Find(o => o != null && o.val == 8);
             checkResult = 6;
             resultNode = LowestCommonAncestor(root, p, q);
             result = resultNode == null ? -1 : resultNode.val;
@@ -85,9 +85,9 @@ namespace CSharpConsoleApp.Solutions
             int minCount = Math.Min(pParents.Count, qParents.Count);
 
             TreeNode rtn = null;
-            for (int i=0; i<minCount; i++)
+            for (int i = 0; i < minCount; i++)
             {
-                if(pParents[i] == qParents[i])
+                if (pParents[i] == qParents[i])
                 {
                     rtn = pParents[i];
                 }

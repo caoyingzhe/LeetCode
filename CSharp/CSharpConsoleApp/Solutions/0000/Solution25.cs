@@ -126,13 +126,13 @@ namespace CSharpConsoleApp.Solutions._0000
             int n = list.Count;
             for (int i = 0; i < n; i += k)
             {
-                if (i + k -1 >= n)
+                if (i + k - 1 >= n)
                     break;
 
                 int mid = k / 2;
                 int rOffset = k % 2 == 0 ? -1 : 0;
 
-                for(int j=1; j<=mid; j++)
+                for (int j = 1; j <= mid; j++)
                 {
                     int l = i + mid - j;
                     int r = i + mid + j + rOffset;

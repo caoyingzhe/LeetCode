@@ -35,7 +35,7 @@ namespace CSharpConsoleApp.Solutions
         /// <summary>
         /// 标签： 
         /// </summary>
-        public override Tag[] GetTags() { return new Tag[] { Tag.Trie, Tag.Backtracking,}; }
+        public override Tag[] GetTags() { return new Tag[] { Tag.Trie, Tag.Backtracking, }; }
 
         public override bool Test(System.Diagnostics.Stopwatch sw)
         {
@@ -51,8 +51,8 @@ namespace CSharpConsoleApp.Solutions
                 new char[] {'i','h','k','r'},
                 new char[] {'i','f','l','v'} };
 
-            words = new string[]{ "oath", "pea", "eat", "rain" };
-            checkResult = new string[] { "eat","oath"};
+            words = new string[] { "oath", "pea", "eat", "rain" };
+            checkResult = new string[] { "eat", "oath" };
             result = FindWords(board, words);
 
             isSuccess &= (IsListSame(result, checkResult));

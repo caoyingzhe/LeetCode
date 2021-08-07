@@ -101,7 +101,7 @@ namespace CSharpConsoleApp.Solutions
             isSuccess &= IsListSame(result, checkResult, false);
             Print("isSuccess = {0} result = {1} | checkResult = {2}", isSuccess, GetArrayStr(result), GetArrayStr(checkResult));
 
-            nums1 = new int[] { 3,1,2 }; nums2 = new int[] { 1 };
+            nums1 = new int[] { 3, 1, 2 }; nums2 = new int[] { 1 };
             checkResult = new int[] { 1 };
             result = Intersect(nums1, nums2);
             isSuccess &= IsListSame(result, checkResult, false);
@@ -134,24 +134,24 @@ namespace CSharpConsoleApp.Solutions
             n2 = numsMax.Length;
 
             int i = 0, j = 0;
-            while(true)
+            while (true)
             {
-                if(numsMin[i] == numsMax[j])
+                if (numsMin[i] == numsMax[j])
                 {
                     list.Add(numsMin[i]);
-                    
-                    if (i == n1-1 || j == n2-1) break;
-                    if (i < n1-1) i++;
-                    if (j < n2-1) j++;
+
+                    if (i == n1 - 1 || j == n2 - 1) break;
+                    if (i < n1 - 1) i++;
+                    if (j < n2 - 1) j++;
                 }
                 else if (numsMin[i] < numsMax[j])
                 {
-                    if (i < n1-1) i++;
+                    if (i < n1 - 1) i++;
                     else break;
                 }
                 else //if (numsMin[i] < numsMax[j])
                 {
-                    if (j < n2-1) j++;
+                    if (j < n2 - 1) j++;
                     else break;
                 }
             }

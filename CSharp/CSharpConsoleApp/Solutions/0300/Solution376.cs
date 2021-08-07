@@ -118,13 +118,13 @@ namespace CSharpConsoleApp.Solutions
 
             int n = nums.Length;
 
-            int[] diffs = new int[n-1];
-            int[] dp = new int[n+1];
+            int[] diffs = new int[n - 1];
+            int[] dp = new int[n + 1];
             dp[0] = 1;
 
-            for(int i=1; i<n; i++)
+            for (int i = 1; i < n; i++)
             {
-                diffs[i-1] = nums[i] - nums[i - 1];
+                diffs[i - 1] = nums[i] - nums[i - 1];
             }
 
             Print(GetArrayStr(diffs));
@@ -133,12 +133,12 @@ namespace CSharpConsoleApp.Solutions
             int tmpLen = 2;
             for (int j = 1; j < n - 1; j++)
             {
-                if (diffs[j-1] * diffs[j] < 0 )
+                if (diffs[j - 1] * diffs[j] < 0)
                 {
                     tmpLen++;
                     maxLength = Math.Max(maxLength, tmpLen);
                 }
-                else 
+                else
                 {
                     tmpLen = (diffs[j] == 0) ? 1 : 2;
                 }
@@ -236,6 +236,6 @@ namespace CSharpConsoleApp.Solutions
             return nums.Length == 0 ? 0 : Math.Max(down, up);
         }
 
-        
+
     }
 }

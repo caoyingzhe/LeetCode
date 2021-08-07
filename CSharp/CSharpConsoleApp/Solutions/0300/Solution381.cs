@@ -78,7 +78,7 @@ namespace CSharpConsoleApp.Solutions
         {
             string rtn = "";
             if (cmd == "insert")
-            { 
+            {
                 rtn = randomSet.Insert(val).ToString();
             }
             if (cmd == "remove")
@@ -173,7 +173,7 @@ namespace CSharpConsoleApp.Solutions
             {
                 dict.Add(val, new HashSet<int>());
             }
-            dict[val].Add(list.Count -1);
+            dict[val].Add(list.Count - 1);
             return dict[val].Count == 1;
         }
 
@@ -260,7 +260,7 @@ namespace CSharpConsoleApp.Solutions
             int idx = dict[val][0];
             dict[val][1]--;
 
-            if(dict[val][1] >0)
+            if (dict[val][1] > 0)
             {
                 return true;
             }

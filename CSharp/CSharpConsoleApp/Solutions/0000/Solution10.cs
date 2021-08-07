@@ -100,7 +100,7 @@ namespace CSharpConsoleApp.Solutions
             result = IsMatch(s, p);
             isSuccess &= (checkresult == result);
             Print("Anticipated = " + checkresult + " | Result = " + result);
-            
+
             s = "abcde";
             p = "c*ab.de";
             checkresult = true;
@@ -141,7 +141,7 @@ namespace CSharpConsoleApp.Solutions
 
             // dp[i][j]:表示s的前i个字符，p的前j个字符是否能够匹配
             bool[][] dp = new bool[cs.Length + 1][]; //cp.Length + 1
-            for(int i=0; i<cs.Length+1; i++)
+            for (int i = 0; i < cs.Length + 1; i++)
             {
                 dp[i] = new bool[cp.Length + 1];
             }
@@ -194,9 +194,9 @@ namespace CSharpConsoleApp.Solutions
 
             int matchStartIndex = -1;
             int matchCount = 0;
-            for(int i=0; i< pArr.Length; i++)
+            for (int i = 0; i < pArr.Length; i++)
             {
-                if(i> 0 && pArr[i] == '*')
+                if (i > 0 && pArr[i] == '*')
                 {
                     pArr[i] = pArr[i - 1];
                 }
@@ -212,7 +212,7 @@ namespace CSharpConsoleApp.Solutions
                 }
                 else if (matchStartIndex != -1)
                 {
-                    if((pArr[i] == s[matchCount] || pArr[i] == '.'))
+                    if ((pArr[i] == s[matchCount] || pArr[i] == '.'))
                     {
                         matchCount++;
 

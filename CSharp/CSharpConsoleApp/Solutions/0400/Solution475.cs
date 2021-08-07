@@ -81,7 +81,7 @@ namespace CSharpConsoleApp.Solutions
             Print("isSuccess = {0} | result = {1} | anticipated = {2}", isSuccess, (result), (checkResult));
 
 
-            houses = new int[] { 1, 2, 3 ,4};
+            houses = new int[] { 1, 2, 3, 4 };
             heaters = new int[] { 1, 4 };
             checkResult = 1;
             result = FindRadius(houses, heaters);

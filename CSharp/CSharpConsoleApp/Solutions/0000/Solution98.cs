@@ -118,7 +118,7 @@ namespace CSharpConsoleApp.Solutions
             // *  4   6
             // *     / \
             // *    3   70
-            root = TreeNode.Create(new int[] {  5,4,6,-1,-1,3,70 }, -1);
+            root = TreeNode.Create(new int[] { 5, 4, 6, -1, -1, 3, 70 }, -1);
             result = IsValidBST(root);
             checkResult = true;
             isSuccess &= IsSame(result, checkResult);

@@ -14,9 +14,9 @@ namespace CSharpConsoleApp.Solutions
         /// <summary>
         /// 标签：
         /// </summary>
-        public override Tag[] GetTags() { return new Tag[] {Tag.BinaryIndexedTree, Tag.SegmentTree,  Tag.Design, Tag.NeedStudy }; }
+        public override Tag[] GetTags() { return new Tag[] { Tag.BinaryIndexedTree, Tag.SegmentTree, Tag.Design, Tag.NeedStudy }; }
 
-        
+
         public override bool Test(System.Diagnostics.Stopwatch sw)
         {
             bool isSuccess = true;
@@ -195,12 +195,12 @@ namespace CSharpConsoleApp.Solutions
             }
         }
 
-    /**
-     * Your NumArray object will be instantiated and called as such:
-     * NumArray obj = new NumArray(nums);
-     * obj.Update(index,val);
-     * int param_2 = obj.SumRange(left,right);
-     */
-    // @lc code=end
+        /**
+         * Your NumArray object will be instantiated and called as such:
+         * NumArray obj = new NumArray(nums);
+         * obj.Update(index,val);
+         * int param_2 = obj.SumRange(left,right);
+         */
+        // @lc code=end
     }
 }

@@ -82,7 +82,7 @@ namespace CSharpConsoleApp.Solutions
         /// </summary>
         public override Tag[] GetTags() { return new Tag[] { Tag.Tree }; }
 
-        
+
         /// <summary>
         /// </summary>
         /// <param name="sw"></param>

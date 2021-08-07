@@ -43,7 +43,7 @@ namespace CSharpConsoleApp.Solutions
         /// <summary>
         /// 关键字:
         /// </summary>
-        public override string[] GetKeyWords() { return new string[] { "单调栈","Monotone stack","哨兵"}; }
+        public override string[] GetKeyWords() { return new string[] { "单调栈", "Monotone stack", "哨兵" }; }
         /// <summary>
         /// 标签： 图
         /// </summary>
@@ -81,9 +81,9 @@ namespace CSharpConsoleApp.Solutions
             Stack<int> stack = new Stack<int>();
             stack.Push(0);
 
-            for(int i=1; i< n ; i++) //因为加入了哨兵，所以从1开始
+            for (int i = 1; i < n; i++) //因为加入了哨兵，所以从1开始
             {
-                while(hList[stack.Peek()] > hList[i]) //栈中的最后高度大于当前高度时，计算面积。并比较最大面积。
+                while (hList[stack.Peek()] > hList[i]) //栈中的最后高度大于当前高度时，计算面积。并比较最大面积。
                 {
                     int height = hList[stack.Pop()];  //计算面积时，高度= 栈顶元素对应高度
                     int width = i - stack.Peek() - 1; //计算面积时，宽度=（i - 栈顶元素对应索引）

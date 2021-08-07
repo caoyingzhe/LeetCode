@@ -62,7 +62,7 @@ namespace CSharpConsoleApp.Solutions._0000
         /// <summary>
         /// 标签： 
         /// </summary>
-        public override Tag[] GetTags() { return new Tag[] { Tag.Math, Tag.BinarySearch}; }
+        public override Tag[] GetTags() { return new Tag[] { Tag.Math, Tag.BinarySearch }; }
 
         /// <summary>
         /// 作者：AC_OIer
@@ -107,9 +107,9 @@ namespace CSharpConsoleApp.Solutions._0000
             while (l < r)
             {
                 long mid = l + r + 1 >> 1; //这里的l + r + 1 >> 1 的处理 = （l + r + 1) >> 1  移位运算优先度低于+-号。
-                //Print("mid = l + r + 1 >> 1 {0}|{1} ( l + r + 1 ) = {2}, {3}", l, r, (l + r + 1), mid);
+                                           //Print("mid = l + r + 1 >> 1 {0}|{1} ( l + r + 1 ) = {2}, {3}", l, r, (l + r + 1), mid);
 
-               long m = Mul(mid, y);
+                long m = Mul(mid, y);
                 if (m <= x)
                 {
                     l = mid;
@@ -122,7 +122,7 @@ namespace CSharpConsoleApp.Solutions._0000
                 }
             }
 
-            long ans = isNeg ? -l : l; 
+            long ans = isNeg ? -l : l;
             if (ans > int.MaxValue || ans < int.MinValue) return int.MaxValue; //溢出处理
             return (int)ans;
         }

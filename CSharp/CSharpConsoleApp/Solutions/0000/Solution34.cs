@@ -54,11 +54,11 @@ namespace CSharpConsoleApp.Solutions
         /// <summary>
         /// 关键字:
         /// </summary>
-        public override string[] GetKeyWords() { return new string[] { "BinarySearch"}; }
+        public override string[] GetKeyWords() { return new string[] { "BinarySearch" }; }
         /// <summary>
         /// 标签： 图
         /// </summary>
-        public override Tag[] GetTags() { return new Tag[] { Tag.BinarySearch}; }
+        public override Tag[] GetTags() { return new Tag[] { Tag.BinarySearch }; }
         public override bool Test(System.Diagnostics.Stopwatch sw)
         {
             bool isSuccess = true;
@@ -122,18 +122,18 @@ namespace CSharpConsoleApp.Solutions
             int mid = (L + R) / 2;
             int i = mid;
 
-            while(L<=R)
+            while (L <= R)
             {
                 if (nums[i] == target)
                 {
                     int iNext = lower ? i - 1 : i + 1;
-                    while(iNext >= 0 && iNext < n && nums[iNext] == target)
+                    while (iNext >= 0 && iNext < n && nums[iNext] == target)
                     {
                         iNext += lower ? -1 : 1;
                     }
                     return lower ? iNext + 1 : iNext - 1;
                 }
-                else if(nums[i] > target) //左移
+                else if (nums[i] > target) //左移
                 {
                     R = i;
                     i = (L + R) / 2;
@@ -143,12 +143,12 @@ namespace CSharpConsoleApp.Solutions
                 else //if (nums[i] < target) //右移
                 {
                     L = i;
-                    i = (L + R+1) / 2;
+                    i = (L + R + 1) / 2;
                     if (i == R)
                         return nums[i] == target ? i : -1;
                 }
             }
-            
+
             return -1;
         }
 
@@ -218,8 +218,8 @@ namespace CSharpConsoleApp.Solutions
             {
                 int mid = (L + R) / 2;
                 //左移
-                if ((lower && nums[mid] >= target)             
-                           || nums[mid] >  target) 
+                if ((lower && nums[mid] >= target)
+                           || nums[mid] > target)
                 {
                     R = mid - 1;
                     n = mid;
@@ -230,7 +230,7 @@ namespace CSharpConsoleApp.Solutions
                     L = mid + 1;
                 }
             }
-            n = lower ? n : n -1;  // 为什么要n-1是因为 lower = false时，n最后是第一个大于target的索引。
+            n = lower ? n : n - 1;  // 为什么要n-1是因为 lower = false时，n最后是第一个大于target的索引。
             return (n >= 0 && n < nums.Length && nums[n] == target) ? n : -1;
         }
     }

@@ -85,7 +85,7 @@ namespace CSharpConsoleApp.Solutions
         /// </summary>
         public override Tag[] GetTags() { return new Tag[] { Tag.Tree, Tag.DepthFirstSearch }; }
 
-        
+
         public override bool Test(System.Diagnostics.Stopwatch sw)
         {
             bool isSuccess = true;
@@ -110,7 +110,7 @@ namespace CSharpConsoleApp.Solutions
         //作者：LeetCode - Solution
         //链接：https://leetcode-cn.com/problems/house-robber-iii/solution/da-jia-jie-she-iii-by-leetcode-solution/
 
-        
+
         //f(o) 表示选择 o 节点的情况下，o节点的子树上被选择的节点的最大权值和
         Dictionary<TreeNode, int> f = new Dictionary<TreeNode, int>();
         //g(o) 表示不选择 o 节点的情况下，o 节点的子树上被选择的节点的最大权值和

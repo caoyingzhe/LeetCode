@@ -77,7 +77,7 @@ namespace CSharpConsoleApp.Solutions
                 new int[] { 4,1 },
                 new int[] { 1,5 }
             };
-            checkResult = new int[] { 4,1 };
+            checkResult = new int[] { 4, 1 };
             result = FindRedundantDirectedConnection(edges);
             isSuccess &= IsArraySame(checkResult, result);
             Print("isSuccess = {0} | result = {1} | anticipated = {2}", isSuccess, GetArrayStr<int>(result), GetArrayStr<int>(checkResult));

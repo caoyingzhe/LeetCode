@@ -82,13 +82,13 @@ namespace CSharpConsoleApp.Solutions
             IList<IList<string>> result, checkResult;
 
             beginWord = "hit"; endWord = "cog";
-            wordList = new string[] {"hot","dot","dog","lot","log","cog"};
+            wordList = new string[] { "hot", "dot", "dog", "lot", "log", "cog" };
             checkResult = new string[][] {
                 new string[] {"hit","hot","dot","dog","cog" },
                 new string[] {"hit","hot","lot","log","cog"},
             };
-            result = FindLadders(beginWord,  endWord, wordList);
-            isSuccess &= IsArray2DSame<string>(result , checkResult);
+            result = FindLadders(beginWord, endWord, wordList);
+            isSuccess &= IsArray2DSame<string>(result, checkResult);
             Print("isSuccess = {0} | result= {1} | checkResult= {2} | ", isSuccess, GetArray2DStr(result), GetArray2DStr(checkResult));
             return isSuccess;
         }
@@ -157,7 +157,7 @@ namespace CSharpConsoleApp.Solutions
                             queue.Enqueue(nextWord);
 
                             // 记录 nextWord 从 currWord 而来
-                            if(!from.ContainsKey(nextWord))
+                            if (!from.ContainsKey(nextWord))
                                 from.Add(nextWord, new List<string>());
                             from[nextWord].Add(currWord);
                             // 记录 nextWord 的 step

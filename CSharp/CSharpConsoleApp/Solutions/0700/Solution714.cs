@@ -58,7 +58,7 @@ namespace CSharpConsoleApp.Solutions
         /// <summary>
         /// 标签： 
         /// </summary>
-        public override Tag[] GetTags() { return new Tag[] { Tag.Array, Tag.DynamicProgramming, Tag.Greedy}; }
+        public override Tag[] GetTags() { return new Tag[] { Tag.Array, Tag.DynamicProgramming, Tag.Greedy }; }
 
         public override bool Test(System.Diagnostics.Stopwatch sw)
         {
@@ -91,9 +91,9 @@ namespace CSharpConsoleApp.Solutions
 
             // dp[i][0] 表示第 i 天交易完后，手里没有股票的最大利润
             // dp[i][1] 表示第 i 天交易完后，手里持有股票的最大利润（i 从 0 开始）。
-            int[,] dp = new int[n,2];
-            dp[0,0] = 0;           //第 0 天交易完后，不持有股票的最大利润
-            dp[0,1] = -prices[0];  //第 0 天交易完后，  持有股票的最大利润 （买入股票，利润为买入额的负值)
+            int[,] dp = new int[n, 2];
+            dp[0, 0] = 0;           //第 0 天交易完后，不持有股票的最大利润
+            dp[0, 1] = -prices[0];  //第 0 天交易完后，  持有股票的最大利润 （买入股票，利润为买入额的负值)
             for (int i = 1; i < n; ++i)
             {
                 //收益最大化的转移方程
@@ -105,7 +105,7 @@ namespace CSharpConsoleApp.Solutions
                     dp[i - 1, 1],                                                  //第 i-1 天交易完后，  持有股票的最大利润
                     dp[i - 1, 0] - prices[i]);                                     //第 i-1 天不持有股票，第i天买入的最大利润
             }
-            return dp[n - 1,0]; //第 n 天交易完后，不持有股票的最大利润
+            return dp[n - 1, 0]; //第 n 天交易完后，不持有股票的最大利润
         }
 
         /// <summary>

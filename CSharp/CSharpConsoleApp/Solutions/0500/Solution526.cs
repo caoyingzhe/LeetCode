@@ -57,7 +57,7 @@ namespace CSharpConsoleApp.Solutions
         /// <summary>
         /// 标签： 
         /// </summary>
-        public override Tag[] GetTags() { return new Tag[] { Tag.Backtracking}; }
+        public override Tag[] GetTags() { return new Tag[] { Tag.Backtracking }; }
 
         public override bool Test(System.Diagnostics.Stopwatch sw)
         {
@@ -75,7 +75,7 @@ namespace CSharpConsoleApp.Solutions
             Permute(nums, 0); //Permute_LTE(nums, 0);
             return count;
         }
-        
+
         public void Swap(int[] nums, int x, int y)
         {
             if (x == y) return;

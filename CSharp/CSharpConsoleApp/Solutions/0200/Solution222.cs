@@ -80,7 +80,7 @@ namespace CSharpConsoleApp.Solutions
         /// </summary>
         public override Tag[] GetTags() { return new Tag[] { Tag.BinarySearch, Tag.Tree }; }
 
-        
+
         public override bool Test(System.Diagnostics.Stopwatch sw)
         {
             bool isSuccess = true;
@@ -179,7 +179,7 @@ namespace CSharpConsoleApp.Solutions
         public int CountNodes_NG(TreeNode root)
         {
             if (root == null) return 0;
-            
+
             int depth = 0;
             TreeNode node = root;
             while (node.left != null)
@@ -200,7 +200,7 @@ namespace CSharpConsoleApp.Solutions
                 }
                 else
                 {
-                    Print("high[{0}]=> Mid-1[{1}]", high, mid-1);
+                    Print("high[{0}]=> Mid-1[{1}]", high, mid - 1);
                     high = mid - 1;
                 }
             }

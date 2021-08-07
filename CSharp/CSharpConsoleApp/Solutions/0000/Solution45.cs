@@ -135,7 +135,7 @@ namespace CSharpConsoleApp.Solutions
             if (pos >= n - 1)
             {
                 if (currJump < minJump)
-                { 
+                {
                     minJump = currJump;
                 }
                 Print("minJump = {0} | currJump ={1} | {2}", minJump, currJump, string.Join(",", list));
@@ -148,12 +148,12 @@ namespace CSharpConsoleApp.Solutions
                 return;
             }
 
-            int maxPos = pos + nums[pos] >= n ? n - 1  : pos + nums[pos];
+            int maxPos = pos + nums[pos] >= n ? n - 1 : pos + nums[pos];
 
-            for (int i= maxPos; i> pos; i--)
+            for (int i = maxPos; i > pos; i--)
             {
                 list.Add(nums[i]);
-                DFS(i, currJump+1, list, nums);
+                DFS(i, currJump + 1, list, nums);
                 list.RemoveAt(list.Count - 1);
             }
         }
@@ -175,14 +175,14 @@ namespace CSharpConsoleApp.Solutions
             //Print("nums[{0}] = {1} | currJump = {2}", pos, nums[pos], currJump);
 
             int maxPos = pos + nums[pos];
-            if (maxPos >= n-1)
+            if (maxPos >= n - 1)
             {
                 //已经超过最后一位，结束处理
-                list.Add(nums[n-1]);
+                list.Add(nums[n - 1]);
                 DFS(n - 1, currJump + 1, list, nums);
                 return;
             }
-            
+
             //此处需要剪枝
             //对于   { 5, 6, 4, 4, 6, 9}， 只需要处理9就可以了。
             //变幻后 { 5, 6+1, 4+2, 4+3, 6+4, 9+5}，对于5，数组中数值表示最多可以跳多少步，取最大值即可。
@@ -192,9 +192,9 @@ namespace CSharpConsoleApp.Solutions
             List<int> jumpNums = new List<int>();
             int maxNextPos = pos;
             int maxIndex = pos;
-            for (int i = pos+1; i <= maxPos; i++)
+            for (int i = pos + 1; i <= maxPos; i++)
             {
-                if(maxNextPos <= i+ nums[i])
+                if (maxNextPos <= i + nums[i])
                 {
                     maxNextPos = i + nums[i];
                     maxIndex = i;
@@ -238,7 +238,7 @@ namespace CSharpConsoleApp.Solutions
 
             if (maxNextPos > n - 1)
                 maxNextPos = n - 1;
-            
+
             Print("Add maxIndex = {0}, maxNextPos = {1}", maxIndex, maxNextPos);
 
             list.Add(nums[maxNextPos]);
@@ -263,9 +263,9 @@ namespace CSharpConsoleApp.Solutions
             int steps = 0;
             for (int i = 0; i < length - 1; i++)
             {
-                if(maxPosition < i+nums[i])
+                if (maxPosition < i + nums[i])
                     maxPosition = i + nums[i];  //Print("    i={0} max={1}", i, maxPosition);
-                
+
                 if (i == end)
                 {
                     end = maxPosition;
@@ -275,6 +275,6 @@ namespace CSharpConsoleApp.Solutions
             return steps;
         }
 
-       
+
     }
 }

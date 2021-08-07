@@ -177,7 +177,7 @@ namespace CSharpConsoleApp.Solutions
             //int start = 0;
             int timeAll = 0;
             int count = logs.Count;
-            for(int i=0; i<count; i++)
+            for (int i = 0; i < count; i++)
             {
                 string data = logs[i];
                 string[] arr = data.Split(':');
@@ -188,7 +188,7 @@ namespace CSharpConsoleApp.Solutions
                 //if (i == 0) start = time;
                 //if (i == count - 1) timeAll = time - start + 1;
 
-                if(isStart && !dict.ContainsKey(id))
+                if (isStart && !dict.ContainsKey(id))
                 {
                     int startTime = time;
                     int[] info = new int[] { 1, time, time }; //[0]=count, [1]=startTime [2]=endTime
@@ -197,32 +197,32 @@ namespace CSharpConsoleApp.Solutions
                 }
                 else
                 {
-                    if(!isStart)
+                    if (!isStart)
                     {
                         //函数调用一次结束，次数减1
                         dict[id][0]--;
-                        if(dict[id][0] == 0) //函数调用次数变为0
+                        if (dict[id][0] == 0) //函数调用次数变为0
                         {
                             //
                         }
                         //无递归时,时间为end
                         dict[id][2] = time;
-                        
+
                     }
                     else
                     {
                         //递归调用函数，更新递归次数
 
                     }
-                    
+
                 }
-                
+
             }
-            
+
             return null;
         }
 
-        
+
     }
     // @lc code=end
 

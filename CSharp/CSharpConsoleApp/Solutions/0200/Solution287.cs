@@ -61,13 +61,13 @@ namespace CSharpConsoleApp.Solutions
         /// <summary>
         /// 关键字:
         /// </summary>
-        public override string[] GetKeyWords() { return new string[] { "查找重复的数", "Floyd 判圈算法", "141. 环形链表 I", "142. 环形链表 II",}; }
+        public override string[] GetKeyWords() { return new string[] { "查找重复的数", "Floyd 判圈算法", "141. 环形链表 I", "142. 环形链表 II", }; }
         /// <summary>
         /// 标签：
         /// </summary>
         public override Tag[] GetTags() { return new Tag[] { Tag.BitManipulation }; }
 
-        
+
         /// <summary>
         /// </summary>
         /// <param name="sw"></param>

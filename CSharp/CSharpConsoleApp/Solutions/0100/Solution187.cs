@@ -59,7 +59,7 @@ namespace CSharpConsoleApp.Solutions
         /// </summary>
         public override Tag[] GetTags() { return new Tag[] { Tag.HashTable, Tag.BitManipulation }; }
 
-        
+
         public override bool Test(System.Diagnostics.Stopwatch sw)
         {
             bool isSuccess = true;
@@ -99,7 +99,7 @@ namespace CSharpConsoleApp.Solutions
                 temp = temp.Substring(1, 9) + s[i];
                 if (once.Contains(temp))
                 {
-                    if(!second.Contains(temp))
+                    if (!second.Contains(temp))
                         second.Add(temp);
                 }
                 else
@@ -108,7 +108,7 @@ namespace CSharpConsoleApp.Solutions
                 }
             }
 
-            foreach(string val in second)
+            foreach (string val in second)
             {
                 res.Add(val);
             }
@@ -130,7 +130,7 @@ namespace CSharpConsoleApp.Solutions
             int size = 10;
             Dictionary<string, int> dic = new Dictionary<string, int>();
 
-            for (int i = 0; i < s.Length - (size-1); i++)
+            for (int i = 0; i < s.Length - (size - 1); i++)
             {
                 string temp = s.Substring(i, size);
                 if (dic.ContainsKey(temp)) dic[temp] += 1;

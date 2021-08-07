@@ -152,13 +152,13 @@ namespace CSharpConsoleApp.Solutions
         {
             IList<IList<int>> result = new List<IList<int>>();
             if (root != null)
-            { 
+            {
                 result.Add(new List<int>());
                 result[0].Add(root.val);
             }
 
             DFS(result, root, 1);
-            for(int i=1; i<result.Count; i+=2)
+            for (int i = 1; i < result.Count; i += 2)
             {
                 var arr = result[i].ToArray();
                 Array.Reverse(arr);
@@ -181,7 +181,7 @@ namespace CSharpConsoleApp.Solutions
             //{
             //    if(root.left != null) result[depth].Add(root.left.val);
             //    if(root.right != null) result[depth].Add(root.right.val);
-                
+
             //}
             //else 
             //{

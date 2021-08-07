@@ -102,7 +102,7 @@ namespace CSharpConsoleApp.Solutions
                 new int[] {1,3,2,4},
                 new int[] {2,3,3,4}
             };
-            
+
             result = IsRectangleCover(rectrangles);
             checkResult = true;
             isSuccess &= checkResult == result;
@@ -139,8 +139,8 @@ namespace CSharpConsoleApp.Solutions
             checkResult = false;
             isSuccess &= checkResult == result;
             Print("isSuccess = {0} | result ={1} | checkResult = {2}", isSuccess, result, checkResult);
-            
-            
+
+
             rectrangles = new int[][] {
                  new int[] {1,1,2,3},
                  new int[] {1,3,2,4},
@@ -173,7 +173,7 @@ namespace CSharpConsoleApp.Solutions
             checkResult = false;
             isSuccess &= checkResult == result;
             Print("isSuccess = {0} | result ={1} | checkResult = {2}", isSuccess, result, checkResult);
-            
+
             return isSuccess;
         }
 
@@ -199,7 +199,7 @@ namespace CSharpConsoleApp.Solutions
 
             //小砖块总数量
             int blockCount = 0;
-            for(int i=0; i<rectangles.Length; i++)
+            for (int i = 0; i < rectangles.Length; i++)
             {
                 int[] rect = rectangles[i];
 
@@ -217,16 +217,16 @@ namespace CSharpConsoleApp.Solutions
 
             //Print("block = {0} | minXY= [{1},{2}] | maxXY= [{3},{4}] m * n = {5} * {6} = {7} ", blockCount, minX, minY, maxX, maxY, m, n, m*n);
             //小砖块总数量不同于矩形的小砖块总数量，一定不对。（不是重叠，就是有空洞，或者两者兼有）
-            if ( blockCount != (maxX - minX) * (maxY - minY))
+            if (blockCount != (maxX - minX) * (maxY - minY))
             {
                 return false;
             }
 
-           
-            //是否完全匹配。所有区域不可重叠。
-            int[,] matrix = new int[m,n];
 
-            for(int i=0; i< rectangles.Length; i++)
+            //是否完全匹配。所有区域不可重叠。
+            int[,] matrix = new int[m, n];
+
+            for (int i = 0; i < rectangles.Length; i++)
             {
                 if (FillMatrix(rectangles[i], matrix, minX, minY, m, n) == false)
                     return false;
@@ -237,12 +237,12 @@ namespace CSharpConsoleApp.Solutions
         private bool FillMatrix(int[] rect, int[,] matrix, int minX, int minY, int m, int n)
         {
             int iFrom = rect[1] - minY;
-            int iTo = rect[3] - minY -1 ;
+            int iTo = rect[3] - minY - 1;
 
             int jFrom = rect[0] - minX;
             int jTo = rect[2] - minX - 1;
 
-            for (int i = iFrom ; i <= iTo; i++)
+            for (int i = iFrom; i <= iTo; i++)
             {
                 for (int j = jFrom; j <= jTo; j++)
                 {
@@ -252,7 +252,7 @@ namespace CSharpConsoleApp.Solutions
                         //Print(" >>>>  rect= {1}, | minXY= [{2},{3}] | matrix = \n{0}\n", GetArray2DStr(matrix, m, n), GetArrayStr(rect), minX, minY);
                         return false;
                     }
-                    matrix[i,j] = 1;
+                    matrix[i, j] = 1;
                 }
             }
             //Print(" >>>>  rect= {1}, | minXY= [{2},{3}] | matrix = \n{0}\n", GetArray2DStr(matrix, m, n), GetArrayStr(rect), minX, minY);
@@ -275,7 +275,7 @@ namespace CSharpConsoleApp.Solutions
             //用于判断是否存在重复区域矩形的字典
             HashSet<string> rectSet = new HashSet<string>();
             //用来计数各个顶点的出现次数矩形（该数据可简化为HashSet，只记录出现一次的顶点）
-            Dictionary<string,int> pointSet = new Dictionary<string, int>();
+            Dictionary<string, int> pointSet = new Dictionary<string, int>();
             for (int i = 0; i < rectangles.Length; i++)
             {
                 int[] rect = rectangles[i];
@@ -304,9 +304,9 @@ namespace CSharpConsoleApp.Solutions
                     string.Format("{0}|{1}", rect[2], rect[3])
                 };
 
-                for(int p=0; p<4; p++)
+                for (int p = 0; p < 4; p++)
                 {
-                    if(pointSet.ContainsKey(points[p]))
+                    if (pointSet.ContainsKey(points[p]))
                     {
                         pointSet[points[p]] += 1; //计数， 可以改进连计数都不用了，直接删除。如果超过2次，最终出现1次的顶点不止4个，非常容易判读是否为完美矩形。
                     }
@@ -327,7 +327,7 @@ namespace CSharpConsoleApp.Solutions
             int ld = 0, lu = 0, rd = 0, ru = 0;
             foreach (string point in pointSet.Keys)
             {
-                if(pointSet[point] == 1)
+                if (pointSet[point] == 1)
                 {
                     onlyOncePointCount += 1;
                     if (point == string.Format("{0}|{1}", minX, minY))
@@ -354,7 +354,7 @@ namespace CSharpConsoleApp.Solutions
             }
 
             //是大矩形区域的四顶点，返回True
-            if (onlyOncePointCount == 4 &&  ld * lu * rd * ru == 1)
+            if (onlyOncePointCount == 4 && ld * lu * rd * ru == 1)
             {
                 return true;
             }
@@ -393,11 +393,13 @@ namespace CSharpConsoleApp.Solutions
             //    if (o1.y != o2.y) return o1.y - o2.y;
             //    return 1; // 保证重复且有序 ，例如这个用例：[[0,0,4,1],[0,0,4,1]]
             //});
-            foreach (int[] rectangle in rectangles) {
+            foreach (int[] rectangle in rectangles)
+            {
                 triplets.Add(new Triplet(rectangle[0], rectangle[1], rectangle[3] - rectangle[1])); // 左端点的高度为正
                 triplets.Add(new Triplet(rectangle[2], rectangle[1], rectangle[1] - rectangle[3])); // 右端点的高度为负
             }
-            triplets.Sort((o1, o2) => {
+            triplets.Sort((o1, o2) =>
+            {
                 if (o1.x != o2.x) return o1.x - o2.x;
                 if (o1.h * o2.h < 0) return o1.h < 0 ? -1 : 1; // 正数 和 负数要分类，负数在左，正数在右
                 if (o1.y != o2.y) return o1.y - o2.y;
@@ -405,7 +407,7 @@ namespace CSharpConsoleApp.Solutions
             });
             // 创建优先队列
             //PriorityQueue<int> queue = new PriorityQueue<int>();
-            SortedList<int,int> queue = new SortedList<int, int>();
+            SortedList<int, int> queue = new SortedList<int, int>();
             // 边界上下 宽度
             int high = 0, low = 0, width = 0;
             // 记录横坐标的变化
@@ -414,10 +416,13 @@ namespace CSharpConsoleApp.Solutions
             // 以第一个左边界作为标准
 
             low = triplets[0].y;
-            foreach (Triplet triplet in triplets) {
-                if (axis == triplet.x) {
+            foreach (Triplet triplet in triplets)
+            {
+                if (axis == triplet.x)
+                {
                     high = triplet.y + triplet.h;
-                } else break;
+                }
+                else break;
             }
             width = high - low;
 
@@ -425,16 +430,20 @@ namespace CSharpConsoleApp.Solutions
             int cur_w = 0, cur_h = int.MinValue;
 
             // 正数入堆 负数出堆
-            foreach (Triplet triplet in triplets) {
+            foreach (Triplet triplet in triplets)
+            {
                 // 判断 是否出界
-                if (triplet.x<low) return false;
+                if (triplet.x < low) return false;
                 if (triplet.y + triplet.h > high) return false;
 
-                if (axis != triplet.x) {
+                if (axis != triplet.x)
+                {
                     if (cur_w != width) return false;
                     cur_h = triplet.y;
                     axis = triplet.x;
-                } else if (triplet.y<cur_h) {
+                }
+                else if (triplet.y < cur_h)
+                {
                     return false;
                 }
 
@@ -457,7 +466,7 @@ namespace CSharpConsoleApp.Solutions
                 cur_w += triplet.h;
             }
             return true;
-         }
+        }
 
 
         /// <summary>

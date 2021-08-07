@@ -1,4 +1,4 @@
-﻿ 
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -109,7 +109,7 @@ namespace CSharpConsoleApp.Solutions
             //result = MaxSlidingWindow(nums, k);
             //isSuccess &= IsArraySame(result, checkResult);
             //Print("isSuccess = {0} | result = {1} | anticipated = {2}", isSuccess, result, checkResult);
-            
+
             return isSuccess;
         }
 
@@ -119,18 +119,21 @@ namespace CSharpConsoleApp.Solutions
 
             //Queue<int[]> pq = new Queue<int[]>( );
             PriorityQueue<int[]> pq = new PriorityQueue<int[]>(new ComparerSolution239());
-            for (int i = 0; i<k; ++i) {
+            for (int i = 0; i < k; ++i)
+            {
                 pq.Push(new int[] { nums[i], i });//pq.offer(new int[]{nums[i], i});
             }
-            
+
             int[] ans = new int[n - k + 1];
             ans[0] = pq.Top()[0];
 
-            for (int i = k; i<n; ++i) {
+            for (int i = k; i < n; ++i)
+            {
                 //优先队列，Enqueue方法会自动排序，算法的重要处理。
                 pq.Push(new int[] { nums[i], i });  // pq.offer(new int[]{nums[i], i});
-                
-                while (pq.Top()[1] <= i - k) {
+
+                while (pq.Top()[1] <= i - k)
+                {
                     // pq.poll(); // poll 方法每次从 PriorityQueue 的头部删除一个节点
                     pq.Pop();    //C#中没有 poll方法。
                 }

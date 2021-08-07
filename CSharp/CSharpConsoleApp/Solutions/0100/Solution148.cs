@@ -73,7 +73,7 @@ namespace CSharpConsoleApp.Solutions
         /// </summary>
         public override Tag[] GetTags() { return new Tag[] { Tag.LinkedList, Tag.Sort }; }
 
-        
+
         public override bool Test(System.Diagnostics.Stopwatch sw)
         {
             bool isSuccess = true;
@@ -82,7 +82,7 @@ namespace CSharpConsoleApp.Solutions
 
             ListNodeList list = new ListNodeList(new int[] { 4, 2, 1, 3 });
             n = list.first;
-            checkResult = new ListNodeList(new int[] { 1,2,3,4 }).first;
+            checkResult = new ListNodeList(new int[] { 1, 2, 3, 4 }).first;
             result = SortList(n);
             isSuccess &= IsSame(result, checkResult);
             PrintResult(isSuccess, (result).ToString(), (checkResult).ToString());

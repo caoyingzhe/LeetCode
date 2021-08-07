@@ -1,4 +1,4 @@
-﻿ 
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -71,13 +71,13 @@ namespace CSharpConsoleApp.Solutions._0300
             result = CountSmaller(nums);
             isSuccess &= IsArraySame(result.ToArray(), checkResult);
             Print("isSuccess = {0} | result = {1} | anticipated = {2}", isSuccess, GetArrayStr<int>(result), GetArrayStr<int>(checkResult));
-            
+
             nums = new int[] { 2, 0, 1 };
             checkResult = new int[] { 2, 0, 0 };
             result = CountSmaller(nums);
             isSuccess &= IsArraySame(result.ToArray(), checkResult);
             Print("isSuccess = {0} | result = {1} | anticipated = {2}", isSuccess, GetArrayStr<int>(result), GetArrayStr<int>(checkResult));
-            
+
             nums = new int[] { -1, -2 };
             checkResult = new int[] { 1, 0 };
             result = CountSmaller(nums);

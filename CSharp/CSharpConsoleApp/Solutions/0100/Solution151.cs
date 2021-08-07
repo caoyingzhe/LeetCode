@@ -117,7 +117,7 @@ namespace CSharpConsoleApp.Solutions
                     if (s[i] != ' ')
                     {
                         start = i;
-                        if (i == s.Length-1)
+                        if (i == s.Length - 1)
                         {
                             end = i;
                             AddWord(sb, s, start, end);
@@ -130,8 +130,8 @@ namespace CSharpConsoleApp.Solutions
                     {
                         end = i - 1;
                         AddWord(sb, s, start, end);
-                    } 
-                    else if(i==s.Length-1)
+                    }
+                    else if (i == s.Length - 1)
                     {
                         end = i;
                         AddWord(sb, s, start, end);

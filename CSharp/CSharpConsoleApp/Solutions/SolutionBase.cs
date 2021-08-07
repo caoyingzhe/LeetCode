@@ -919,6 +919,29 @@ namespace CSharpConsoleApp.Solutions
                 }
             }
         }
+
+        public class NodeN
+        {
+            public class Node
+            {
+                public int val;
+                public IList<Node> children;
+
+                public Node() { }
+
+                public Node(int _val)
+                {
+                    val = _val;
+                }
+
+                public Node(int _val, IList<Node> _children)
+                {
+                    val = _val;
+                    children = _children;
+                }
+            }
+        }
+
         #endregion
 
         #region ------------------ Math Functions
@@ -1324,6 +1347,14 @@ namespace CSharpConsoleApp.Solutions
                 return false;
             }
             return true;
+        }
+        public void PrintDatas(params object[] objs)
+        {
+            string format = "";
+            for (int i = 0; i < objs.Length; i++)
+                format += "{" + i + "} |";
+
+            Print(format,objs);
         }
         public void PrintResult(bool isSuccess, object result, object checkResult)
         {

@@ -129,7 +129,7 @@ namespace CSharpConsoleApp.Solutions._0300
             List<int> rlist = new List<int>();
 
             bool isEven = n % 2 == 0;
-            if(isEven)
+            if (isEven)
             {
                 for (int i = 0; i < n; i++)
                 {
@@ -149,18 +149,18 @@ namespace CSharpConsoleApp.Solutions._0300
                         llist.Add(nums[i]);
                 }
             }
-            
+
             llist.Reverse();
             rlist.Reverse();
-            
-            for (int i=0; i<mid; i++)
+
+            for (int i = 0; i < mid; i++)
             {
                 nums[i * 2] = llist[i];
                 if (i < rlist.Count)
                 {
                     nums[i * 2 + 1] = rlist[i];
                 }
-                
+
 
                 //n=8, mid=4,  add[0], add[n-mid+i=8-4+0]  add[3], add[n-mid+i=8-4+3=7] 0,1,2,3,4,5,6,7  => 0,4,1,5,2,6,3,7
                 //[0],[4] i=0, n-mid+i=4+0=4
@@ -174,8 +174,8 @@ namespace CSharpConsoleApp.Solutions._0300
                 //[2],[6] i=2, n-mid+i=4+2=6
                 //[3],[6] i=2, n-mid+i=4+2=7 
             }
-            if(!isEven)
-                nums[n-1] = llist[mid];
+            if (!isEven)
+                nums[n - 1] = llist[mid];
         }
     }
 }

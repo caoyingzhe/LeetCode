@@ -132,7 +132,7 @@ namespace CSharpConsoleApp.Solutions
 
             for (int i = 0; i < arrL.Length; i++)
             {
-                if (string.IsNullOrEmpty(arrL[i])) continue; 
+                if (string.IsNullOrEmpty(arrL[i])) continue;
                 if (arrL[i] == "x")
                     xCount += 1;
                 else if (arrL[i] == "-x")

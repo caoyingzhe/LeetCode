@@ -171,7 +171,7 @@ namespace CSharpConsoleApp.Solutions
 
                 //Case1 : s[i] ==0 的情况 && s[i-1]= 1 or 2, dp[i] = dp[i-2]; 否则 return 0
                 if (s[i] == '0')
-                { 
+                {
                     if (s[i - 1] == '1' || s[i - 1] == '2')
                         curr = pre;
                     else

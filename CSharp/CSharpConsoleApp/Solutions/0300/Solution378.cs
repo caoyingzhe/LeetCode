@@ -58,7 +58,7 @@ namespace CSharpConsoleApp.Solutions
         public override bool Test(System.Diagnostics.Stopwatch sw)
         {
             bool isSuccess = true;
-            int[][] matrix = new int [][]  {
+            int[][] matrix = new int[][]  {
                 new int[] { 1, 5, 6,  9},
                 new int[] { 10,11,12, 13},
                 new int[] { 12,21,26, 28},
@@ -94,7 +94,7 @@ namespace CSharpConsoleApp.Solutions
             while (left < right)
             {
                 int mid = left + ((right - left) >> 1); // mid = L + (R-L)/2  L R MID =>  1,5,3  / 1, 15, 8,
-                
+
                 if (Check(matrix, mid, k, n))
                 {
                     Print("Move to Right=>{2} | L={0}, R={1}, mid={2}", left, right, mid);

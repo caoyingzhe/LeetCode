@@ -155,7 +155,7 @@ namespace CSharpConsoleApp.Solutions
         //110 CX
         //24 XX IV
         //27 XX + VII
-        
+
         public string IntToRoman(int num)
         {
             string result = GetNumberRoma(nums.Count - 1, num);

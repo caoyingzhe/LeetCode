@@ -53,7 +53,7 @@ namespace CSharpConsoleApp.Solutions
         /// <summary>
         /// 标签： 
         /// </summary>
-        public override Tag[] GetTags() { return new Tag[] { Tag.Array,}; }
+        public override Tag[] GetTags() { return new Tag[] { Tag.Array, }; }
 
         public override bool Test(System.Diagnostics.Stopwatch sw)
         {
@@ -107,9 +107,9 @@ namespace CSharpConsoleApp.Solutions
             int count = 0;
             int firstIndex = -1;
             int n = nums.Length;
-            for(int i=0; i<n-1; i++)
+            for (int i = 0; i < n - 1; i++)
             {
-                if(nums[i] > nums[i+1])
+                if (nums[i] > nums[i + 1])
                 {
                     count++;
 
@@ -126,7 +126,7 @@ namespace CSharpConsoleApp.Solutions
                 {
                     return true;
                 }
-                else 
+                else
                 {
                     //开始位置和结束位置发生递减，直接替换首位就能解决问题，直接返回true。
                     if (firstIndex == 0 || firstIndex == n - 2)
@@ -150,7 +150,7 @@ namespace CSharpConsoleApp.Solutions
             }
             else //if (count == 0)
                 return true;
-            
+
         }
     }
 }

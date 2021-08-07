@@ -66,13 +66,13 @@ namespace CSharpConsoleApp.Solutions
         /// <summary>
         /// 关键字:
         /// </summary>
-        public override string[] GetKeyWords() { return new string[] {  }; }
+        public override string[] GetKeyWords() { return new string[] { }; }
         /// <summary>
         /// 标签：
         /// </summary>
         public override Tag[] GetTags() { return new Tag[] { Tag.Math, Tag.Brainteaser }; }
 
-        
+
         public override bool Test(System.Diagnostics.Stopwatch sw)
         {
             bool isSuccess = true;

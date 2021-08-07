@@ -18,7 +18,7 @@ namespace CSharpConsoleApp.Solutions
         /// <summary>
         /// 关键字:
         /// </summary>
-        public override string[] GetKeyWords() { return new string[] { "DFS","BFS", "阵列包围区域搜索" }; }
+        public override string[] GetKeyWords() { return new string[] { "DFS", "BFS", "阵列包围区域搜索" }; }
         /// <summary>
         /// 标签： depth-first-search | breadth-first-search | union-find
         /// </summary>

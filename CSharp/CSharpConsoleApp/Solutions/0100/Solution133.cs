@@ -53,7 +53,7 @@ namespace CSharpConsoleApp.Solutions
         /// <summary>
         /// 关键字:
         /// </summary>
-        public override string[] GetKeyWords() { return new string[] { "DFS", "BFS", "Graph", "深拷贝"}; }
+        public override string[] GetKeyWords() { return new string[] { "DFS", "BFS", "Graph", "深拷贝" }; }
         /// <summary>
         /// 标签： 
         /// </summary>

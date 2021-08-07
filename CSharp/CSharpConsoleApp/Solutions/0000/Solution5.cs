@@ -144,11 +144,11 @@ namespace CSharpConsoleApp.Solutions
             int maxLen = (maxj - maxi + 1);
             for (int i = 0; i < n; i++)
             {
-                int j = n-1;
+                int j = n - 1;
                 if (j - i + 1 <= maxLen)
                     break;
 
-                
+
                 while (j > i)
                 {
                     //滤掉长度小于当前最大长度的字符串
@@ -193,7 +193,7 @@ namespace CSharpConsoleApp.Solutions
                 return false;
 
             //如果已经存在与哈希表中了，就不比较了
-            if (set.Contains( ((long)startIndex << 32) | (long)endIndex))
+            if (set.Contains(((long)startIndex << 32) | (long)endIndex))
                 return true;
 
             string s = org.Substring(startIndex, endIndex - startIndex + 1);
@@ -205,7 +205,7 @@ namespace CSharpConsoleApp.Solutions
             bool isEven = s.Length % 2 == 0;
             int n = s.Length; int hn = n / 2;
             //从中间开始比较左右两侧
-            for(int i= 1; i<= hn; i++)
+            for (int i = 1; i <= hn; i++)
             {
                 int L = hn - i;
                 int R = isEven ? hn + i - 1 : hn + i;  //根据奇偶获取右侧比较值的索引
@@ -272,7 +272,7 @@ namespace CSharpConsoleApp.Solutions
         /// <returns></returns>
         public string LongestPalindrome(string s)
         {
-            if (s == null || s.Length< 1)
+            if (s == null || s.Length < 1)
             {
                 return "";
             }

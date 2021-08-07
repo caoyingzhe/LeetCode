@@ -68,7 +68,7 @@ namespace CSharpConsoleApp.Solutions
             string[] words; int k;
 
             words = new string[] { "i", "love", "leetcode", "i", "love", "coding" };
-            k = 2 ;
+            k = 2;
             checkResult = new string[] { "i", "love" };
             result = TopKFrequent(words, k);
             isSuccess &= IsListSame(result, checkResult);
@@ -106,7 +106,7 @@ namespace CSharpConsoleApp.Solutions
         public IList<string> TopKFrequent(string[] words, int k)
         {
             Dictionary<string, Word> occurrences = new Dictionary<string, Word>();
-            
+
             foreach (string word in words)
             {
                 if (!occurrences.ContainsKey(word))

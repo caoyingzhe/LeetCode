@@ -132,7 +132,7 @@ namespace CSharpConsoleApp.Solutions
             int len = (right - left + 1);
             int halfLen = len / 2;
             bool isOdd = len % 2 == 1;
-            for (int i= 1; i<= halfLen; i++)
+            for (int i = 1; i <= halfLen; i++)
             {
                 ListNode tmp = list[mid + i];
                 if (isOdd)

@@ -16,7 +16,7 @@ namespace CSharpConsoleApp.Solutions
         /// </summary>
         public override Tag[] GetTags() { return new Tag[] { Tag.DynamicProgramming }; }
 
-        
+
         public override bool Test(System.Diagnostics.Stopwatch sw)
         {
             bool isSuccess = true;
@@ -103,7 +103,7 @@ namespace CSharpConsoleApp.Solutions
         // @lc code=start
         public class NumMatrix
         {
-            
+
             int[][] sums;
 
             public NumMatrix(int[][] matrix)

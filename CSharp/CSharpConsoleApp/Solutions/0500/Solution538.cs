@@ -86,7 +86,7 @@ namespace CSharpConsoleApp.Solutions
         /// <summary>
         /// 关键字:
         /// </summary>
-        public override string[] GetKeyWords() { return new string[] { "累加树 (反序中序遍历BST)" , "Morris遍历" }; }
+        public override string[] GetKeyWords() { return new string[] { "累加树 (反序中序遍历BST)", "Morris遍历" }; }
         /// <summary>
         /// 标签：
         /// </summary>

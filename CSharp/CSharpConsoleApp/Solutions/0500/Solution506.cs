@@ -103,7 +103,7 @@ namespace CSharpConsoleApp.Solutions
                 if (i == a.Length - 1)
                 {
                     a[i] = "Gold Medal";
-                    if(!map.ContainsKey(c[i]))
+                    if (!map.ContainsKey(c[i]))
                         map.Add(c[i], a[i]);
                     else
                         map[c[i]] = a[i];
@@ -155,13 +155,13 @@ namespace CSharpConsoleApp.Solutions
 
             string[] rtn = new string[score.Length];
 
-            int  rank = 1;
-            int  rankVal = score[0];
+            int rank = 1;
+            int rankVal = score[0];
             rtn[0] = "Gold Medal";
             int rank1Count = 1;
             int rank2Count = 0;
             int preCount = 1;
-            for (int i=1; i< score.Length; i++)
+            for (int i = 1; i < score.Length; i++)
             {
                 if (score[i] < rankVal)
                 {
@@ -189,7 +189,7 @@ namespace CSharpConsoleApp.Solutions
                             rtn[i] = "" + (preCount + 1);
                         break;
                     default:
-                        rtn[i] = "" + (preCount+1);
+                        rtn[i] = "" + (preCount + 1);
                         break;
                 }
             }

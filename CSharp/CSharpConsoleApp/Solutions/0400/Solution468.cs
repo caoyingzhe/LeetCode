@@ -179,22 +179,22 @@ namespace CSharpConsoleApp.Solutions
 
             bool isContainsDot = IP.Contains(".");
             bool isContainsComma = IP.Contains(":");
-            if(isContainsDot && isContainsComma)
+            if (isContainsDot && isContainsComma)
                 return "Neither";
 
-            if(isContainsDot)
+            if (isContainsDot)
             {
                 string[] arr = IP.Split('.');
-                if(arr.Length == 4)
+                if (arr.Length == 4)
                 {
-                    for(int i=0; i<4; i++)
+                    for (int i = 0; i < 4; i++)
                     {
                         //bool isOK = IsBit10X3(arr[i]);
                         //Print("isOK : {0} | {1}", isOK, arr[i]);
 
                         if (IsBit10X3(arr[i]))
                         {
-                            if(i==3)
+                            if (i == 3)
                                 return "IPv4";
                         }
                         else
@@ -202,7 +202,7 @@ namespace CSharpConsoleApp.Solutions
                     }
                 }
             }
-            else if(isContainsComma)
+            else if (isContainsComma)
             {
                 string[] arr = IP.Split(':');
                 if (arr.Length == 8)

@@ -293,7 +293,8 @@ namespace CSharpConsoleApp.Solutions
             this.bucket = bucket;
         }
 
-        public int val {
+        public int val
+        {
             get { return this.value; }
             set { this.value = value; }
         }

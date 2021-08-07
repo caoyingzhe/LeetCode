@@ -114,7 +114,7 @@ namespace CSharpConsoleApp.Solutions
             for (int b = 0; b < n; b++)
             {
                 if (nums2[b] == 0) continue;
-                
+
                 int nownum = nums[b];
                 int nowIndex = b;
                 nums2[b] = 0;

@@ -197,7 +197,6 @@
     <Compile Include="Solutions\0000\Solution83.cs" />
     <Compile Include="Solutions\0000\Solution88.cs" />
     <Compile Include="Solutions\0000\Solution94.cs" />
-    <Compile Include="Solutions\0000\Solution100.cs" />
     <Compile Include="Solutions\0100\Solution101.cs" />
     <Compile Include="Solutions\0100\Solution104.cs" />
     <Compile Include="Solutions\0100\Solution110.cs" />
@@ -449,11 +448,9 @@
     <Compile Include="Solutions\0100\Solution143.cs" />
     <Compile Include="Solutions\0100\Solution147.cs" />
     <Compile Include="Solutions\0100\Solution115.cs" />
-    <Compile Include="Solutions\0100\Solution87.cs" />
     <Compile Include="Solutions\0100\Solution135.cs" />
     <Compile Include="Solutions\0100\Solution154.cs" />
     <Compile Include="Solutions\0100\Solution164.cs" />
-    <Compile Include="Solutions\0100\Solution233.cs" />
     <Compile Include="Solutions\0100\Solution152.cs" />
     <Compile Include="Solutions\0100\Solution179.cs" />
     <Compile Include="Solutions\0100\Solution187.cs" />
@@ -533,6 +530,26 @@
     <Compile Include="Solutions\0600\Solution653.cs" />
     <Compile Include="Solutions\0500\Solution507.cs" />
     <Compile Include="Solutions\0600\Solution670.cs" />
+    <Compile Include="Solutions\0500\Solution589.cs" />
+    <Compile Include="Solutions\0500\Solution590.cs" />
+    <Compile Include="Solutions\0500\Solution594.cs" />
+    <Compile Include="Solutions\0500\Solution598.cs" />
+    <Compile Include="Solutions\0400\Solution436.cs" />
+    <Compile Include="Solutions\0400\Solution437.cs" />
+    <Compile Include="Solutions\0500\Solution518.cs" />
+    <Compile Include="Solutions\0500\Solution519.cs" />
+    <Compile Include="Solutions\0500\Solution528.cs" />
+    <Compile Include="Solutions\0400\Solution497.cs" />
+    <Compile Include="Solutions\0500\Solution509.cs" />
+    <Compile Include="Solutions\0600\Solution628.cs" />
+    <Compile Include="Solutions\0500\Solution539.cs" />
+    <Compile Include="Solutions\0500\Solution540.cs" />
+    <Compile Include="Solutions\0700\Solution704.cs" />
+    <Compile Include="Solutions\0500\Solution592.cs" />
+    <Compile Include="Solutions\0500\Solution593.cs" />
+    <Compile Include="Solutions\0600\Solution611.cs" />
+    <Compile Include="Solutions\0600\Solution623.cs" />
+    <Compile Include="Solutions\0600\Solution622.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

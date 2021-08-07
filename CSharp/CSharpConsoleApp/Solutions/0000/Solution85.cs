@@ -177,7 +177,7 @@ namespace CSharpConsoleApp.Solutions
                 for (int i = 0; i < m; i++)
                 {
                     //ret = Math.Max(ret, (right[i] - left[i] - 1) * heights[i]); //Solution84
-                    ret = Math.Max(ret,  (down[i] - up[i] - 1) * left[i][j]);  //height = down[i] - up[i] - 1; width = left[i][j];
+                    ret = Math.Max(ret, (down[i] - up[i] - 1) * left[i][j]);  //height = down[i] - up[i] - 1; width = left[i][j];
 
                 }
             }

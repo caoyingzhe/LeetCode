@@ -71,7 +71,7 @@ namespace CSharpConsoleApp.Solutions
                 backtrack(ans, cur, open + 1, close, max);
                 //移除最后以为的目的是为了，只删除这一次添加的字符, 继续使用前面有效的字串
                 Print("Add ( Step2. cur =" + cur);
-                cur.Remove(cur.Length - 1,1);
+                cur.Remove(cur.Length - 1, 1);
                 Print("--- ( Remove cur =" + cur);
             }
             if (close < open)
@@ -82,7 +82,7 @@ namespace CSharpConsoleApp.Solutions
                 backtrack(ans, cur, open, close + 1, max);
                 Print("Add ) Step2. cur =" + cur);
                 //移除最后以为的目的是为了，只删除这一次添加的字符, 继续使用前面有效的字串
-                cur.Remove(cur.Length - 1,1);
+                cur.Remove(cur.Length - 1, 1);
                 Print("--- ) Remove cur =" + cur);
             }
         }
@@ -134,7 +134,7 @@ namespace CSharpConsoleApp.Solutions
         {
             //balance 表示左括号的数量减去右括号的数量
             int balance = 0;
-            foreach(char c in current)
+            foreach (char c in current)
             {
                 if (c == '(')
                 {

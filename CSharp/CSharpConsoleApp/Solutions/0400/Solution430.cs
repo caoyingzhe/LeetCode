@@ -142,7 +142,7 @@ namespace CSharpConsoleApp.Solutions
             Node result, checkResult;
 
 
-            head = new Node() ;
+            head = new Node();
             checkResult = new Node();
             result = Flatten(head);
             isSuccess &= IsSame(result, checkResult);

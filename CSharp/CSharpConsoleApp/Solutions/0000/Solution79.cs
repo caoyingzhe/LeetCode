@@ -125,7 +125,7 @@ namespace CSharpConsoleApp.Solutions
         {
             int m = board.Length;
             int n = board[0].Length;
-            bool[,] visited = new bool[m,n];
+            bool[,] visited = new bool[m, n];
 
             for (int i = 0; i < m; i++)
             {
@@ -153,18 +153,18 @@ namespace CSharpConsoleApp.Solutions
             {
                 return false;
             }
-            else if (matchIndex == word.Length-1)
+            else if (matchIndex == word.Length - 1)
             {
                 return true;
             }
-            visited[i,j] = true;
+            visited[i, j] = true;
 
             foreach (int[] dir in directions)
             {
                 int newi = i + dir[0], newj = j + dir[1];
                 if (newi >= 0 && newi < board.Length && newj >= 0 && newj < board[0].Length)
                 {
-                    if (!visited[newi,newj]) //未搜索过
+                    if (!visited[newi, newj]) //未搜索过
                     {
                         bool flag = DFS(board, word, visited, newi, newj, matchIndex + 1);
                         if (flag)

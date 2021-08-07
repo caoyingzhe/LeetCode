@@ -139,10 +139,10 @@ namespace CSharpConsoleApp.Solutions
                 }
             }
 
-            for(int i=0; i<k; i++)
+            for (int i = 0; i < k; i++)
             {
-                if(queue.Count > 0)
-                { 
+                if (queue.Count > 0)
+                {
                     int[] arr = queue.Pop();
                     Print(GetArrayStr(arr));
                     res.Add(new List<int>(arr));
@@ -161,7 +161,7 @@ namespace CSharpConsoleApp.Solutions
         {
             //在[239] 滑动窗口最大值中，[0]代表值，[1]代表数组中的索引
             //重大疑惑：官方提供的Java代码的比较方法是相反的。
-            if(pair1[0] + pair1[1] < pair2[0] + pair2[1])
+            if (pair1[0] + pair1[1] < pair2[0] + pair2[1])
             {
                 return 1;
             }
@@ -169,7 +169,7 @@ namespace CSharpConsoleApp.Solutions
             {
                 return -1;
             }
-            else if(pair1[0] <= pair2[0])
+            else if (pair1[0] <= pair2[0])
             {
                 return 1;
             }

@@ -63,10 +63,10 @@ namespace CSharpConsoleApp.Solutions
             //isSuccess &= (NumSquares(12) == 3);
 
             sw.Start();
-            isSuccess &= (NumSquares(10000-1) == 3);
+            isSuccess &= (NumSquares(10000 - 1) == 3);
 
             sw.Stop();
-            Print("Eclipsed time = {0}" , sw.ElapsedMilliseconds);
+            Print("Eclipsed time = {0}", sw.ElapsedMilliseconds);
             return isSuccess;
         }
 
@@ -84,7 +84,7 @@ namespace CSharpConsoleApp.Solutions
             int count = 0;
             int left = n;
 
-            while(left != 0)
+            while (left != 0)
             {
                 int maxN = (int)Math.Sqrt(left);
                 int pow = (maxN * maxN);

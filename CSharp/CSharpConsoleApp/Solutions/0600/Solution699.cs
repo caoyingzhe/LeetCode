@@ -106,7 +106,7 @@ namespace CSharpConsoleApp.Solutions
                 new int[] { 2,3},
                 new int[] { 6,1},
             };
-            checkResult = new int[] { 2,5,5 } ;
+            checkResult = new int[] { 2, 5, 5 };
             result = FallingSquares(points);
             isSuccess &= IsSame(result, checkResult);
             PrintResult(isSuccess, result, checkResult);

@@ -139,7 +139,7 @@ namespace CSharpConsoleApp.Solutions
             int n = nums.Length;
 
             int mod;
-            for(int i=0; i<n-1;i++)
+            for (int i = 0; i < n - 1; i++)
             {
                 mod = nums[i] % k;
                 for (int j = i + 1; j < n; j++)

@@ -63,7 +63,7 @@ namespace CSharpConsoleApp.Solutions
             bool result;
             bool checkResult;
 
-            nums = new int[] { 1,2,3,3,4,5};
+            nums = new int[] { 1, 2, 3, 3, 4, 5 };
             checkResult = true;
             result = IsPossible(nums);
             isSuccess &= result == checkResult;
@@ -102,20 +102,20 @@ namespace CSharpConsoleApp.Solutions
             //遍历数组，更新两个哈希表。
             foreach (int x in nums)
             {
-                int count = GetOrDefault(countDict,x, 0);
+                int count = GetOrDefault(countDict, x, 0);
                 if (count > 0)
                 {
                     int prevEndCount = GetOrDefault(endDict, x - 1, 0);
                     if (prevEndCount > 0) //存在x-1
                     {
-                        countDict[x]= count - 1;                                 //x  数量-1
+                        countDict[x] = count - 1;                                 //x  数量-1
                         endDict[x - 1] = prevEndCount - 1;                       //x-1的尾部数量-1           
                         endDict[x] = GetOrDefault(endDict, x, 0) + 1;            //x  的尾部数量+1 
                     }
                     else
                     {
-                        int count1 = GetOrDefault(countDict,x + 1, 0);           //x+1 数量
-                        int count2 = GetOrDefault(countDict,x + 2, 0);           //x+2 数量
+                        int count1 = GetOrDefault(countDict, x + 1, 0);           //x+1 数量
+                        int count2 = GetOrDefault(countDict, x + 2, 0);           //x+2 数量
                         if (count1 > 0 && count2 > 0)                            //x+1/x+2 都存在，处理
                         {
                             countDict[x] = count - 1;                            //x    数量-1
@@ -134,7 +134,7 @@ namespace CSharpConsoleApp.Solutions
 
         }
 
-        int GetOrDefault(Dictionary<int,int> dict, int x, int defaultVal = 0)
+        int GetOrDefault(Dictionary<int, int> dict, int x, int defaultVal = 0)
         {
             if (dict.ContainsKey(x))
                 return dict[x];
@@ -143,7 +143,7 @@ namespace CSharpConsoleApp.Solutions
                 dict.Add(x, defaultVal);
                 return defaultVal;
             }
-                
+
         }
     }
 }

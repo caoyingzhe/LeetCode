@@ -134,7 +134,7 @@ namespace CSharpConsoleApp.Solutions
             {
                 for (int j = 0; j < n; j++)
                 {
-                    if (row[i]!=0 || col[j]!=0)
+                    if (row[i] != 0 || col[j] != 0)
                     {
                         matrix[i][j] = 0;
                     }

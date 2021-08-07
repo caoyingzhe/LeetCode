@@ -99,13 +99,13 @@ namespace CSharpConsoleApp.Solutions
             int n = s.Length;
             int max = 0;
             HashSet<char> set = new HashSet<char>();
-            for (int i=0; i<n; i++)
+            for (int i = 0; i < n; i++)
             {
-                if(i!= 0) set.Clear();
+                if (i != 0) set.Clear();
                 set.Add(s[i]);
 
                 int j = i;
-                while(j<n-1)
+                while (j < n - 1)
                 {
                     if (set.Contains(s[j + 1]))
                         break;
@@ -155,7 +155,7 @@ namespace CSharpConsoleApp.Solutions
                 }
                 // 第 i 到 rk 个字符是一个极长的无重复字符子串
                 //max = Math.Max(max, j - i + 1);
-                if (j-1 +1 > max)
+                if (j - 1 + 1 > max)
                 {
                     max = j - i + 1;
                 }

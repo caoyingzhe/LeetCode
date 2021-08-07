@@ -70,7 +70,7 @@ namespace CSharpConsoleApp.Solutions
             result.Sort();
 
             isSuccess &= string.Join(",", result) == string.Join(",", checkResult);
-            Print("isSuccess = {0} \n result ={1} \n anticipated = {2}", isSuccess , string.Join(",", result) , string.Join(",", checkResult));
+            Print("isSuccess = {0} \n result ={1} \n anticipated = {2}", isSuccess, string.Join(",", result), string.Join(",", checkResult));
             return isSuccess;
         }
 
@@ -81,20 +81,20 @@ namespace CSharpConsoleApp.Solutions
 
             Dictionary<string, List<string>> resultDict = new Dictionary<string, List<string>>();
             Dictionary<char, string> numCharsDict = new Dictionary<char, string>();
-            string[] codeCharsArr = new string[] { "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
-            for(int i=2; i<=9; i++)
+            string[] codeCharsArr = new string[] { "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz" };
+            for (int i = 2; i <= 9; i++)
             {
-                numCharsDict.Add(i.ToString()[0], codeCharsArr[i-2]);
+                numCharsDict.Add(i.ToString()[0], codeCharsArr[i - 2]);
             }
 
-            for(int i=0;i<digits.Length;i++)
+            for (int i = 0; i < digits.Length; i++)
             {
                 char nubmer = digits[i].ToString()[0];
 
-                string preKey = i== 0 ? "" : digits.Substring(0, i);
-                string key = digits.Substring(0, i+1);
+                string preKey = i == 0 ? "" : digits.Substring(0, i);
+                string key = digits.Substring(0, i + 1);
 
-                
+
                 if (resultDict.ContainsKey(preKey))
                 {
                     List<string> preKeyList = resultDict[preKey];
@@ -104,7 +104,7 @@ namespace CSharpConsoleApp.Solutions
                         if (j == 0)
                         {
                             addList = new List<string>();
-                            
+
                             resultDict.Add(key, addList);
                         }
                         else

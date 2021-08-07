@@ -67,28 +67,28 @@ namespace CSharpConsoleApp.Solutions
             s = ")()()()(())))";
             checkResult = 10;
             result = LongestValidParentheses(s);
-            
+
             isSuccess &= result == checkResult;
             Print("isSuccess = {0} result = {1} | checkResult = {2}", isSuccess, (result), (checkResult));
-            
+
             s = "(()";
             checkResult = 2;
             result = LongestValidParentheses(s);
-            
+
             isSuccess &= result == checkResult;
             Print("isSuccess = {0} result = {1} | checkResult = {2}", isSuccess, (result), (checkResult));
-            
+
             s = "(()()";
             checkResult = 4;
             result = LongestValidParentheses(s);
-            
+
             isSuccess &= result == checkResult;
             Print("isSuccess = {0} result = {1} | checkResult = {2}", isSuccess, (result), (checkResult));
-            
+
             s = "()(()()(()";
             checkResult = 4;
             result = LongestValidParentheses(s);
-            
+
             isSuccess &= result == checkResult;
             Print("isSuccess = {0} result = {1} | checkResult = {2}", isSuccess, (result), (checkResult));
 
@@ -132,7 +132,7 @@ namespace CSharpConsoleApp.Solutions
         public int LongestValidParentheses_Stack(string s)
         {
             int maxLen = 0;
-            Stack<int> stack = new Stack<int >(); //存储左括号的索引
+            Stack<int> stack = new Stack<int>(); //存储左括号的索引
 
             stack.Push(-1);
             for (int i = 0; i < s.Length; i++)
@@ -142,7 +142,7 @@ namespace CSharpConsoleApp.Solutions
                 else  //TODO 此处else的处理未全弄明白
                 {
                     stack.Pop();
-                    if (stack.Count == 0)   
+                    if (stack.Count == 0)
                     {
                         stack.Push(i);
                     }
@@ -187,9 +187,9 @@ namespace CSharpConsoleApp.Solutions
             maxLen = 0;
             Stack<char> stack = new Stack<char>();
 
-            for(int i=0; i<s.Length; i++)
+            for (int i = 0; i < s.Length; i++)
             {
-                if(stack.Count == 0 )
+                if (stack.Count == 0)
                 {
                     if (s[i] == ')')
                         return false;
@@ -198,7 +198,7 @@ namespace CSharpConsoleApp.Solutions
                 }
                 else
                 {
-                    if(stack.Peek() == '(' && s[i] == ')')
+                    if (stack.Peek() == '(' && s[i] == ')')
                     {
                         stack.Pop();
                         maxLen++;

@@ -67,7 +67,7 @@ namespace CSharpConsoleApp.Solutions
         /// <summary>
         /// 关键字:
         /// </summary>
-        public override string[] GetKeyWords() { return new string[] { "基因序列" , "碱基(A、C、G、T)" }; }
+        public override string[] GetKeyWords() { return new string[] { "基因序列", "碱基(A、C、G、T)" }; }
         /// <summary>
         /// 标签：
         /// </summary>

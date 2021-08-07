@@ -49,7 +49,7 @@ namespace CSharpConsoleApp.Solutions
     {
         public override bool Test(System.Diagnostics.Stopwatch sw)
         {
-            IList<IList<int>> result = Permute(new int[] {1,2,3,4});
+            IList<IList<int>> result = Permute(new int[] { 1, 2, 3, 4 });
 
             Print("result = \n{0}", GetArray2DStr(result));
 
@@ -90,9 +90,9 @@ namespace CSharpConsoleApp.Solutions
 
             //Print("before result count = " + result.Count);
 
-            for (int i= m-1; i >=0; i--)
+            for (int i = m - 1; i >= 0; i--)
             {
-                for (int j = n-1; j >=0 ; j--)
+                for (int j = n - 1; j >= 0; j--)
                 {
                     if (!result[i].Contains(nums[j]))
                     {
@@ -107,7 +107,7 @@ namespace CSharpConsoleApp.Solutions
             //Print("after  result count = " + result.Count);
 
             depth++;
-            if(depth < n-1)
+            if (depth < n - 1)
                 AddNext(depth, nums);
             return;
         }

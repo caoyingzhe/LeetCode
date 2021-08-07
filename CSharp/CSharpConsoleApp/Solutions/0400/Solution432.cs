@@ -24,14 +24,14 @@ namespace CSharpConsoleApp.Solutions
             AllOne t = new AllOne();
 
             string[] functions = new string[] { "inc", "dec", "getMaxKey", "getMinKey", "inc", "getMaxKey", "getMinKey" };
-            string[] datas = new string[] { "hello" , "hello", null, null , "leet", null, null};
+            string[] datas = new string[] { "hello", "hello", null, null, "leet", null, null };
 
-            for(int i=0; i<functions.Length; i++)
+            for (int i = 0; i < functions.Length; i++)
             {
                 string rtn = t.Call(functions[i], datas[i]);
                 Print("{0} | {1} : {2} ", functions[i], datas[i] == null ? "null" : datas[i], rtn);
             }
-            
+
             return isSuccess;
         }
 
@@ -142,7 +142,7 @@ namespace CSharpConsoleApp.Solutions
                 if (!first.ContainsKey(val))
                     first.Add(val, node);
                 else
-                    first[val] = node; 
+                    first[val] = node;
                 if (!last.ContainsKey(val)) last.Add(val, node);
             }
 
@@ -228,7 +228,7 @@ namespace CSharpConsoleApp.Solutions
                     }
                     else if (node == firstNode)
                     { // 起始值右移
-                        if(!first.ContainsKey(1))
+                        if (!first.ContainsKey(1))
                             first.Add(1, node.next);
                         else
                             first[1] = node.next;

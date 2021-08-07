@@ -78,7 +78,7 @@ namespace CSharpConsoleApp.Solutions
         /// <summary>
         /// 关键字:
         /// </summary>
-        public override string[] GetKeyWords() { return new string[] {  }; }
+        public override string[] GetKeyWords() { return new string[] { }; }
         /// <summary>
         /// 标签：
         /// </summary>
@@ -131,7 +131,8 @@ namespace CSharpConsoleApp.Solutions
         /// <returns></returns>
         public bool HasCycle(ListNode head)
         {
-            if(head == null || head.next == null) {
+            if (head == null || head.next == null)
+            {
                 return false;
             }
             ListNode slow = head;

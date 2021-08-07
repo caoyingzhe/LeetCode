@@ -81,7 +81,7 @@ namespace CSharpConsoleApp.Solutions
             checkResult = new string[] { "1->2->5", "1->3" };
             result = BinaryTreePaths(node).ToArray();
             isSuccess &= IsListSame(checkResult, result);
-            Print("isSuccess ={0} | result = {1} | checkResult = {2}", isSuccess,GetArrayStr(result), GetArrayStr(checkResult));
+            Print("isSuccess ={0} | result = {1} | checkResult = {2}", isSuccess, GetArrayStr(result), GetArrayStr(checkResult));
             return isSuccess;
         }
         public List<String> BinaryTreePaths(TreeNode root)

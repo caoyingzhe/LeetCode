@@ -297,7 +297,7 @@ namespace CSharpConsoleApp.Solutions
             List<int[]> brackletInfos = new List<int[]>();
             int depth = 0;
             int depthMax = 0;
-            for(int i=0; i<n; i++)
+            for (int i = 0; i < n; i++)
             {
                 if (char.IsNumber(s[i]))
                 {
@@ -322,7 +322,7 @@ namespace CSharpConsoleApp.Solutions
                 }
             }
 
-            for(int i=0; i< depthMax; i++)
+            for (int i = 0; i < depthMax; i++)
             {
 
                 //Print(GetString());
@@ -331,11 +331,11 @@ namespace CSharpConsoleApp.Solutions
         }
         void AddInfo(int depth, int charStart, int charEnd, int number, Dictionary<int, List<int[]>> dict)
         {
-            if(!dict.ContainsKey(depth))
+            if (!dict.ContainsKey(depth))
             {
                 dict.Add(depth, new List<int[]>());
             }
-            dict[depth].Add(new int[] { number, charStart, charEnd } );
+            dict[depth].Add(new int[] { number, charStart, charEnd });
         }
 
         string GetString(string s, int charStart, int charEnd, int number)
@@ -349,5 +349,5 @@ namespace CSharpConsoleApp.Solutions
             return sb.ToString();
         }
     }
-    
+
 }

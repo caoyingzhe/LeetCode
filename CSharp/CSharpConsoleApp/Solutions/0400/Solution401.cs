@@ -138,6 +138,6 @@ namespace CSharpConsoleApp.Solutions
             return res;
         }
 
-        
+
     }
 }

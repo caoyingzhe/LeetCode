@@ -70,7 +70,7 @@ namespace CSharpConsoleApp.Solutions
         /// </summary>
         public override Tag[] GetTags() { return new Tag[] { Tag.Array, Tag.DynamicProgramming }; }
 
-        
+
         /// <summary>
         /// </summary>
         /// <param name="sw"></param>

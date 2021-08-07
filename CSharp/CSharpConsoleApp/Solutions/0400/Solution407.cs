@@ -90,7 +90,7 @@ namespace CSharpConsoleApp.Solutions
             bool[][] vis = new bool[n][];
             for (int v = 0; v < n; v++) vis[v] = new bool[m];
             // 优先队列中存放三元组 [x,y,h] 坐标和高度
-            PriorityQueue<int[]> pq = new PriorityQueue<int[]> (new ComparerSolution407());
+            PriorityQueue<int[]> pq = new PriorityQueue<int[]>(new ComparerSolution407());
 
             // 先把最外一圈放进去
             for (int i = 0; i < n; i++)
@@ -140,7 +140,7 @@ namespace CSharpConsoleApp.Solutions
     {
         public int Compare(int[] pair1, int[] pair2)
         {
-            if(pair2[2] != pair1[2])
+            if (pair2[2] != pair1[2])
                 return pair2[2] - pair1[2]; //升序
             else if (pair2[0] != pair1[0])
             {

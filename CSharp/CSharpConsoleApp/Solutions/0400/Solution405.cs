@@ -51,7 +51,7 @@ namespace CSharpConsoleApp.Solutions
         /// </summary>
         public override Tag[] GetTags() { return new Tag[] { Tag.BitManipulation }; }
 
-        
+
         /// <summary>
         /// </summary>
         /// <param name="sw"></param>

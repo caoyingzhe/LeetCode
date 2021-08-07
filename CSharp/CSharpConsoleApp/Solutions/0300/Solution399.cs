@@ -105,7 +105,7 @@ namespace CSharpConsoleApp.Solutions
             checkResult = new double[] { 6.0, 0.5, -1.0, 1.0, -1.0 };
             result = CalcEquation(equations, values, queries);
 
-            isSuccess &= IsArraySame(checkResult,result);
+            isSuccess &= IsArraySame(checkResult, result);
             Print("isSuccess = {0} | result = {1} | anticipated = {2}", isSuccess, GetArrayStr<double>(result), GetArrayStr<double>(checkResult));
 
             return isSuccess;
@@ -213,5 +213,5 @@ namespace CSharpConsoleApp.Solutions
 
     }
 
-    
+
 }

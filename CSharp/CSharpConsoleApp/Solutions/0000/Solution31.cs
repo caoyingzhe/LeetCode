@@ -35,7 +35,7 @@ namespace CSharpConsoleApp.Solutions
         /// <summary>
         /// 关键字:
         /// </summary>
-        public override string[] GetKeyWords() { return new string[] { "从后向前排序" , "翻转" }; }
+        public override string[] GetKeyWords() { return new string[] { "从后向前排序", "翻转" }; }
         /// <summary>
         /// 标签： 
         /// </summary>
@@ -49,7 +49,7 @@ namespace CSharpConsoleApp.Solutions
             nums = new int[] { 1, 2, 3 };
             Print("--- nums = " + string.Join(",", nums));
 
-            checkResult = new int[] { 1,3,2};
+            checkResult = new int[] { 1, 3, 2 };
             NextPermutation(nums);
             isSuccess &= string.Join(",", nums) == string.Join(",", checkResult);
             Print(string.Format("isSuccss ={0}, result={1} checkResult={2}", isSuccess, string.Join(",", nums), string.Join(",", checkResult)));
@@ -71,14 +71,14 @@ namespace CSharpConsoleApp.Solutions
 
             nums = new int[] { 1 };
             Print("--- nums = " + string.Join(",", nums));
-            checkResult = new int[] { 1};
+            checkResult = new int[] { 1 };
             NextPermutation(nums);
             isSuccess &= string.Join(",", nums) == string.Join(",", checkResult);
             Print(string.Format("isSuccss ={0}, result={1} checkResult={2}", isSuccess, string.Join(",", nums), string.Join(",", checkResult)));
 
-            nums = new int[] { 1,5,8,4,7,6,5,3,1 };
+            nums = new int[] { 1, 5, 8, 4, 7, 6, 5, 3, 1 };
             Print("--- nums = " + string.Join(",", nums));
-            checkResult = new int[] { 1,5,8,5,1,3,4,6,7 };
+            checkResult = new int[] { 1, 5, 8, 5, 1, 3, 4, 6, 7 };
             NextPermutation(nums);
             isSuccess &= string.Join(",", nums) == string.Join(",", checkResult);
             Print(string.Format("isSuccss ={0}, result={1} checkResult={2}", isSuccess, string.Join(",", nums), string.Join(",", checkResult)));
@@ -111,7 +111,7 @@ namespace CSharpConsoleApp.Solutions
             if (i < -1)
                 return;
 
-            for(int m = 0; m< nums.Length - i + 1; m++)
+            for (int m = 0; m < nums.Length - i + 1; m++)
             {
                 int l = m + i + 1;
                 int r = nums.Length - 1 - m;

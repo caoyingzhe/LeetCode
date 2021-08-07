@@ -128,7 +128,7 @@ namespace CSharpConsoleApp.Solutions
 
             int row = 0; int col = 0;
             int rowDir = 1; int colDir = 0;
-            for (int i=0;i< s.Length; i++)
+            for (int i = 0; i < s.Length; i++)
             {
                 list[row][col] = s[i];
 
@@ -143,8 +143,8 @@ namespace CSharpConsoleApp.Solutions
             for (int i = 0; i < numRows; i++)
             {
                 for (int j = 0; j < numCol; j++)
-                if(list[i][j] != ' ')
-                    result += list[i][j];
+                    if (list[i][j] != ' ')
+                        result += list[i][j];
             }
             return result;
         }
@@ -153,7 +153,7 @@ namespace CSharpConsoleApp.Solutions
         {
             int foldCount = (index - 1) / increment;
             int foldMod = (index - 1) % increment;
-            int column = 1 + (foldCount / 2) * increment  + foldCount % 2 * foldMod;
+            int column = 1 + (foldCount / 2) * increment + foldCount % 2 * foldMod;
 
             return column;
         }

@@ -228,7 +228,7 @@ namespace CSharpConsoleApp.Solutions
 
         public String TenPower3X(int powerLevel = 1)
         {
-            switch(powerLevel)
+            switch (powerLevel)
             {
                 case 1: return "Thousand";
                 case 2: return "Million";

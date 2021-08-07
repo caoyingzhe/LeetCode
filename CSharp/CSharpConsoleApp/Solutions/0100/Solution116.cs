@@ -56,7 +56,7 @@ namespace CSharpConsoleApp.Solutions
     // @lc code=start
     /*
     // Definition for a Node.*/
-    
+
 
     public class Solution116 : SolutionBase
     {
@@ -167,7 +167,7 @@ namespace CSharpConsoleApp.Solutions
             //string[] x = Regex.Split(a, "\\+|i", RegexOptions.IgnoreCase);
             //string[] y = Regex.Split(b, "\\+|i", RegexOptions.IgnoreCase);
 
-            string[] x = a.Remove(a.Length-1).Split('+');
+            string[] x = a.Remove(a.Length - 1).Split('+');
             string[] y = b.Remove(b.Length - 1).Split('+');
             int a_real = int.Parse(x[0].ToString());
             int a_img = int.Parse(x[1].ToString());
@@ -177,8 +177,8 @@ namespace CSharpConsoleApp.Solutions
             return (a_real * b_real - a_img * b_img) + "+" + (a_real * b_img + a_img * b_real) + "i";
         }
 
-//        作者：Code_respect
-//        链接：https://leetcode-cn.com/problems/complex-number-multiplication/solution/javazi-fu-chuan-chu-li-by-code_respect-vpc0/
+        //        作者：Code_respect
+        //        链接：https://leetcode-cn.com/problems/complex-number-multiplication/solution/javazi-fu-chuan-chu-li-by-code_respect-vpc0/
     }
     // @lc code=end
 

@@ -62,7 +62,7 @@ namespace CSharpConsoleApp.Solutions
         /// </summary>
         public override Tag[] GetTags() { return new Tag[] { Tag.Backtracking }; }
 
-        
+
         public override bool Test(System.Diagnostics.Stopwatch sw)
         {
             bool isSuccess = true;
@@ -138,7 +138,7 @@ namespace CSharpConsoleApp.Solutions
             return true;
         }
 
-        
+
     }
     // @lc code=end
 

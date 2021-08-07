@@ -110,7 +110,7 @@ namespace CSharpConsoleApp.Solutions
                 return 0;
 
             int[] counts = new int[52];
-            foreach(char c in s)
+            foreach (char c in s)
             {
                 if (c >= 'a' && c <= 'z')
                     counts[c - 'a']++;
@@ -120,7 +120,7 @@ namespace CSharpConsoleApp.Solutions
 
             int len = 0;
             int oddCount = 0;
-            for(int i=0; i<52; i++)
+            for (int i = 0; i < 52; i++)
             {
                 bool isOdd = counts[i] % 2 == 1;
 

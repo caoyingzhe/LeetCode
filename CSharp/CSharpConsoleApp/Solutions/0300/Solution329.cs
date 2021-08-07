@@ -76,7 +76,7 @@ namespace CSharpConsoleApp.Solutions._0300
             int result;
             int checkresult;
 
-            matrix = new int[][] { 
+            matrix = new int[][] {
                new int[] { 9, 9, 4 },
                new int[] { 6, 6, 8 },
                new int[] { 2, 1, 1 }
@@ -90,7 +90,7 @@ namespace CSharpConsoleApp.Solutions._0300
         }
 
         ///上下左右的区域的偏移量
-        public int[][] dirs = new int[][]{ new int[]{ -1, 0 }, new int[] { 1, 0 }, new int[] { 0, -1 }, new int[] { 0, 1 } };
+        public int[][] dirs = new int[][] { new int[] { -1, 0 }, new int[] { 1, 0 }, new int[] { 0, -1 }, new int[] { 0, 1 } };
         public int m, n;
 
         /// <summary>

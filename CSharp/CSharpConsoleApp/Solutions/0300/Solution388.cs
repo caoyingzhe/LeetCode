@@ -111,19 +111,19 @@ namespace CSharpConsoleApp.Solutions
             result = LengthLongestPath(input);
             isSuccess &= result == checkResult;
             Print("=== {0} | {1} | {2}", result == checkResult, result, checkResult);
-            
+
             input = "file1.txt\nfile2.txt\nlongfile.txt";
             checkResult = 12;
             result = LengthLongestPath(input);
             isSuccess &= result == checkResult;
             Print("=== {0} | {1} | {2}", result == checkResult, result, checkResult);
-            
+
             input = "dir\n\tsubdir1\n\tsubdir2\n\t\tfile.ext";
             checkResult = 20;
             result = LengthLongestPath(input);
             isSuccess &= result == checkResult;
-            Print("==== {0} | {1} | {2}" , result == checkResult, result, checkResult);
-            
+            Print("==== {0} | {1} | {2}", result == checkResult, result, checkResult);
+
             input = "dir\n        file.txt";
             checkResult = 16;
             result = LengthLongestPath(input);
@@ -230,16 +230,16 @@ namespace CSharpConsoleApp.Solutions
                 string linePath = line.Substring(tmpFolderDepth);
                 if (isFolder)
                 {
-                    
+
                     if (tmpFolderDepth == preFolderDepth + 1) //子目录
                     {
                         prefolder = string.IsNullOrEmpty(prefolder) ? linePath : prefolder + '|' + linePath;
                         folderStack.Push(prefolder);
                         folderDepthStack.Push(tmpFolderDepth);
                     }
-                    else if(tmpFolderDepth <= preFolderDepth) //同级目录
+                    else if (tmpFolderDepth <= preFolderDepth) //同级目录
                     {
-                        if(folderStack.Count > 0)
+                        if (folderStack.Count > 0)
                         {
                             while (true)
                             {
@@ -265,8 +265,8 @@ namespace CSharpConsoleApp.Solutions
                 else
                 {
 
-                    if(tmpFolderDepth < preFolderDepth+1)
-                    { 
+                    if (tmpFolderDepth < preFolderDepth + 1)
+                    {
                         if (folderStack.Count > 0)
                         {
                             while (true)
@@ -276,7 +276,7 @@ namespace CSharpConsoleApp.Solutions
 
                                 if (folderDepthStack.Count == 0)
                                     break;
-                                if (tmpFolderDepth == folderDepthStack.Peek()+1)
+                                if (tmpFolderDepth == folderDepthStack.Peek() + 1)
                                     break;
                             }
                         }

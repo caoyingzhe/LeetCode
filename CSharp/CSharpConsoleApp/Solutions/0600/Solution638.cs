@@ -99,7 +99,7 @@ namespace CSharpConsoleApp.Solutions
             return DFS(price, special, needs);
         }
 
-        
+
         public int DFS(IList<int> price, IList<IList<int>> special, IList<int> needs)
         {
             int res = 0;

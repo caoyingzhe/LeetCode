@@ -142,22 +142,22 @@ namespace CSharpConsoleApp.Solutions._0000
                 "D", "CD","DC","DCC", "DCCC",  // Contain          D  [500,400,600,700,800]
                 "M","CM", "MM","MMM",          // Contain/End with M  [1000,900,2000,3000]
             };
-            int[] valExArr = new int[] { 1,2,3,5, 4, 6,7,8,10, 9, 20,30,50, 40, 60,70,80,100,90,200,300,500, 400, 600,700,800,1000,900,2000,3000};
+            int[] valExArr = new int[] { 1, 2, 3, 5, 4, 6, 7, 8, 10, 9, 20, 30, 50, 40, 60, 70, 80, 100, 90, 200, 300, 500, 400, 600, 700, 800, 1000, 900, 2000, 3000 };
 
             Dictionary<string, int> map = new Dictionary<string, int>();
-            for(int i=0; i<valExArr.Length; i++)
+            for (int i = 0; i < valExArr.Length; i++)
             {
                 map.Add(romaExArr[i], valExArr[i]);
             }
             int result = 0;
-            
+
             int n = s.Length;
             int index = 0;
 
-            while (index <= n-1) //"MCMXCIV";  1994
+            while (index <= n - 1) //"MCMXCIV";  1994
             {
-                string last4Char = index < n-4 ? s.Substring(index, 4) : s.Substring(index, n - index);
-                for (int i = romaExArr.Length -1; i>=0; i--)
+                string last4Char = index < n - 4 ? s.Substring(index, 4) : s.Substring(index, n - index);
+                for (int i = romaExArr.Length - 1; i >= 0; i--)
                 {
                     string key = romaExArr[i];
                     if (last4Char.StartsWith(key))
@@ -228,38 +228,59 @@ namespace CSharpConsoleApp.Solutions._0000
                     case 'D':
                         n += 500; i++; break;
                     case 'C':
-                        if (i + 1 == len) {
+                        if (i + 1 == len)
+                        {
                             n += 100; i++; break;
-                        } if (s[i + 1] == 'M') {
+                        }
+                        if (s[i + 1] == 'M')
+                        {
                             n += 900; i += 2; break;
-                        } else if (s[i + 1] == 'D') {
+                        }
+                        else if (s[i + 1] == 'D')
+                        {
                             n += 400; i += 2; break;
-                        } else {
+                        }
+                        else
+                        {
                             n += 100; i++; break;
                         }
                     case 'L':
                         n += 50; i++; break;
                     case 'X':
-                        if (i + 1 == len) {
+                        if (i + 1 == len)
+                        {
                             n += 10; i++; break;
-                        } if (s[i + 1] == 'C') {
+                        }
+                        if (s[i + 1] == 'C')
+                        {
                             n += 90; i += 2; break;
-                        } else if (s[i + 1] == 'L') {
+                        }
+                        else if (s[i + 1] == 'L')
+                        {
                             n += 40; i += 2; break;
-                        } else {
+                        }
+                        else
+                        {
                             n += 10; i++; break;
                         }
                     case 'V':
                         n += 5; i++; break;
                     case 'I':
-                        if (i + 1 == len) {
+                        if (i + 1 == len)
+                        {
                             n++; i++; break;
-                        } else if (s[i + 1] == 'X'){
-                            n += 9;i += 2;break;
-                        } else if (s[i + 1] == 'V') {
-                            n += 4;i += 2;break;
-                        } else {
-                            n++; i++;break;
+                        }
+                        else if (s[i + 1] == 'X')
+                        {
+                            n += 9; i += 2; break;
+                        }
+                        else if (s[i + 1] == 'V')
+                        {
+                            n += 4; i += 2; break;
+                        }
+                        else
+                        {
+                            n++; i++; break;
                         }
                 }
             }

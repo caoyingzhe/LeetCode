@@ -116,7 +116,7 @@ namespace CSharpConsoleApp.Solutions._0600
             {
                 if (!freq.ContainsKey(ch))
                     freq.Add(ch, 0);
-                freq[ch]++ ;
+                freq[ch]++;
                 maxExec = Math.Max(maxExec, freq[ch]);
             }
 

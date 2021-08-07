@@ -118,7 +118,7 @@ namespace CSharpConsoleApp.Solutions
             HashSet<int[]> hull = new HashSet<int[]>();
             if (points.Length < 4)
             {
-                for(int i=0; i<points.Length; i++)
+                for (int i = 0; i < points.Length; i++)
                 {
                     hull.Add(points[i]);
                 }

@@ -113,12 +113,14 @@ namespace CSharpConsoleApp.Solutions._0300
 
             int n = envelopes.Length;
             Array.Sort(envelopes, new ComparerSolution354());
-            
+
             int[] dp = new int[n];
             for (int i = 0; i < n; i++) dp[i] = 1;
-            
-            for (int i = 1; i<n; ++i) {
-                for (int j = 0; j<i; ++j) {
+
+            for (int i = 1; i < n; ++i)
+            {
+                for (int j = 0; j < i; ++j)
+                {
                     //已经拍过序了，不比较左边，只比较右边即可。
                     //循环顺序为从左到右，从0开始，
 
@@ -132,7 +134,8 @@ namespace CSharpConsoleApp.Solutions._0300
                     //dp[0] < dp [4]  更新 dp[4]，最大值=dp[4]
                     //...
                     //以此类推        更新 dp[n-1],最大值
-                    if (envelopes[j][1] < envelopes[i][1]) {
+                    if (envelopes[j][1] < envelopes[i][1])
+                    {
                         dp[i] = Math.Max(dp[i], dp[j] + 1);
                         Print("i={0},j={1} dp[{0}]= {2} dp[{1}] + 1 = {3}", i, j, dp[i], dp[j] + 1);
                     }
@@ -173,11 +176,15 @@ namespace CSharpConsoleApp.Solutions._0300
             List<int> f = new List<int>(); //f中保存着 范围的右边界值。
             f.Add(envelopes[0][1]);
 
-            for (int i = 1; i<n; ++i) {
+            for (int i = 1; i < n; ++i)
+            {
                 int num = envelopes[i][1];
-                if (num > f[f.Count - 1]) {  //当前范围的右边界值大于 列表中保存的最后一个右边界，添加到列表。
+                if (num > f[f.Count - 1])
+                {  //当前范围的右边界值大于 列表中保存的最后一个右边界，添加到列表。
                     f.Add(num);
-                } else {
+                }
+                else
+                {
                     //否则我们找出 f 中比 hi 严格小的最大的元素 f|j0|
                     int index = binarySearch(f, num); //否则，二进制搜索？？？ 不是很懂。 找最小右边界，然后更新f中的右边界？？。
                     f[index] = num;

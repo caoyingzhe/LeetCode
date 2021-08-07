@@ -87,7 +87,7 @@ namespace CSharpConsoleApp.Solutions
             isSuccess &= result == checkResult;
             Print("isSuccess = {0} result = {1} | checkResult = {2}", isSuccess, (result), (checkResult));
 
-            nums = new int[] { 3,5,1 };
+            nums = new int[] { 3, 5, 1 };
             target = 5;
             result = Search(nums, target);
             checkResult = 1;
@@ -95,13 +95,13 @@ namespace CSharpConsoleApp.Solutions
             isSuccess &= result == checkResult;
             Print("isSuccess = {0} result = {1} | checkResult = {2}", isSuccess, (result), (checkResult));
 
-            
+
             nums = new int[] { 4, 5, 6, 7, 0, 1, 2 };
             target = 0;
             result = Search(nums, target);
             checkResult = 4;
 
-            isSuccess &= result ==  checkResult;
+            isSuccess &= result == checkResult;
             Print("isSuccess = {0} result = {1} | checkResult = {2}", isSuccess, (result), (checkResult));
 
             nums = new int[] { 4, 5, 6, 7, 0, 1, 2 };
@@ -129,14 +129,14 @@ namespace CSharpConsoleApp.Solutions
             Print("isSuccess = {0} result = {1} | checkResult = {2}", isSuccess, (result), (checkResult));
 
 
-            nums = new int[] {1};
+            nums = new int[] { 1 };
             target = 0;
             result = Search(nums, target);
             checkResult = -1;
 
             isSuccess &= result == checkResult;
             Print("isSuccess = {0} result = {1} | checkResult = {2}", isSuccess, (result), (checkResult));
-            
+
             return isSuccess;
         }
 
@@ -149,8 +149,8 @@ namespace CSharpConsoleApp.Solutions
             if (n == 0)
                 return -1;
             if (n == 1)
-                return nums[0] == target ? 0: -1;
-            if(n == 2)
+                return nums[0] == target ? 0 : -1;
+            if (n == 2)
                 return nums[0] == target ? 0 : (nums[1] == target ? 1 : -1);
 
             int half = n / 2;
@@ -158,12 +158,12 @@ namespace CSharpConsoleApp.Solutions
 
             int first = nums[0];
             int k = -1;
-            while(true)
+            while (true)
             {
                 int m = nums[mid];
                 if (m > first) //右移动
                 {
-                    if(mid == n-1)
+                    if (mid == n - 1)
                     {
                         k = 0; break;
                     }
@@ -185,9 +185,9 @@ namespace CSharpConsoleApp.Solutions
                     {
                         k = 0; break;
                     }
-                    if (nums[mid-1] > m) //找到K
+                    if (nums[mid - 1] > m) //找到K
                     {
-                        k =  n - mid;  //[4,5,1,2,3] [1]<[2] mid = 2, k = n -(mid) = 3;
+                        k = n - mid;  //[4,5,1,2,3] [1]<[2] mid = 2, k = n -(mid) = 3;
                         break;
                     }
                     else
@@ -198,18 +198,18 @@ namespace CSharpConsoleApp.Solutions
                 }
             }
 
-            if(k ==0)
+            if (k == 0)
             {
                 return Array.IndexOf(nums, target);
             }
-            else if(target < nums[0])
+            else if (target < nums[0])
             {
                 //search in 0,k
                 return Array.IndexOf(nums, target, n - k, k);
             }
             else
             {
-                return Array.IndexOf(nums, target, 0, n-k);
+                return Array.IndexOf(nums, target, 0, n - k);
             }
         }
     }

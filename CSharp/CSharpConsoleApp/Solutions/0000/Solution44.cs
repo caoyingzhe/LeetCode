@@ -61,7 +61,7 @@ namespace CSharpConsoleApp.Solutions
             result = IsMatch(s, p);
             isSuccess &= (checkresult == result);
             Print("Anticipated = " + checkresult + " | Result = " + result);
-            
+
             s = "aab";
             p = "c*a*b";
             checkresult = false;

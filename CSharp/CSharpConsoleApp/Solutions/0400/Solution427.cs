@@ -139,7 +139,7 @@ namespace CSharpConsoleApp.Solutions
     }
     */
 
-    
+
     public partial class Solution427 : SolutionBase
     {
         /// <summary>
@@ -288,7 +288,7 @@ namespace CSharpConsoleApp.Solutions
             return new bool[] { true, temp == 1 };
         }
 
-        
+
     }
     // @lc code=end
 

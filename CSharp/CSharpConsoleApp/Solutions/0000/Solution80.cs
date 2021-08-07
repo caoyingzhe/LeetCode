@@ -127,23 +127,23 @@ namespace CSharpConsoleApp.Solutions
             int n = nums.Length;
             if (n <= 2)
                 return n;
-            
+
             int len = n;
             int l = 1; int r = n - 1;
 
             int curr = nums[0];
             int currCount = 1;
-            while(l<=r)
+            while (l <= r)
             {
-                if(curr == nums[l])
+                if (curr == nums[l])
                 {
                     currCount++;
                     //Print("l={0}|r={1}|curr={2} | count = {3}", l, r, curr, currCount);
 
-                    if (currCount >2)
+                    if (currCount > 2)
                     {
                         //Print("Before l={0}|r={1}|{2}", l, r, GetArrayStr(nums));
-                        for (int i=l; i<r; i++)
+                        for (int i = l; i < r; i++)
                         {
                             nums[i] = nums[i + 1];
                         }
