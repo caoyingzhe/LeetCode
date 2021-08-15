@@ -550,6 +550,15 @@
     <Compile Include="Solutions\0600\Solution611.cs" />
     <Compile Include="Solutions\0600\Solution623.cs" />
     <Compile Include="Solutions\0600\Solution622.cs" />
+    <Compile Include="Solutions\0600\Solution641.cs" />
+    <Compile Include="Solutions\0600\Solution649.cs" />
+    <Compile Include="Solutions\0800\Solution832.cs" />
+    <Compile Include="Solutions\0400\Solution458.cs" />
+    <Compile Include="Solutions\0300\Solution352.cs" />
+    <Compile Include="Solutions\0500\Solution502.cs" />
+    <Compile Include="Solutions\0600\Solution674.cs" />
+    <Compile Include="Solutions\0400\Solution472.cs" />
+    <Compile Include="Solutions\0400\Solution495.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

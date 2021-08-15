@@ -683,7 +683,10 @@ namespace CSharpConsoleApp.Solutions
 
             public T[] ToArray()
             {
-                return heap;
+                List<T> list = new List<T>();
+                for(int i=0; i<Count; i++)
+                    list.Add(heap[i]);
+                return list.ToArray();
             }
         }
 
