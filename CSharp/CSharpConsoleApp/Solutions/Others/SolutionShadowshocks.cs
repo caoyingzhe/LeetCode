@@ -4,6 +4,11 @@ using System.IO;
 using System.Text;
 namespace CSharpConsoleApp.Solutions.Others
 {
+
+    //SS:
+    //Github OK :
+    //ss://YWVzLTI1Ni1nY206ZW5jdGRLeUpmU3U3NlZxem5Ld1R0NkFwQDE4NS4yNDIuNS4yMTU6Mzc0NzM=#Pool_Pool_USUS_3087_3151
+
     /*
     //https://shadowsocks.org/en/config/quick-guide.html
     Config File
@@ -91,10 +96,11 @@ namespace CSharpConsoleApp.Solutions.Others
                 Print("Dir is not exist : " + dirPath);
             }
         }
+
         public override bool Test(System.Diagnostics.Stopwatch sw)
         {
-            CreateSolutionAnswerFolder("/Users/wxh/Documents/workspace-study/Leetcode/LeetcodeSolutionAnswers");
-            return false;
+            //CreateSolutionAnswerFolder("/Users/wxh/Documents/workspace-study/Leetcode/LeetcodeSolutionAnswers");
+            //return false;
 
             bool isSuccess = true;
             string urlStr;
@@ -111,8 +117,24 @@ namespace CSharpConsoleApp.Solutions.Others
             //方式一： 不用 @ 时转义 System.Console.WriteLine("\"hello\"");
             //方式二： 用 @ 时, 两个引号表示一个引号 System.Console.WriteLine(@"""hello""");
 
-            string line = @"{""remarks"":""Pool_Pool__49_51"",""server"":""180.149.228.147"",""server_port"":""33992"",""method"":""aes-256-gcm"",""password"":""8n6pwAcrrv2pj6tFY2p3TbQ6"",""plugin"":"""",""plugin_opts"":null},";
-            GenerateURLS(line);
+            int count = 0;
+            foreach (string line in File.ReadLines(@"/Users/wxh/Documents/VPN/ShadowSocks-sub.txt"))
+            {
+                //string line = @"{""remarks"":""Pool_Pool__49_51"",""server"":""180.149.228.147"",""server_port"":""33992"",""method"":""aes-256-gcm"",""password"":""8n6pwAcrrv2pj6tFY2p3TbQ6"",""plugin"":"""",""plugin_opts"":null},";
+                if (line.StartsWith(@"{""remarks""") && line.Contains("US_"))
+                {
+                    count++;
+
+                    //if (count > 10) //break;
+                    //Console.WriteLine(line);
+                        GenerateURLS(line);
+
+                    //if (count > 100) break;
+                }
+            }
+
+            //string line = @"{""remarks"":""Pool_Pool__49_51"",""server"":""180.149.228.147"",""server_port"":""33992"",""method"":""aes-256-gcm"",""password"":""8n6pwAcrrv2pj6tFY2p3TbQ6"",""plugin"":"""",""plugin_opts"":null},";
+            //GenerateURLS(line);
             return isSuccess;
         }
         public void GenerateURLS(string filePath, string outputPath = "")

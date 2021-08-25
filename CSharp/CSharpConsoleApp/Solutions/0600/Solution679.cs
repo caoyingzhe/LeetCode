@@ -40,8 +40,35 @@ namespace CSharpConsoleApp.Solutions
      * 是不允许的。
      * 你不能将数字连接在一起。例如，输入为 [1, 2, 1, 2] 时，不能写成 12 + 12 。
      */
-    public class Solution679
+    public class Solution679 : SolutionBase
     {
+        /// <summary>
+        /// 难度
+        /// </summary>
+        public override Difficulity GetDifficulity() { return Difficulity.Easy; }
+        /// <summary>
+        /// 关键字:
+        /// </summary>
+        public override string[] GetKeyWords() { return new string[] { "抄作业", "24点" }; }
+        /// <summary>
+        /// 标签：
+        /// </summary>
+        public override Tag[] GetTags() { return new Tag[] { Tag.DepthFirstSearch }; }
+
+        /// <summary>
+        /// </summary>
+        /// <param name="sw"></param>
+        /// <returns></returns>
+        public override bool Test(System.Diagnostics.Stopwatch sw)
+        {
+            bool isSuccess = true;
+            //PrintDatas("result = " + JudgePoint24(new int[] { 1, 5, 5, 5 }));
+            PrintDatas("result = " + JudgePoint24(new int[] { 2,4,7,7 }));
+            //TODO
+            //PrintDatas(PoorPigs(new int[] { 0, 0 }, new int[] { 1, 1 }, new int[] { 1, 0 }, new int[] { 0, 1 }));
+            return isSuccess;
+        }
+
         const double EPSILON = 1e-6;
         const int ADD = 0, MULTIPLY = 1, SUBTRACT = 2, DIVIDE = 3;
 
@@ -74,6 +101,7 @@ namespace CSharpConsoleApp.Solutions
         /// <returns></returns>
         public bool Solve(List<Double> list, int target)
         {
+            PrintDatas("Solve = " + GetArrayStr(list) + "  >> target = " + target);
             if (list.Count == 0)
             {
                 return false;
@@ -82,7 +110,13 @@ namespace CSharpConsoleApp.Solutions
             //判定list[0] == target； 因为是double类型，误差之内视为相等。
             if (list.Count == 1)
             {
-                return Math.Abs(list[0] - target) < EPSILON;
+                if (Math.Abs(list[0] - target) < EPSILON)
+                {
+                    PrintDatas("True = " + GetArrayStr(list) + "  >> target = " + target);
+
+                    return true;
+                }
+                return false;
             }
             int size = list.Count;
             for (int i = 0; i < size; i++)
@@ -137,6 +171,7 @@ namespace CSharpConsoleApp.Solutions
                             }
                             if (Solve(list2, target))
                             {
+                                PrintDatas("True = " + GetArrayStr(list) + "  >> target = " + target);
                                 return true;
                             }
                             list2.RemoveAt(list2.Count - 1);

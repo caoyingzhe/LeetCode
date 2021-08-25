@@ -559,6 +559,11 @@
     <Compile Include="Solutions\0600\Solution674.cs" />
     <Compile Include="Solutions\0400\Solution472.cs" />
     <Compile Include="Solutions\0400\Solution495.cs" />
+    <Compile Include="Solutions\0700\Solution733.cs" />
+    <Compile Include="Solutions\0700\Solution705.cs" />
+    <Compile Include="Solutions\0600\Solution680.cs" />
+    <Compile Include="Solutions\0600\Solution697.cs" />
+    <Compile Include="Solutions\0700\Solution720.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
