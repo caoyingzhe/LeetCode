@@ -89,6 +89,7 @@ namespace CSharpConsoleApp.Solutions
         /// <returns></returns>
         public override bool Test(System.Diagnostics.Stopwatch sw)
         {
+            Print("isSuccess = false , Not ready!"); return false;
             bool isSuccess = true;
 
             TreeNode root; int low, high;

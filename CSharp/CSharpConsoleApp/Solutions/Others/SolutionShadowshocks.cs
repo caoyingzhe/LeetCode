@@ -99,6 +99,7 @@ namespace CSharpConsoleApp.Solutions.Others
 
         public override bool Test(System.Diagnostics.Stopwatch sw)
         {
+            Print("isSuccess = false , Not ready!"); return false;
             //CreateSolutionAnswerFolder("/Users/wxh/Documents/workspace-study/Leetcode/LeetcodeSolutionAnswers");
             //return false;
 
