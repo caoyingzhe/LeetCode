@@ -19,6 +19,8 @@ namespace CSharpConsoleApp.Solutions
 
         public override bool Test(System.Diagnostics.Stopwatch sw)
         {
+            Print("isSuccess = false , Not ready!"); return false;
+
             bool isSuccess = true;
             NumMatrix matrix;
             int row1, col1, row2, col4;

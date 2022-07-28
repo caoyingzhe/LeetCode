@@ -61,6 +61,8 @@ namespace CSharpConsoleApp.Solutions
 
         public override bool Test(System.Diagnostics.Stopwatch sw)
         {
+            Print("isSuccess = false , Timeout.  Dead cycle! 20220728"); return false;
+
             int count = CountArrangement_ViolenceTLE(12);
             Print("N={0}, count = {1}", 2, count);
             return true;

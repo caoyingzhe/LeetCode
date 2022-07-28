@@ -26,6 +26,8 @@ namespace CSharpConsoleApp.Solutions
 
         public override bool Test(System.Diagnostics.Stopwatch sw)
         {
+            Print("isSuccess = false , Not ready!"); return false;
+
             List<int> result = new List<int>();
             int[] checkResult = null;
             bool isSuccess = true;

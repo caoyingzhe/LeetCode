@@ -37,6 +37,8 @@ namespace CSharpConsoleApp.Solutions
 
         public override bool Test(System.Diagnostics.Stopwatch sw)
         {
+            Print("isSuccess = false , Not ready!"); return false;
+
             bool isSuccess = true;
             TreeNode treeRoot = TreeNode.CreateBST(new int[]{ 7, 3, 15, 9, 20 });//???  { 7, 3, 15, null, null, 9, 20 }
             BSTIterator bSTIterator = new BSTIterator(treeRoot);

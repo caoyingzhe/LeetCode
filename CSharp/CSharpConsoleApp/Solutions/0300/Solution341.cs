@@ -76,6 +76,8 @@ namespace CSharpConsoleApp.Solutions._0300
 
         public override bool Test(System.Diagnostics.Stopwatch sw)
         {
+            Print("isSuccess = false , Not ready!"); return false;
+
             bool isSuccess = false;
 
             //TODO

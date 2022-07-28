@@ -28,21 +28,29 @@ namespace CSharpConsoleApp
             {
                 Type type = types[i];
                 int problemNo = SolutionBase.GetProblemNo(type);
-                if (problemNo != 679)
-                    continue;
+                //if (problemNo != 679)
+                //    continue;
 
                 System.Diagnostics.Debug.Print(string.Format("\n-------- Test Problem [{0}] {1} --------", problemNo, type.Name));
                 SolutionBase solution = Activator.CreateInstance(type) as SolutionBase;
 
-                bool isSucceed = solution.Test(sw);
-                
-                TimeSpan ts = sw.Elapsed;
-
-                if (isSucceed)
+                bool isSucceed = false;
+                try
                 {
-                    solutionSucceedCount += 1;
+                    isSucceed = solution.Test(sw);
+                    TimeSpan ts = sw.Elapsed;
+
+                    if (isSucceed)
+                    {
+                        solutionSucceedCount += 1;
+                    }
+                }
+                catch(Exception ex)
+                {
+                    System.Diagnostics.Debug.Print(ex.StackTrace);
                 }
                 System.Diagnostics.Debug.Print(string.Format(">>>>>> Test Result : {0} used time = {1} <<<<<<\n", isSucceed, ($"　{sw.ElapsedMilliseconds}ms")));
+               
             }
             System.Diagnostics.Debug.Print(string.Format("-------->>>>>> All Test Results : {0} | Success statics : {1} / {2} <<<<<<--------", solutionSucceedCount == types.Length, solutionSucceedCount, types.Length));
         }
